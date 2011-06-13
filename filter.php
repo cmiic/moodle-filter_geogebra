@@ -67,6 +67,8 @@ class filter_geogebra extends moodle_text_filter {
             return $text;
         }
 		
+        print_r($this->localconfig);
+        
         $newtext = $text; // we need to return the original value if regex fails!
 		
         //TODO: Add geogebratube regex to the filter
