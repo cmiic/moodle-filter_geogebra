@@ -5,7 +5,6 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
         $mform->setType('width', PARAM_NOTAGS);
         $mform->addElement('text', 'height', get_string('height', 'filter_geogebra'), array('size' => 20));
         $mform->setType('height', PARAM_NOTAGS);
-        
     }
 }
 ?>

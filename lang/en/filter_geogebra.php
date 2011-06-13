@@ -36,7 +36,7 @@ $string['height'] = 'Height';
 $string['width_help'] = 'Default width of applets in px';
 $string['height_help'] = 'Default height of applets in px';
 
-$string['filter_geogebra_urljar'] = 'URL to geogebra.jar';
+$string['urljar'] = 'URL to geogebra.jar';
 $string['urljar_help'] = 'You can either enter a custom url in this field or click on one of the links below to automatically enter an URL (recommended):';
 
 $string['geogebra_use'] = 'Use';
