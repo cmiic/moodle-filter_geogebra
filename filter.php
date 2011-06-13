@@ -99,11 +99,11 @@ class filter_geogebra extends moodle_text_filter {
 		// yep, complex regex!
 		// note: "?:" is a trick to hide a match from the results
 		// TODO just get everything beyond the ? in the url as a match and explode it in the callback
-		return preg_replace_callback(
-			'/<a(?:.*?)href=\"(.*?)\.ggb(?:\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?)?\"(?:[^>]*)>(.*?)<\/a>/is',
-			'geogebra_linker',
-			$text
-		);
+//		return preg_replace_callback(
+//			'/<a(?:.*?)href=\"(.*?)\.ggb(?:\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?)?\"(?:[^>]*)>(.*?)<\/a>/is',
+//			'geogebra_linker',
+//			$text
+//		);
 		return $newtext;
 	}
 
