@@ -102,6 +102,13 @@ class filter_geogebra extends moodle_text_filter {
 //			'geogebra_linker',
 //			$text
 //		);
+
+        if (empty($newtext) or $newtext === $text) {
+            // error or not filtered
+            unset($newtext);
+            return $text;
+        }
+        
 		return $newtext;
 	}
 

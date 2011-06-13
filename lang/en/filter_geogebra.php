@@ -45,7 +45,7 @@ $string['ggbfile'] = 'Links to GeoGebra Files';
 $string['ggbfile'] = 'Links to GeoGebra Files';
 
 $string['dimensionsheading'] = 'Dimensions';
-$string['dimensionsheading_help'] = 'The default dimensions for the applet here. The Dimensions can also be configured in the context of a course and/or material';
+$string['dimensionsheading_help'] = 'The default dimensions for the applet here. The Dimensions can also be configured in the context of a course (context of a ressource or activity doesn\'t work yet - but soon)';
 $string['width'] = 'Width';
 $string['height'] = 'Height';
 $string['width_help'] = 'Default width of applets in px';
@@ -58,7 +58,7 @@ $string['urljar'] = 'URL to geogebra.jar';
 $string['urljar_help'] = 'You can either enter a custom url in this field or click on one of the links below to automatically enter an URL (recommended):';
 
 $string['functionalityheading'] = 'Functionality';
-$string['functionalityheading_help'] = 'Functionality settings. Those can also be configured in the context of a course and/or material';
+$string['functionalityheading_help'] = 'Functionality settings. Those can also be configured in the context of a course (context of a ressource or activity doesn\'t work yet - but soon)';
 $string['enable_rightclick'] = 'Enable right click features';
 $string['enable_rightclick_help'] = 'States whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects)';
 
