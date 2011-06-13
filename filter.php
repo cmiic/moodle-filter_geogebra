@@ -51,7 +51,7 @@ class filter_geogebra extends moodle_text_filter {
 	function filter($text, array $options = array()) {
 		global $CFG;
 
-		
+		print_r($CFG);
 		//TODO remove when finished - we don't use this anymore
 		// construct applet parameters from config
 //		$params_html = '';
