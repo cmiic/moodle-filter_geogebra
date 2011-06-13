@@ -64,17 +64,19 @@ class filter_geogebra extends moodle_text_filter {
 		
         $newtext = $text; // we need to return the original value if regex fails!
 		
+        print_r($this);
+        
 		//Get width and height can be overruled by urlparams
-		if (isset($this->localconfig['filter_geogebra_width'])) {
-    		$this->$defaultwidth = $this->localconfig['filter_geogebra_width'];
-    	} else {
-        	$this->$defaultwidth = $CFG->filter_geogebra_width;
-    	}
-		if (isset($this->localconfig['filter_geogebra_height'])) {
-	    	$this->$defaultheight = $this->localconfig['filter_geogebra_height'];
-	    } else {
-	        $this->$defaultheight = $CFG->filter_geogebra_height;
-	    }
+//		if (isset($this->localconfig['filter_geogebra_width'])) {
+//    		$this->$defaultwidth = $this->localconfig['filter_geogebra_width'];
+//    	} else {
+//        	$this->$defaultwidth = $CFG->filter_geogebra_width;
+//    	}
+//		if (isset($this->localconfig['filter_geogebra_height'])) {
+//	    	$this->$defaultheight = $this->localconfig['filter_geogebra_height'];
+//	    } else {
+//	        $this->$defaultheight = $CFG->filter_geogebra_height;
+//	    }
 		
         //TODO: Add geogebratube regex to the filter
 //      http://www.geogebratube.org/student/23
