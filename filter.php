@@ -179,7 +179,7 @@ class filter_geogebra extends moodle_text_filter {
 		$return = '<applet codebase="./" height="'.$height.'" width="'.$width.'" '
 				. 'archive="'.$CFG->filter_geogebra_urljar.'"'
 				. ' code="geogebra.GeoGebraApplet">'
-				. '<param value="'.$urls[0].'.ggb" name="filename" />'.$params_html.'</applet> ';
+				. '<param value="'.$urls[0].'" name="filename" />'.$params_html.'</applet> ';
 		
 		return $return;
 	}
