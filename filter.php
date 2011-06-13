@@ -125,7 +125,7 @@ class filter_geogebra extends moodle_text_filter {
 		
 		global $CFG, $params_html;
 		
-		list($urls, $width, $height) = filter_geogebra_parse_alternatives($link[1], $this->$defaultwidth, $this->$defaultheight);
+		list($urls, $width, $height) = filter_geogebra_parse_alternatives($link[1], $this->defaultwidth, $this->defaultheight);
 		
 		
 		//TODO: !!! what to do with more then one URL
