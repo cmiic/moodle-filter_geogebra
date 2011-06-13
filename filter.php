@@ -107,7 +107,7 @@ function filter_geogebra_callback($matches)
 	
 	$width = $matches[2];
 	$height = $matches[3];
-	
+	//TODO config
 	if(strlen($width) == 0)
 		$width = $CFG->filter_geogebra_defaultwidth;
 	if(strlen($height) == 0)
