@@ -30,7 +30,7 @@ See filter documentation on how to change the width and height in individual res
 <li> .../myFileName.ggb?w=200&h=800</li>
 </ul>';
 
-$string['pluginname'] = 'GeoGebra Filter';
+$string['filtername'] = 'GeoGebra Filter';
 $string['geogebra_defaultwidth'] = 'Default width of applets in px';
 $string['geogebra_defaultheight'] = 'Default height of applets in px';
 
