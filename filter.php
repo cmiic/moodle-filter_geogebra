@@ -69,7 +69,7 @@ class filter_geogebra extends moodle_text_filter {
 		
         $newtext = $text; // we need to return the original value if regex fails!
 		
-        
+        //TODO: Add geogebratube regex to the filter
 //      http://www.geogebratube.org/student/23
 //		http://www.geogebratube.org/files/material-23.ggb
 //		http://www.geogebratube.org/material/show/id/23
@@ -85,7 +85,7 @@ class filter_geogebra extends moodle_text_filter {
         	$newtext = preg_replace_callback($search, array( &$this,'filter_geogebra_callback'), $newtext); 
         }
 ///===========================
-/// old stuff, delete when finished
+/// old stuff, TODO:delete when finished
 //		foreach($params as $param)
 //		{		
 //			if(strpos($param, '=') !== false) {
