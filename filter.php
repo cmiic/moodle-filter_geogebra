@@ -99,11 +99,11 @@ class filter_geogebra extends moodle_text_filter {
 		// yep, complex regex!
 		// note: "?:" is a trick to hide a match from the results
 		// TODO just get everything beyond the ? in the url as a match and explode it in the callback
-//		return preg_replace_callback(
-//			'/<a(?:.*?)href=\"(.*?)\.ggb(?:\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?)?\"(?:[^>]*)>(.*?)<\/a>/is',
-//			'geogebra_linker',
-//			$text
-//		);
+		return preg_replace_callback(
+			'/<a(?:.*?)href=\"(.*?)\.ggb(?:\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?)?\"(?:[^>]*)>(.*?)<\/a>/is',
+			'geogebra_linker',
+			$text
+		);
 		return $newtext;
 	}
 
@@ -117,8 +117,7 @@ class filter_geogebra extends moodle_text_filter {
 	    $width  = $defaultwidth;
 	    $height = $defaultheight;
 	    $returnurls = array();
-	print($urls);
-	    
+	
 	    foreach ($urls as $url) {
 	        $matches = null;
 	
@@ -133,13 +132,17 @@ class filter_geogebra extends moodle_text_filter {
 	            $url = str_replace($matches[0], '', $url);
 	        }
 	        
-	        print($url);
-			if (preg_match('/\?w=([\d]{1,4})&amp;h=([\d]{1,4})$/i', $url, $matches)) { // old style file.ext?w=640&h=480))
-	        	print_r($matches);
+	        if (preg_match('/(?:\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?)/i', $url, $matches)) { // old style file.ext?w=640&h=480))
 				$width  = $matches[1];
 	            $height = $matches[2];
 	            $url = str_replace($matches[0], '', $url);
 			}
+//	   		if (preg_match('/\?w=([\d]{1,4})&amp;h=([\d]{1,4})$/i', $url, $matches)) { // old style file.ext?w=640&h=480))
+//				$width  = $matches[1];
+//	            $height = $matches[2];
+//	            $url = str_replace($matches[0], '', $url);
+//			}
+			
 			$url = str_replace('&amp;', '&', $url);
 	        $url = clean_param($url, PARAM_URL);
 	        if (empty($url)) {
