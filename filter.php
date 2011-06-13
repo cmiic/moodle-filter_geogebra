@@ -133,7 +133,8 @@ class filter_geogebra extends moodle_text_filter {
 	        }
 	        
 	        if (preg_match('/(?:\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?)/i', $url, $matches)) { // old style file.ext?w=640&h=480))
-				$width  = $matches[1];
+				print_r($matches);
+	        	$width  = $matches[1];
 	            $height = $matches[2];
 	            $url = str_replace($matches[0], '', $url);
 			}
