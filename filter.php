@@ -160,8 +160,15 @@ class filter_geogebra extends moodle_text_filter {
 	function filter_geogebra_callback($link) {
 		
 		global $CFG;
-		print_r($link);
+//		print_r($link);
 		list($urls, $width, $height) = filter_mediaplugin_parse_alternatives($link[1], 0, 0);
+		
+		if (preg_match('/\?w=([\d]{1,4})&amp;h=([\d]{1,4})$/i', $link[1], $matches)) { // old style file.ext?w=640&h=480))
+			print_r($matches);
+			$width  = $matches[1];
+            $height = $matches[2];
+            $url = str_replace($matches[0], '', $url);
+		}
 		
 		if (!$width) {
 			if (isset($this->localconfig['width'])) {
@@ -177,8 +184,8 @@ class filter_geogebra extends moodle_text_filter {
 		        $height = $CFG->filter_geogebra_defaultheight;
 		    }
 		}
-		print_r($urls);
-		print($urls[0]);
+//		print_r($urls);
+//		print($urls[0]);
 		//TODO: !!! what to do with more then one URL
 		$return = '<p>'.$this->localconfig['height'].'</p><applet codebase="./" height="'.$height.'" width="'.$width.'" '
 				. 'archive="'.$CFG->filter_geogebra_urljar.'"'
