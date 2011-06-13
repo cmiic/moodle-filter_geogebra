@@ -64,7 +64,10 @@ class filter_geogebra extends moodle_text_filter {
         }
 		
         $newtext = $text; // we need to return the original value if regex fails!
-		
+        if (isset($this->localconfig['submitbutton'])) {
+        	echo "haha";
+        }
+        
         print_r($this);
         
 		//Get width and height can be overruled by urlparams
@@ -78,6 +81,8 @@ class filter_geogebra extends moodle_text_filter {
 	    } else {
 	        $this->defaultheight = $CFG->filter_geogebra_height;
 	    }
+	    
+	    
 		
         //TODO: Add geogebratube regex to the filter
 //      http://www.geogebratube.org/student/23
