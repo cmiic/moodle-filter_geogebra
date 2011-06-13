@@ -117,7 +117,8 @@ class filter_geogebra extends moodle_text_filter {
 	    $width  = $defaultwidth;
 	    $height = $defaultheight;
 	    $returnurls = array();
-	
+	print_r($urls);
+	    
 	    foreach ($urls as $url) {
 	        $matches = null;
 	
