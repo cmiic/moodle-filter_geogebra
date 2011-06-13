@@ -160,14 +160,14 @@ class filter_geogebra extends moodle_text_filter {
 		
 		list($urls, $width, $height) = filter_mediaplugin_parse_alternatives($link[1], 0, 0);
 		
-		if (strlen($width) == 0) {
+		if (!$width) {
 			if (isset($this->localconfig['width'])) {
 	    		$width = $this->localconfig['width'];
 	    	} else {
 	        	$width = $CFG->filter_geogebra_defaultwidth;
 	    	}
 		}
-		if(strlen($height) == 0) {
+		if(!$height) {
 			if (isset($this->localconfig['height'])) {
 		    	$height = $this->localconfig['height'];
 		    } else {
@@ -179,7 +179,7 @@ class filter_geogebra extends moodle_text_filter {
 		$return = '<applet codebase="./" height="'.$height.'" width="'.$width.'" '
 				. 'archive="'.$CFG->filter_geogebra_urljar.'"'
 				. ' code="geogebra.GeoGebraApplet">'
-				. '<param value="'.$matches[1].'.ggb" name="filename" />'.$params_html.'</applet> ';
+				. '<param value="'.$url.'.ggb" name="filename" />'.$params_html.'</applet> ';
 		
 		return $return;
 	}
