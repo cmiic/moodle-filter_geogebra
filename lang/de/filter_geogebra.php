@@ -35,7 +35,6 @@ $string['geogebra_params_desc'] = 'Geben Sie einen Applet Parameter im Format na
 
 <p>Für eine komplette Liste mit allen Applet Parametern müssen Sie die offizielle Dokumentation auf <a href=http://www.geogebra.org>GeoGebra.org</a> lesen.
 Im folgenden ist eine unvollständige Liste mit oft benutzten Parametern:</p>
-
 <ul>
 <li>bgcolor=#FFFFFF (Hintergrundfarbe - #FFFFFF ist weiß)</li>
 <li>borderColor=#FFFFFF</li>
@@ -49,4 +48,5 @@ Im folgenden ist eine unvollständige Liste mit oft benutzten Parametern:</p>
 <li>showResetIcon=true</li>
 <li>language=de (de steht für Deutsch - Sie können natürlich auch andere Codes benutzen wie bspw. fr, it, es, sl, zh etc.)</li>
 <li>country=at (at steht für Österreich - dieser Parameter ist nur für lokale Unterschiede in einer Sprache bedeutsam)</li>
-</ul>';';
+</ul>';
+?>
