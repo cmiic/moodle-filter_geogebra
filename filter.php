@@ -172,6 +172,7 @@ class filter_geogebra extends moodle_text_filter {
 	function filter_geogebra_callback($link) {
 		
 		global $CFG;
+		
 		list($urls, $width, $height) = $this->filter_geogebra_parse_alternatives($link[1], 0, 0);
 		
 		if (!$width) {
@@ -190,10 +191,10 @@ class filter_geogebra extends moodle_text_filter {
 		}
 		//TODO: !!! what to do with more then one URL
 		//TODO: !!! All the params
-		$return = '<applet codebase="./" height="'.$height.'" width="'.$width.'" '
+		$return = '<applet codebase="./" width="'.$width.'" height="'.$height.'" '
 				. 'archive="'.$CFG->filter_geogebra_urljar.'"'
 				. ' code="geogebra.GeoGebraApplet">'
-				. '<param value="'.$urls[0].'" name="filename" />'.$params_html.'</applet> ';
+				. '<param name="filename"  value="'.$urls[0].'"/>'.$params_html.'</applet> ';
 		
 		return $return;
 	}
