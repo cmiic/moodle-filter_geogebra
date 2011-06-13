@@ -90,7 +90,7 @@ class filter_geogebra extends moodle_text_filter {
 //		);
 		return $newtext;
 	}
-}
+
 
 
 ///===========================
@@ -126,6 +126,6 @@ function filter_geogebra_callback($matches) {
 	
 	return $return;
 }
-
+}
 ?>
 
