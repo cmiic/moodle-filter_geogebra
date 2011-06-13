@@ -67,7 +67,7 @@ class filter_geogebra extends moodle_text_filter {
             return $text;
         }
 		
-        print_r($this->localconfig);
+        print_r($this);
         
         $newtext = $text; // we need to return the original value if regex fails!
 		
