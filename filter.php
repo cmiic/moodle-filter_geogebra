@@ -46,15 +46,12 @@ require_once($CFG->libdir.'/filelib.php');
 
 class filter_geogebra extends moodle_text_filter {
 	
+	private $attribs, $params;
 	
 	function filter($text, array $options = array()) {
 		global $CFG;
+
 		
-//		// Needed for the 
-//		global $ATTR;
-//		$ATTR = array();
-//		global $GGB_PARAMS;
-//		$GGB_PARAMS = array();
 		//TODO
 		// construct applet parameters from config
 //		$params_html = '';
@@ -72,11 +69,7 @@ class filter_geogebra extends moodle_text_filter {
 		
         $newtext = $text; // we need to return the original value if regex fails!
 		
-//		if (isset($this->localconfig['width'])) {
-//	    	$width = $this->localconfig['width'];
-//	    } else {
-//	        $width = $CFG->filter_geogebra_defaultwidth;
-//	    }
+
         
         $search = '/<a(?:.*?)href=\"(.*?)\.ggb(?:\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?)?\"(?:[^>]*)>(.*?)<\/a>/is';
         $newtext = preg_replace_callback($search, array( &$this,'filter_geogebra_callback'), $newtext); 
@@ -105,36 +98,43 @@ class filter_geogebra extends moodle_text_filter {
 
 
 ///===========================
-/// utility functions
+/// utility functions are now part of the object so we don't have to define global vars
 
-/** 
- * The function where the actual applet code is constructed.
- * 
- * @author Florian Sonner
- */
-function filter_geogebra_callback($matches) {
-	
-	global $CFG;
-//	global $ATTR;
-//	global $GGB_PARAMS;
-	
-	$width = $matches[2];
-	$height = $matches[3];
-	
-	
-	//TODO config
-	if(strlen($width) == 0)
-		$width = $CFG->filter_geogebra_defaultwidth;
-	if(strlen($height) == 0)
-		$height = $CFG->filter_geogebra_defaultheight;
-	
-	$return = '<applet codebase="./" height="'.$height.'" width="'.$width.'" '
-			. 'archive="'.$CFG->filter_geogebra_urljar.'"'
-			. ' code="geogebra.GeoGebraApplet">'
-			. '<param value="'.$matches[1].'.ggb" name="filename" />'.$params_html.'</applet> ';
-	
-	return $return;
-}
+	/** 
+	 * The function where the actual applet code is constructed.
+	 * 
+	 * @author Florian Sonner
+	 */
+	function filter_geogebra_callback($matches) {
+		
+		global $CFG;
+		
+		
+		$width = $matches[2];
+		$height = $matches[3];
+		if (strlen($width) == 0) {
+			if (isset($this->localconfig['width'])) {
+	    		$width = $this->localconfig['width'];
+	    	} else {
+	        	$width = $CFG->filter_geogebra_defaultwidth;
+	    	}
+		}
+		if(strlen($height) == 0) {
+			if (isset($this->localconfig['height'])) {
+		    	$height = $this->localconfig['height'];
+		    } else {
+		        $height = $CFG->filter_geogebra_defaultheight;
+		    }
+		}
+		
+		
+		$return = '<applet codebase="./" height="'.$height.'" width="'.$width.'" '
+				. 'archive="'.$CFG->filter_geogebra_urljar.'"'
+				. ' code="geogebra.GeoGebraApplet">'
+				. '<param value="'.$matches[1].'.ggb" name="filename" />'.$params_html.'</applet> ';
+		
+		return $return;
+	}
 }
 ?>
 
