@@ -25,12 +25,12 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-//if ($ADMIN->fulltree) {
+if ($ADMIN->fulltree) {
 	
 	$settings->add(new admin_setting_configtext('filter_geogebra_defaultwidth', get_string('width','filter_geogebra'), get_string('width_help','filter_geogebra'), "400"));
 	$settings->add(new admin_setting_configtext('filter_geogebra_defaultheight', get_string('height','filter_geogebra'), get_string('height_help','filter_geogebra'), "400"));
 	$settings->add(new admin_setting_configtext('filter_geogebra_urljar', get_string('urljar','filter_geogebra'), get_string('urljar_help','filter_geogebra'), "http://www.geogebra.org/webstart/3.2/geogebra.jar"));
 	
-//}
+}
 
 ?>
