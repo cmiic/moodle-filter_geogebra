@@ -40,7 +40,7 @@ if ($ADMIN->fulltree) {
 	
 	
 	$settings->add(new admin_setting_heading('filter_geogebra_jar', get_string('jarheading', 'filter_geogebra'), get_string('jarheading_help', 'filter_geogebra')));
-	//TODO: make urljar this a dropdownbox
+	//TODO: make urljar this a dropbox
 	$settings->add(new admin_setting_configtext('filter_geogebra_urljar', get_string('urljar','filter_geogebra'), get_string('urljar_help','filter_geogebra'), "http://www.geogebra.org/webstart/3.2/geogebra.jar"));
 	
 	//Functionality

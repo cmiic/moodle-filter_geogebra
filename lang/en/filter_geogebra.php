@@ -31,13 +31,38 @@ See filter documentation on how to change the width and height in individual res
 </ul>';
 
 $string['filtername'] = 'GeoGebra Filter';
+
+
+$string['enableheading'] = 'Enable Filter';
+$string['enableheading_help'] = 'Select for which Links the filter should be enabled.';
+$string['sitegeogebratube'] = 'Links to GeoGebraTube';
+$string['sitegeogebratube_help'] = 'GeoGebraTube, the new material manager for GeoGebra';
+$string['ggbfile'] = 'Links to GeoGebra Files';
+$string['ggbfile_help'] = 'GeoGebra Files with the extension .ggb';
+$string['ggtfile'] = 'Links to GeoGebra Tool Files';
+$string['ggtfile_help'] = 'GeoGebra Tool Files with the extension .ggt';
+$string['ggbfile'] = 'Links to GeoGebra Files';
+$string['ggbfile'] = 'Links to GeoGebra Files';
+
+$string['dimensionsheading'] = 'Dimensions';
+$string['dimensionsheading_help'] = 'The default dimensions for the applet here. This can also be configured in the context of a course and/or material';
 $string['width'] = 'Width';
 $string['height'] = 'Height';
 $string['width_help'] = 'Default width of applets in px';
 $string['height_help'] = 'Default height of applets in px';
 
+$string['jarheading'] = 'GeoGebra jar-file';
+$string['jarheading_help'] = 'Set the URL to the geogebra.jar. Do not change unless you know what you\'re doing';
 $string['urljar'] = 'URL to geogebra.jar';
+//TODO: Better help text after making urljar a dropbox
 $string['urljar_help'] = 'You can either enter a custom url in this field or click on one of the links below to automatically enter an URL (recommended):';
+
+$string['functionalityheading'] = 'GeoGebra jar-file';
+$string['functionalityheading_help'] = 'Set the URL to the geogebra.jar. Do not change unless you know what you\'re doing';
+$string['enable_rightclick'] = 'URL to geogebra.jar';
+$string['enable_rightclick_help'] = 'You can either enter a custom url in this field or click on one of the links below to automatically enter an URL (recommended):';
+
+
 
 $string['geogebra_use'] = 'Use';
 $string['geogebra_local'] = 'from this webserver';
