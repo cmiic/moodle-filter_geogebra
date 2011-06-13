@@ -46,9 +46,9 @@ defined('MOODLE_INTERNAL') || die();
 
 class filter_geogebra extends moodle_text_filter {
 	
-	private $params_html;
-	private $defaultheight;
-	private $defaultwidth;
+	protected $params_html;
+	protected $defaultheight;
+	protected $defaultwidth;
 	
 	public function __construct($context, array $localconfig) {
         $this->params_html = '';
