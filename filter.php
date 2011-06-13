@@ -51,9 +51,9 @@ class filter_geogebra extends moodle_text_filter {
 	private $defaultwidth;
 	
 	public function __construct($context, array $localconfig) {
-        $params_html = '';
-		$defaultheight = 400;
-		$defaultwidth = 400;
+        $this->params_html = '';
+		$this->defaultheight = 400;
+		$this->defaultwidth = 400;
 		$this->context = $context;
         $this->localconfig = $localconfig;
     }
