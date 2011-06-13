@@ -83,11 +83,11 @@ class filter_geogebra extends moodle_text_filter {
         
         if (!empty($CFG->filter_geogebra_enable_ggb)) {
 	       	$search = '/<a\s[^>]*href="([^"#\?]+\.ggb([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
-        	$newtext = preg_replace_callback($search, 'filter_geogebra_callback', $newtext); 
+        	$newtext = preg_replace_callback($search, '$this->filter_geogebra_callback', $newtext); 
         }
 	    if (!empty($CFG->filter_geogebra_enable_ggt)) {
         	$search = '/<a\s[^>]*href="([^"#\?]+\.ggt([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
-        	$newtext = preg_replace_callback($search, 'filter_geogebra_callback', $newtext); 
+        	$newtext = preg_replace_callback($search, '$this->filter_geogebra_callback', $newtext); 
         }
         
 ///===========================
