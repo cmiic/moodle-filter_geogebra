@@ -15,7 +15,7 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
         $mform->addElement('checkbox', 'filter_geogebra_framepossible', get_string('framepossible','filter_geogebra'));
         $mform->closeHeaderBefore('filter_geogebra_interface');
         
-        $mform->addElement('header', 'filter_geogebra_interface', get_string('interfaceheading', 'modulename'));
+        $mform->addElement('header', 'filter_geogebra_interface', get_string('interfaceheading', 'filter_geogebra'));
         $mform->addElement('checkbox', 'filter_geogebra_show_menubar', get_string('show_menubar','filter_geogebra'));
         $mform->addElement('checkbox', 'filter_geogebra_show_toolbar', get_string('show_toolbar','filter_geogebra'));
         $mform->addElement('checkbox', 'filter_geogebra_show_toolbarhelp', get_string('show_toolbarhelp','filter_geogebra'));
