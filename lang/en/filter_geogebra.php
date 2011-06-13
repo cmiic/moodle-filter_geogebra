@@ -43,10 +43,8 @@ $string['geogebra_latest'] = 'latest release from GeoGebra.org';
 
 $string['geogebra_params'] = 'Applet parameters';
 $string['geogebra_params_desc'] = 'Enter GeoGebra applet parameters in the format name=value (e.g. enableRightClick=false). Each parameter must be in a new row. The filename parameter is automatically defined. These parameters affect all courses and pages.
-
 <p>For the complete list of applet parameters visit the official documentation at <a href=http://www.geogebra.org>GeoGebra.org</a>.
 The following is an incomplete list of common parameters:</p>
-
 <ul>
 <li>bgcolor=#FFFFFF (background color; #FFFFFF is white)</li>
 <li>borderColor=#FFFFFF</li><li>enableRightClick=false</li><li>enableLabelDrags=false</li>
