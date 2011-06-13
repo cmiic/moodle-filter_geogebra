@@ -67,8 +67,6 @@ class filter_geogebra extends moodle_text_filter {
             return $text;
         }
 		
-        print_r($this);
-        print_r($options);
         $newtext = $text; // we need to return the original value if regex fails!
 		
         //TODO: Add geogebratube regex to the filter
@@ -132,6 +130,17 @@ class filter_geogebra extends moodle_text_filter {
 	            $url = str_replace($matches[0], '', $url);
 	        }
 			
+		    //Catch the old ?w=800&h=600 Syntax
+			if (preg_match('/\?(?:w=([0-9]+))?(?:&)?(?:amp;)?(?:h=([0-9]+))?$/i', $url, $matches)) { // old style file.ext?w=640&h=480))
+				if (isset($matches[1])) {
+					$width  = $matches[1];
+				}
+				if (isset($matches[2])) {
+					$height = $matches[2];
+				}
+	            $url = str_replace($matches[0], '', $url);
+			}
+	        
 			$url = str_replace('&amp;', '&', $url);
 	        $url = clean_param($url, PARAM_URL);
 	        if (empty($url)) {
@@ -155,21 +164,8 @@ class filter_geogebra extends moodle_text_filter {
 	function filter_geogebra_callback($link) {
 		
 		global $CFG;
-		list($urls, $width, $height) = filter_mediaplugin_parse_alternatives($link[1], 0, 0);
+		list($urls, $width, $height) = filter_geogebra_parse_alternatives($link[1], 0, 0);
 		
-		
-		//Catch the old ?w=800&h=600 Syntax
-		if (preg_match('/\?(?:w=([0-9]+))?(?:&)?(?:amp;)?(?:h=([0-9]+))?$/i', $link[1], $matches)) { // old style file.ext?w=640&h=480))
-			if (isset($matches[1])) {
-				$width  = $matches[1];
-			}
-			if (isset($matches[2])) {
-				$height = $matches[2];
-			}
-            $urls[0] = str_replace($matches[0], '', $link[1]);
-		}
-		print($width);
-		print($height);
 		if (!$width) {
 			if (isset($this->localconfig['filter_geogebra_width'])) {
 	    		$width = $this->localconfig['filter_geogebra_width'];
@@ -185,6 +181,7 @@ class filter_geogebra extends moodle_text_filter {
 		    }
 		}
 		//TODO: !!! what to do with more then one URL
+		//TODO: !!! All the params
 		$return = '<applet codebase="./" height="'.$height.'" width="'.$width.'" '
 				. 'archive="'.$CFG->filter_geogebra_urljar.'"'
 				. ' code="geogebra.GeoGebraApplet">'
