@@ -179,7 +179,7 @@ class filter_geogebra extends moodle_text_filter {
 		        $height = $CFG->filter_geogebra_defaultheight;
 		    }
 		}
-		print($url);
+		print($urls[0]);
 		//TODO: !!! what to do with more then one URL
 		$return = '<p>'.$this->localconfig['height'].'</p><applet codebase="./" height="'.$height.'" width="'.$width.'" '
 				. 'archive="'.$CFG->filter_geogebra_urljar.'"'
