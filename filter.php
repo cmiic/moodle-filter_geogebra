@@ -75,8 +75,10 @@ class filter_geogebra extends moodle_text_filter {
 //		http://www.geogebratube.org/material/show/id/23
         
         if (!empty($CFG->filter_mediaplugin_enable_ggb)) {
-        	$search = '/<a\s[^>]*href="([^"#\?]+\.ggb([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
-//        $search = '/<a(?:.*?)href=\"(.*?)\.ggb(?:\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?)?\"(?:[^>]*)>(.*?)<\/a>/is';
+        	//$search = '/<a\s[^>]*href="([^"#\?]+\.ggb([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
+        	
+        	//$search = '/<a\s[^>]*href="([^"#\?]+\.ggb([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
+        $search = '/<a(?:.*?)href=\"(.*?)\.ggb(?:\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?)?\"(?:[^>]*)>(.*?)<\/a>/is';
         	$newtext = preg_replace_callback($search, array( &$this,'filter_geogebra_callback'), $newtext); 
         }
 	    if (!empty($CFG->filter_mediaplugin_enable_ggt)) {
