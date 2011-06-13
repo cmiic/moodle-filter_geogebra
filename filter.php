@@ -175,8 +175,8 @@ class filter_geogebra extends moodle_text_filter {
 		    }
 		}
 		
-		//TODO: what to do with more then one URL
-		$return = '<applet codebase="./" height="'.$height.'" width="'.$width.'" '
+		//TODO: !!! what to do with more then one URL
+		$return = '<p>'.$this->localconfig['height'].'</p><applet codebase="./" height="'.$height.'" width="'.$width.'" '
 				. 'archive="'.$CFG->filter_geogebra_urljar.'"'
 				. ' code="geogebra.GeoGebraApplet">'
 				. '<param value="'.$urls[0].'" name="filename" />'.$params_html.'</applet> ';
