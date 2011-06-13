@@ -163,7 +163,7 @@ class filter_geogebra extends moodle_text_filter {
 	function filter_geogebra_callback($link) {
 		
 		global $CFG;
-		
+		print_r($link);
 		list($urls, $width, $height) = filter_mediaplugin_parse_alternatives($link[1], 0, 0);
 		
 		if (!$width) {
