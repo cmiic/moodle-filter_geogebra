@@ -79,7 +79,7 @@ class filter_geogebra extends moodle_text_filter {
 //	    }
         
         $search = '/<a(?:.*?)href=\"(.*?)\.ggb(?:\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?)?\"(?:[^>]*)>(.*?)<\/a>/is';
-        $newtext = preg_replace_callback($search, 'filter_geogebra_callback', $newtext); 
+        $newtext = preg_replace_callback($search, array( &$this,'filter_geogebra_callback'), $newtext); 
         
 ///===========================
 /// old stuff, delete when finished
