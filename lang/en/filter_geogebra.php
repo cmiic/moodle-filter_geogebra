@@ -52,3 +52,5 @@ The following is an incomplete list of common parameters:</p>
 <li>borderColor=#FFFFFF</li><li>enableRightClick=false</li><li>enableLabelDrags=false</li>
 <li>enableShiftDragZoom=false</li><li>showMenuBar=true</li><li>showToolBar=true</li><li>showToolBarHelp=true</li><li>showAlgebraInput=true</li><li>showResetIcon=true</li><li>language=de (de is German; or you can use: fr, it, es, sl, zh etc.)</li><li>country=at (at is Austria; this parameter only makes sense with the language parameter above)</li>
 </ul>';
+
+?>
