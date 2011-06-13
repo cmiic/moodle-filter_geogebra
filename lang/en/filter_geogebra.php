@@ -31,10 +31,10 @@ See filter documentation on how to change the width and height in individual res
 </ul>';
 
 $string['filtername'] = 'GeoGebra Filter';
-$string['filter_geogebra_defaultwidth'] = 'Default width of applets in px';
-$string['filter_geogebra_defaultheight'] = 'Default height of applets in px';
-$string['filter_geogebra_defaultwidth'] = 'Default width of applets in px';
-$string['filter_geogebra_defaultheight'] = 'Default height of applets in px';
+$string['width'] = 'Width';
+$string['height'] = 'Height';
+$string['width_help'] = 'Default width of applets in px';
+$string['height_help'] = 'Default height of applets in px';
 
 $string['filter_geogebra_urljar'] = 'URL to geogebra.jar';
 $string['urljar_help'] = 'You can either enter a custom url in this field or click on one of the links below to automatically enter an URL (recommended):';
