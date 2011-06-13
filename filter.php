@@ -155,6 +155,7 @@ class filter_geogebra extends moodle_text_filter {
 
 ///===========================
 /// utility functions are now part of the object so we don't have to define global vars
+//TODO: is dies gescheit?
 
 	/** 
 	 * The function where the actual applet code is constructed.
@@ -164,7 +165,7 @@ class filter_geogebra extends moodle_text_filter {
 	function filter_geogebra_callback($link) {
 		
 		global $CFG;
-		list($urls, $width, $height) = filter_geogebra_parse_alternatives($link[1], 0, 0);
+		list($urls, $width, $height) = $this->filter_geogebra_parse_alternatives($link[1], 0, 0);
 		
 		if (!$width) {
 			if (isset($this->localconfig['filter_geogebra_width'])) {
