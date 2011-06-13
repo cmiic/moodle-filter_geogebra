@@ -49,4 +49,3 @@ Im folgenden ist eine unvollständige Liste mit oft benutzten Parametern:</p>
 <li>language=de (de steht für Deutsch - Sie können natürlich auch andere Codes benutzen wie bspw. fr, it, es, sl, zh etc.)</li>
 <li>country=at (at steht für Österreich - dieser Parameter ist nur für lokale Unterschiede in einer Sprache bedeutsam)</li>
 </ul>';
-?>

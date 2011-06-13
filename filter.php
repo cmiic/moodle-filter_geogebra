@@ -1,7 +1,7 @@
 <?php
 /*
  * GeoGebra Moodle filter
- * Copyright (C) 2009 Sara Arjona, Florian Sonner
+ * Copyright (C) 2009 Sara Arjona, Florian Sonner, Christoph Reinisch
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,13 +15,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- 
+//TODO
 /**
- * @author Sara Arjona, Florian Sonner
+ * @author Sara Arjona, Florian Sonner, Christoph Reinisch
  * @version $Id: filter.php, v2.0 2009/06/05 $
  */
+defined('MOODLE_INTERNAL') || die();
+
+require_once($CFG->libdir.'/filelib.php');
 
 /** 
+ * Automatic GeoGebra filter Class
+ * 
  * Searches for a link to a .ggb file and replaces this link with an applet.
  * 
  * If the link-url also contains parameters like
@@ -32,41 +37,73 @@
  *
  * If just one parameter is given the other dimension will be the default one.
  * 
- * @author Florian Sonner
+ * @package    filter
+ * @subpackage geogebra
+ * @copyright  2011 onwards Florian Sonner, Christoph Reinisch 
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author 	   Florian Sonner, Christoph Reinisch
  */
-function geogebra_filter($courseid, $text) {
-	global $CFG, $params_html;
+
+class filter_geogebra extends moodle_text_filter {
 	
-	// construct applet parameters from config
-	$params_html = '';
-	$params = explode("\n", $CFG->filter_geogebra_params);
 	
-	foreach($params as $param)
-	{		
-		if(strpos($param, '=') !== false) {
-			$values = explode('=', $param);
-			$params_html .= '<param name="'.$values[0].'" value="'.str_replace("\n", '', $values[1]).'" />';
-		}
+	function filter($text, array $options = array()) {
+		global $CFG;
+		
+		//TODO
+		// construct applet parameters from config
+//		$params_html = '';
+//		$params = explode("\n", $CFG->filter_geogebra_params);
+		
+		if (!is_string($text) or empty($text)) {
+            // non string data can not be filtered anyway
+            return $text;
+        }
+        if (stripos($text, '</a>') === false) {
+            // performance shortcut - all regexes bellow end with the </a> tag,
+            // if not present nothing can match
+            return $text;
+        }
+		
+        $newtext = $text; // we need to return the original value if regex fails!
+
+        $search = '/<a(?:.*?)href=\"(.*?)\.ggb(?:\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?)?\"(?:[^>]*)>(.*?)<\/a>/is';
+        $newtext = preg_replace_callback($search, 'filter_geogebra_callback', $newtext); 
+        
+///===========================
+/// old stuff, delete when finished
+//		foreach($params as $param)
+//		{		
+//			if(strpos($param, '=') !== false) {
+//				$values = explode('=', $param);
+//				$params_html .= '<param name="'.$values[0].'" value="'.str_replace("\n", '', $values[1]).'" />';
+//			}
+//		}
+
+		// yep, complex regex!
+		// note: "?:" is a trick to hide a match from the results
+		// TODO just get everything beyond the ? in the url as a match and explode it in the callback
+//		return preg_replace_callback(
+//			'/<a(?:.*?)href=\"(.*?)\.ggb(?:\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?)?\"(?:[^>]*)>(.*?)<\/a>/is',
+//			'geogebra_linker',
+//			$text
+//		);
+		return $newtext;
 	}
-	
-	// yep, complex regex!
-	// note: "?:" is a trick to hide a match from the results
-	// TODO just get everything beyond the ? in the url as a match and explode it in the callback
-	return preg_replace_callback(
-		'/<a(?:.*?)href=\"(.*?)\.ggb(?:\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?)?\"(?:[^>]*)>(.*?)<\/a>/is',
-		'geogebra_linker',
-		$text
-	);
 }
+
+
+///===========================
+/// utility functions
 
 /** 
  * The function where the actual applet code is constructed.
  * 
  * @author Florian Sonner
  */
-function geogebra_linker($matches)
+function filter_geogebra_callback($matches)
 {
-	global $CFG, $params_html;
+	global $CFG;
 	
 	$width = $matches[2];
 	$height = $matches[3];
@@ -83,5 +120,6 @@ function geogebra_linker($matches)
 	
 	return $return;
 }
+
 ?>
 
