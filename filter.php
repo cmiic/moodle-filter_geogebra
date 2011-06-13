@@ -131,11 +131,6 @@ class filter_geogebra extends moodle_text_filter {
 	            $height = $matches[2];
 	            $url = str_replace($matches[0], '', $url);
 	        }
-	   		if (preg_match('/\?w=([\d]{1,4})&amp;h=([\d]{1,4})$/i', $url, $matches)) { // old style file.ext?w=640&h=480))
-				$width  = $matches[1];
-	            $height = $matches[2];
-	            $url = str_replace($matches[0], '', $url);
-			}
 			
 			$url = str_replace('&amp;', '&', $url);
 	        $url = clean_param($url, PARAM_URL);
@@ -160,11 +155,10 @@ class filter_geogebra extends moodle_text_filter {
 	function filter_geogebra_callback($link) {
 		
 		global $CFG;
-		print_r($link);
 		list($urls, $width, $height) = filter_mediaplugin_parse_alternatives($link[1], 0, 0);
 		
+		//Catch the old ?w=800&h=600 Syntax
 		if (preg_match('/\?w=([\d]{1,4})&amp;h=([\d]{1,4})$/i', $link[1], $matches)) { // old style file.ext?w=640&h=480))
-			print_r($matches);
 			$width  = $matches[1];
             $height = $matches[2];
             $urls[0] = str_replace($matches[0], '', $link[1]);
@@ -184,8 +178,6 @@ class filter_geogebra extends moodle_text_filter {
 		        $height = $CFG->filter_geogebra_defaultheight;
 		    }
 		}
-//		print_r($urls);
-//		print($urls[0]);
 		//TODO: !!! what to do with more then one URL
 		$return = '<p>'.$this->localconfig['height'].'</p><applet codebase="./" height="'.$height.'" width="'.$width.'" '
 				. 'archive="'.$CFG->filter_geogebra_urljar.'"'
