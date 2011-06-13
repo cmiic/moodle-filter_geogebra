@@ -50,14 +50,6 @@ class filter_geogebra extends moodle_text_filter {
 	protected $defaultheight;
 	protected $defaultwidth;
 	
-	public function __construct($context, array $localconfig) {
-        $this->params_html = '';
-		$this->defaultheight = 400;
-		$this->defaultwidth = 400;
-		$this->context = $context;
-        $this->localconfig = $localconfig;
-    }
-	
 	function filter($text, array $options = array()) {
 		global $CFG;
 
@@ -77,14 +69,14 @@ class filter_geogebra extends moodle_text_filter {
         
 		//Get width and height can be overruled by urlparams
 		if (isset($this->localconfig['filter_geogebra_width'])) {
-    		$this->$defaultwidth = $this->localconfig['filter_geogebra_width'];
+    		$this->defaultwidth = $this->localconfig['filter_geogebra_width'];
     	} else {
-        	$this->$defaultwidth = $CFG->filter_geogebra_width;
+        	$this->defaultwidth = $CFG->filter_geogebra_width;
     	}
 		if (isset($this->localconfig['filter_geogebra_height'])) {
-	    	$this->$defaultheight = $this->localconfig['filter_geogebra_height'];
+	    	$this->defaultheight = $this->localconfig['filter_geogebra_height'];
 	    } else {
-	        $this->$defaultheight = $CFG->filter_geogebra_height;
+	        $this->defaultheight = $CFG->filter_geogebra_height;
 	    }
 		
         //TODO: Add geogebratube regex to the filter
