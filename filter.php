@@ -50,11 +50,11 @@ class filter_geogebra extends moodle_text_filter {
 	function filter($text, array $options = array()) {
 		global $CFG;
 		
-		// Needed for the 
-		global $ATTR;
-		$ATTR = array();
-		global $GGB_PARAMS;
-		$GGB_PARAMS = array();
+//		// Needed for the 
+//		global $ATTR;
+//		$ATTR = array();
+//		global $GGB_PARAMS;
+//		$GGB_PARAMS = array();
 		//TODO
 		// construct applet parameters from config
 //		$params_html = '';
@@ -72,11 +72,11 @@ class filter_geogebra extends moodle_text_filter {
 		
         $newtext = $text; // we need to return the original value if regex fails!
 		
-		if (isset($this->localconfig['width'])) {
-	    	$width = $this->localconfig['width'];
-	    } else {
-	        $width = $CFG->filter_geogebra_defaultwidth;
-	    }
+//		if (isset($this->localconfig['width'])) {
+//	    	$width = $this->localconfig['width'];
+//	    } else {
+//	        $width = $CFG->filter_geogebra_defaultwidth;
+//	    }
         
         $search = '/<a(?:.*?)href=\"(.*?)\.ggb(?:\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?)?\"(?:[^>]*)>(.*?)<\/a>/is';
         $newtext = preg_replace_callback($search, 'filter_geogebra_callback', $newtext); 
@@ -115,16 +115,16 @@ class filter_geogebra extends moodle_text_filter {
 function filter_geogebra_callback($matches) {
 	
 	global $CFG;
-	global $ATTR;
-	global $GGB_PARAMS;
+//	global $ATTR;
+//	global $GGB_PARAMS;
 	
 	$width = $matches[2];
 	$height = $matches[3];
 	
 	
 	//TODO config
-//	if(strlen($width) == 0)
-//		$width = $CFG->filter_geogebra_defaultwidth;
+	if(strlen($width) == 0)
+		$width = $CFG->filter_geogebra_defaultwidth;
 	if(strlen($height) == 0)
 		$height = $CFG->filter_geogebra_defaultheight;
 	
