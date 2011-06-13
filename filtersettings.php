@@ -35,8 +35,8 @@ if ($ADMIN->fulltree) {
 	//TODO: should we parse html too? not by default because I think it would be a performance problem - but we would have to try it out
 	
 	$settings->add(new admin_setting_heading('filter_geogebra_dimensions', get_string('dimensionsheading', 'filter_geogebra'), get_string('dimensionsheading_help', 'filter_geogebra')));
-	$settings->add(new admin_setting_configtext('filter_geogebra_defaultwidth', get_string('width','filter_geogebra'), get_string('width_help','filter_geogebra'), "400"));
-	$settings->add(new admin_setting_configtext('filter_geogebra_defaultheight', get_string('height','filter_geogebra'), get_string('height_help','filter_geogebra'), "400"));
+	$settings->add(new admin_setting_configtext('filter_geogebra_width', get_string('width','filter_geogebra'), get_string('width_help','filter_geogebra'), "400"));
+	$settings->add(new admin_setting_configtext('filter_geogebra_height', get_string('height','filter_geogebra'), get_string('height_help','filter_geogebra'), "400"));
 	
 	
 	$settings->add(new admin_setting_heading('filter_geogebra_jar', get_string('jarheading', 'filter_geogebra'), get_string('jarheading_help', 'filter_geogebra')));
