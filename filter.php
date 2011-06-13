@@ -52,7 +52,7 @@ class filter_geogebra extends moodle_text_filter {
 		global $CFG;
 
 		
-		//TODO
+		//TODO remove when finished - we don't use this anymore
 		// construct applet parameters from config
 //		$params_html = '';
 //		$params = explode("\n", $CFG->filter_geogebra_params);
@@ -105,42 +105,46 @@ class filter_geogebra extends moodle_text_filter {
 		return $newtext;
 	}
 
-/**
- * Parse list of alternative URLs
- * @param string $url urls separated with '#', size specified as ?d=640x480 or #d=640x480
- * @return array (urls, width, height)
- */
-function filter_geogebra_parse_alternatives($url, $defaultwidth = 0, $defaultheight = 0) {
-    $urls = explode('#', $url);
-    $width  = $defaultwidth;
-    $height = $defaultheight;
-    $returnurls = array();
-
-    foreach ($urls as $url) {
-        $matches = null;
-
-        if (preg_match('/^d=([\d]{1,4})x([\d]{1,4})$/i', $url, $matches)) { // #d=640x480
-            $width  = $matches[1];
-            $height = $matches[2];
-            continue;
-        }
-        if (preg_match('/\?d=([\d]{1,4})x([\d]{1,4})$/i', $url, $matches)) { // old style file.ext?d=640x480
-            $width  = $matches[1];
-            $height = $matches[2];
-            $url = str_replace($matches[0], '', $url);
-        }
-
-        $url = str_replace('&amp;', '&', $url);
-        $url = clean_param($url, PARAM_URL);
-        if (empty($url)) {
-            continue;
-        }
-
-        $returnurls[] = $url;
-    }
-
-    return array($returnurls, $width, $height);
-}
+	/**
+	 * Parse list of alternative URLs
+	 * @param string $url urls separated with '#', size specified as ?d=640x480 or #d=640x480 or ?w=200&h=800
+	 * @return array (urls, width, height)
+	 */
+	function filter_geogebra_parse_alternatives($url, $defaultwidth = 0, $defaultheight = 0) {
+	    $urls = explode('#', $url);
+	    $width  = $defaultwidth;
+	    $height = $defaultheight;
+	    $returnurls = array();
+	
+	    foreach ($urls as $url) {
+	        $matches = null;
+	
+	        if (preg_match('/^d=([\d]{1,4})x([\d]{1,4})$/i', $url, $matches)) { // #d=640x480
+	            $width  = $matches[1];
+	            $height = $matches[2];
+	            continue;
+	        }
+	        if (preg_match('/\?d=([\d]{1,4})x([\d]{1,4})$/i', $url, $matches)) { // old style file.ext?d=640x480
+	            $width  = $matches[1];
+	            $height = $matches[2];
+	            $url = str_replace($matches[0], '', $url);
+	        }
+			if (preg_match('/\?w=([\d]{1,4})&h=([\d]{1,4})$/i', $url, $matches)) { // old style file.ext?w=640&h=480))
+	        	$width  = $matches[1];
+	            $height = $matches[2];
+	            $url = str_replace($matches[0], '', $url);
+			}	
+			$url = str_replace('&amp;', '&', $url);
+	        $url = clean_param($url, PARAM_URL);
+	        if (empty($url)) {
+	            continue;
+	        }
+	
+	        $returnurls[] = $url;
+	    }
+	
+	    return array($returnurls, $width, $height);
+	}
 
 ///===========================
 /// utility functions are now part of the object so we don't have to define global vars
@@ -148,15 +152,14 @@ function filter_geogebra_parse_alternatives($url, $defaultwidth = 0, $defaulthei
 	/** 
 	 * The function where the actual applet code is constructed.
 	 * 
-	 * @author Florian Sonner
+	 * @author Florian Sonner, Christoph Reinisch
 	 */
 	function filter_geogebra_callback($link) {
 		
 		global $CFG;
 		
+		list($urls, $width, $height) = filter_mediaplugin_parse_alternatives($link[1], 0, 0);
 		
-		$width = $matches[2];
-		$height = $matches[3];
 		if (strlen($width) == 0) {
 			if (isset($this->localconfig['width'])) {
 	    		$width = $this->localconfig['width'];
