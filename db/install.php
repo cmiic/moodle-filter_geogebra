@@ -27,8 +27,7 @@
 function xmldb_filter_geogebra_install() {
     global $CFG;
 
-    //enable by default in new installs and upgrades (because we did not have version.php before)
-    // but only if insecure swf embedding is off - we definitely do not want to open security hopes on existing sites
+    //TODO: TEXTFILTER_ON but the condition is wrong
     if (empty($CFG->filter_geogebra_enable_ggb)) {
         filter_set_global_state('filter/mediaplugin', TEXTFILTER_ON);
     }
