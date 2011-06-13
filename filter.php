@@ -45,8 +45,8 @@ require_once($CFG->libdir.'/filelib.php');
  */
 
 class filter_geogebra extends moodle_text_filter {
-	
-	private $attribs, $params;
+	//TODO: Do I need this?
+	//private $attribs, $params;
 	
 	function filter($text, array $options = array()) {
 		global $CFG;
@@ -67,7 +67,7 @@ class filter_geogebra extends moodle_text_filter {
             return $text;
         }
 		
-        print_r($this);
+        print_r($this->localconfig);
         
         $newtext = $text; // we need to return the original value if regex fails!
 		
