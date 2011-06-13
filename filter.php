@@ -173,10 +173,10 @@ class filter_geogebra extends moodle_text_filter {
 	    	}
 		}
 		if(!$height) {
-			if (isset($this->localconfig['filter_geogebra_width'])) {
-		    	$height = $this->localconfig['filter_geogebra_width'];
+			if (isset($this->localconfig['filter_geogebra_height'])) {
+		    	$height = $this->localconfig['filter_geogebra_height'];
 		    } else {
-		        $height = $CFG->filter_geogebra_width;
+		        $height = $CFG->filter_geogebra_height;
 		    }
 		}
 		//TODO: !!! what to do with more then one URL
