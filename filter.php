@@ -160,6 +160,7 @@ class filter_geogebra extends moodle_text_filter {
 		
 		//Catch the old ?w=800&h=600 Syntax
 		if (preg_match('/\?(?:w=([0-9]+))?(?:&)?(?:amp;)?(?:h=([0-9]+))?$/i', $link[1], $matches)) { // old style file.ext?w=640&h=480))
+			print_r($matches);
 			if (isset($matches[1])) {
 				$width  = $matches[1];
 			}
