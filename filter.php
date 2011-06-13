@@ -158,7 +158,8 @@ class filter_geogebra extends moodle_text_filter {
 		list($urls, $width, $height) = filter_mediaplugin_parse_alternatives($link[1], 0, 0);
 		
 		//Catch the old ?w=800&h=600 Syntax
-		if (preg_match('/\?w=([\d]{1,4})&amp;h=([\d]{1,4})$/i', $link[1], $matches)) { // old style file.ext?w=640&h=480))
+		
+		if (preg_match('/\?(?:w=([0-9]+))?(?:&)?(?:h=([0-9]+))?$/i', $link[1], $matches)) { // old style file.ext?w=640&h=480))
 			$width  = $matches[1];
             $height = $matches[2];
             $urls[0] = str_replace($matches[0], '', $link[1]);
