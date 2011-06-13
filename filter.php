@@ -66,14 +66,14 @@ class filter_geogebra extends moodle_text_filter {
 		
 		//Get width and height can be overruled by urlparams
 		if (isset($this->localconfig['filter_geogebra_width'])) {
-    		$defaultwidth = $this->localconfig['filter_geogebra_width'];
+    		$this->$defaultwidth = $this->localconfig['filter_geogebra_width'];
     	} else {
-        	$defaultwidth = $CFG->filter_geogebra_width;
+        	$this->$defaultwidth = $CFG->filter_geogebra_width;
     	}
 		if (isset($this->localconfig['filter_geogebra_height'])) {
-	    	$defaultheight = $this->localconfig['filter_geogebra_height'];
+	    	$this->$defaultheight = $this->localconfig['filter_geogebra_height'];
 	    } else {
-	        $defaultheight = $CFG->filter_geogebra_height;
+	        $this->$defaultheight = $CFG->filter_geogebra_height;
 	    }
 		
         //TODO: Add geogebratube regex to the filter
@@ -122,7 +122,7 @@ class filter_geogebra extends moodle_text_filter {
 		
 		global $CFG, $params_html;
 		
-		list($urls, $width, $height) = filter_geogebra_parse_alternatives($link[1], $defaultwidth, $defaultheight);
+		list($urls, $width, $height) = filter_geogebra_parse_alternatives($link[1], $this->$defaultwidth, $this->$defaultheight);
 		
 		
 		//TODO: !!! what to do with more then one URL
