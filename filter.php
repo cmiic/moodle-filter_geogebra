@@ -162,20 +162,20 @@ class filter_geogebra extends moodle_text_filter {
 		
 		list($urls, $width, $height) = filter_mediaplugin_parse_alternatives($link[1], 0, 0);
 		
-		if (!$width) {
-			if (isset($this->localconfig['width'])) {
-	    		$width = $this->localconfig['width'];
-	    	} else {
-	        	$width = $CFG->filter_geogebra_defaultwidth;
-	    	}
-		}
-		if(!$height) {
-			if (isset($this->localconfig['height'])) {
-		    	$height = $this->localconfig['height'];
-		    } else {
-		        $height = $CFG->filter_geogebra_defaultheight;
-		    }
-		}
+//		if (!$width) {
+//			if (isset($this->localconfig['width'])) {
+//	    		$width = $this->localconfig['width'];
+//	    	} else {
+//	        	$width = $CFG->filter_geogebra_defaultwidth;
+//	    	}
+//		}
+//		if(!$height) {
+//			if (isset($this->localconfig['height'])) {
+//		    	$height = $this->localconfig['height'];
+//		    } else {
+//		        $height = $CFG->filter_geogebra_defaultheight;
+//		    }
+//		}
 		
 		//TODO: !!! what to do with more then one URL
 		$return = '<p>'.$this->localconfig['height'].'</p><applet codebase="./" height="'.$height.'" width="'.$width.'" '
