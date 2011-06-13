@@ -132,12 +132,13 @@ class filter_geogebra extends moodle_text_filter {
 	            $url = str_replace($matches[0], '', $url);
 	        }
 	        
-	        $url = str_replace('&amp;', '&', $url);
-			if (preg_match('/\?w=([\d]{1,4})&h=([\d]{1,4})$/i', $url, $matches)) { // old style file.ext?w=640&h=480))
+	        
+			if (preg_match('/\?w=([\d]{1,4})&amp;h=([\d]{1,4})$/i', $url, $matches)) { // old style file.ext?w=640&h=480))
 	        	$width  = $matches[1];
 	            $height = $matches[2];
 	            $url = str_replace($matches[0], '', $url);
-			}	
+			}
+			$url = str_replace('&amp;', '&', $url);
 	        $url = clean_param($url, PARAM_URL);
 	        if (empty($url)) {
 	            continue;
