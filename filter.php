@@ -80,7 +80,7 @@ class filter_geogebra extends moodle_text_filter {
 	        $this->defaultheight = $CFG->filter_geogebra_height;
 	    }
 	    
-	    $params_html = filter_geogebra_build_params($this->localconfig);
+	    $this->params_html = filter_geogebra_build_params($this->localconfig);
 		
         //TODO: Add geogebratube regex to the filter
 //      http://www.geogebratube.org/student/23
