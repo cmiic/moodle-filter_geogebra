@@ -69,6 +69,7 @@ class filter_geogebra extends moodle_text_filter {
         }
         
         print_r($this);
+        print_r($CFG);
         
 		//Get width and height can be overruled by urlparams
 		if (isset($this->localconfig['filter_geogebra_width'])) {
@@ -82,13 +83,16 @@ class filter_geogebra extends moodle_text_filter {
 	        $this->defaultheight = $CFG->filter_geogebra_height;
 	    }
 	    
-	    
+	    $params_html = filter_geogebra_build_params();
 		
         //TODO: Add geogebratube regex to the filter
 //      http://www.geogebratube.org/student/23
 //		http://www.geogebratube.org/files/material-23.ggb
 //		http://www.geogebratube.org/material/show/id/23
         
+	    //TODO: Check weather the file is already embeded!!!
+	    
+	    
         if (!empty($CFG->filter_geogebra_enable_ggb)) {
 	       	$search = '/<a\s[^>]*href="([^"#\?]+\.ggb([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
         	$newtext = preg_replace_callback($search, array( &$this, 'filter_geogebra_callback'), $newtext); 
@@ -118,7 +122,7 @@ class filter_geogebra extends moodle_text_filter {
 	}
 
 	///===========================
-	/// utility functions are now part of the object so we don't have to define global vars
+	/// callback function now part of the object
 	//TODO: is dies gescheit?
 	
 	/** 
@@ -138,7 +142,7 @@ class filter_geogebra extends moodle_text_filter {
 		$return = '<applet codebase="./" width="'.$width.'" height="'.$height.'" '
 				. 'archive="'.$CFG->filter_geogebra_urljar.'"'
 				. ' code="geogebra.GeoGebraApplet">'
-				. '<param name="filename"  value="'.$urls[0].'"/>'.$params_html.'</applet> ';
+				. '<param name="filename"  value="'.$urls[0].'"/>'.$this->params_html.'</applet> ';
 		
 		return $return;
 	}
@@ -190,4 +194,12 @@ function filter_geogebra_parse_alternatives($url, $defaultwidth, $defaultheight)
     }
 
     return array($returnurls, $width, $height);
+}
+
+function filter_geogebra_build_params($localconfig) {
+	global $CFG;
+	$params = '<param value="'.
+	isset($localconfig['filter_geogebra_dimensions']) ? $localconfig['filter_geogebra_dimensions'] : $CFG->filter_geogebra_dimensions .
+	'" />';
+	return $params;
 }
