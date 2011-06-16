@@ -196,11 +196,11 @@ function filter_geogebra_parse_alternatives($url, $defaultwidth, $defaultheight)
 //TODO: Rest of the params
 function filter_geogebra_build_params($localconfig) {
 	global $CFG;
-	$params = '<param name="enableRightClick" value="';
-//	isset($localconfig['filter_geogebra_enable_rightclick']) ? 
-//		($localconfig['filter_geogebra_enable_rightclick'] ? "true" : "false") :
-//		($CFG->filter_geogebra_enable_rightclick ? "true" : "false") . 
-//	'" />';
+	$params = '<param name="enableRightClick" value="'.
+	isset($localconfig['filter_geogebra_enable_rightclick']) ? 
+		($localconfig['filter_geogebra_enable_rightclick'] ? "true" : "false") :
+		($CFG->filter_geogebra_enable_rightclick ? "true" : "false") . 
+	'" />';
 	
 	return $params;
 }
