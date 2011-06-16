@@ -64,12 +64,9 @@ class filter_geogebra extends moodle_text_filter {
         }
 		
         $newtext = $text; // we need to return the original value if regex fails!
-        if (isset($this->localconfig['submitbutton'])) {
-        	echo "haha";
-        }
         
-        print_r($this);
-        print_r($CFG);
+//        print_r($this);
+//        print_r($CFG); //Never do this!!!
         
 		//Get width and height can be overruled by urlparams
 		if (isset($this->localconfig['filter_geogebra_width'])) {
@@ -83,7 +80,7 @@ class filter_geogebra extends moodle_text_filter {
 	        $this->defaultheight = $CFG->filter_geogebra_height;
 	    }
 	    
-	    $params_html = filter_geogebra_build_params();
+	    $params_html = filter_geogebra_build_params($this->localconfig);
 		
         //TODO: Add geogebratube regex to the filter
 //      http://www.geogebratube.org/student/23
@@ -196,10 +193,13 @@ function filter_geogebra_parse_alternatives($url, $defaultwidth, $defaultheight)
     return array($returnurls, $width, $height);
 }
 
+//TODO: Rest of the params
 function filter_geogebra_build_params($localconfig) {
 	global $CFG;
-	$params = '<param value="'.
-	isset($localconfig['filter_geogebra_dimensions']) ? $localconfig['filter_geogebra_dimensions'] : $CFG->filter_geogebra_dimensions .
+	$params = '<param name="enableRightClick" value="'.
+	isset($localconfig['filter_geogebra_enable_rightclick']) ? 
+		($localconfig['filter_geogebra_enable_rightclick'] ? "true" : "false") :
+		($CFG->filter_geogebra_enable_rightclick ? "true" : "false") . 
 	'" />';
 	return $params;
 }
