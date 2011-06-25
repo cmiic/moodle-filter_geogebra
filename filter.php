@@ -62,12 +62,12 @@ class filter_geogebra extends moodle_text_filter {
             // if not present nothing can match
             return $text;
         }
-        if (stripos($text, 'ggbBase64') =! false) {
+        if (stripos($text, 'ggbBase64') != false) {
         	// ggbBase64 already emeded - nothing to do...
         	// TODO: or do we want to include (enforce) the params?
         	return $text;
         }
-		if (stripos($text, 'applet') =! false) {
+		if (stripos($text, 'applet') != false) {
         	// There is already an applet on the page 
         	// we do not want to include a second applet - nothing to do...
         	// TODO: or do we want to include (enforce) the params?
