@@ -151,19 +151,19 @@ class filter_geogebra extends moodle_text_filter {
 		//Get the base64 encoded string
 		//We should be OK, because of Moodle cache 
 		//TODO: Test weather this is to time consuming
-		$handle = fopen($urls[0], "rb");
-		$ggbbinary = stream_get_contents($handle);
-		echo $ggbbinary;
-		fclose($handle);
-		$ggbBase64 = base64_encode(file_get_contents($urls[0]));
+//		$handle = fopen($urls[0], "rb");
+//		$ggbbinary = stream_get_contents($handle);
+		echo $urls[0];
+//		fclose($handle);
+//		$ggbBase64 = base64_encode(file_get_contents($urls[0]));
 		
 		//TODO: !!! what to do with more then one URL
 		//TODO: !!! All the params
 		$return = '<applet codebase="./" width="'.$width.'" height="'.$height.'" '
 				. 'archive="'.$CFG->filter_geogebra_urljar.'"'
 				. ' code="geogebra.GeoGebraApplet">'
-				//. '<param name="filename"  value="'.$urls[0].'"/>'.$this->params_html.'</applet> ';
-				. '<param name="ggbBase64"  value="'.$ggbBase64.'"/>'.$this->params_html.'</applet> ';
+				. '<param name="filename"  value="'.$urls[0].'"/>'.$this->params_html.'</applet> ';
+//				. '<param name="ggbBase64"  value="'.$ggbBase64.'"/>'.$this->params_html.'</applet> ';
 		return $return;
 	}
 }
