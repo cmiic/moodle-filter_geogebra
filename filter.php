@@ -62,7 +62,17 @@ class filter_geogebra extends moodle_text_filter {
             // if not present nothing can match
             return $text;
         }
-		
+        if (stripos($text, 'ggbBase64') =! false) {
+        	// ggbBase64 already emeded - nothing to do...
+        	// TODO: or do we want to include (enforce) the params?
+        	return $text;
+        }
+		if (stripos($text, 'applet') =! false) {
+        	// There is already an applet on the page 
+        	// we do not want to include a second applet - nothing to do...
+        	// TODO: or do we want to include (enforce) the params?
+        	return $text;
+        }
         $newtext = $text; // we need to return the original value if regex fails!
         
 //        print_r($this);
@@ -80,13 +90,18 @@ class filter_geogebra extends moodle_text_filter {
 	        $this->defaultheight = $CFG->filter_geogebra_height;
 	    }
 	    
+	    
+	    
 	    $this->params_html = filter_geogebra_build_params($this->localconfig);
 		
-        //TODO: Add geogebratube regex to the filter
+	    //TODO: Add geogebratube regex to the filter
 //      http://www.geogebratube.org/student/23
 //		http://www.geogebratube.org/files/material-23.ggb
 //		http://www.geogebratube.org/material/show/id/23
-        
+//        if (!empty($CFG->filter_geogebra_enable_geogebratube)) {
+//        	$search = '';
+//        	$newtext = preg_replace_callback($search, array( &$this, 'filter_geogebra_callback'), $newtext); 
+//        }
 	    //TODO: Check weather the file is already embeded!!!
 	    
 	    
@@ -133,14 +148,18 @@ class filter_geogebra extends moodle_text_filter {
 		
 		list($urls, $width, $height) = filter_geogebra_parse_alternatives($link[1], $this->defaultwidth, $this->defaultheight);
 		
+		//Get the base64 encoded string
+		//We should be OK, because of Moodle cache 
+		//TODO: Test weather this is to time consuming
+		$ggbBase64 = base64_encode(file_get_contents($urls[0]));
 		
 		//TODO: !!! what to do with more then one URL
 		//TODO: !!! All the params
 		$return = '<applet codebase="./" width="'.$width.'" height="'.$height.'" '
 				. 'archive="'.$CFG->filter_geogebra_urljar.'"'
 				. ' code="geogebra.GeoGebraApplet">'
-				. '<param name="filename"  value="'.$urls[0].'"/>'.$this->params_html.'</applet> ';
-		
+				//. '<param name="filename"  value="'.$urls[0].'"/>'.$this->params_html.'</applet> ';
+				. '<param name="ggbBase64"  value="'.$ggbBase64.'"/>'.$this->params_html.'</applet> ';
 		return $return;
 	}
 }
@@ -196,11 +215,12 @@ function filter_geogebra_parse_alternatives($url, $defaultwidth, $defaultheight)
 //TODO: Rest of the params
 function filter_geogebra_build_params($localconfig) {
 	global $CFG;
-	$params = '<param name="enableRightClick" value="'.
-	(isset($localconfig['filter_geogebra_enable_rightclick']) ? 
-		($localconfig['filter_geogebra_enable_rightclick'] ? "true" : "false") :
-		($CFG->filter_geogebra_enable_rightclick ? "true" : "false")) . 
-	'" />';
+	$params = 
+		'<param name="enableRightClick" value="'.
+		(isset($localconfig['filter_geogebra_enable_rightclick']) ? 
+			($localconfig['filter_geogebra_enable_rightclick'] ? "true" : "false") :
+			($CFG->filter_geogebra_enable_rightclick ? "true" : "false")) . '" />';
+	
 	
 	return $params;
 }
