@@ -148,11 +148,15 @@ class filter_geogebra extends moodle_text_filter {
 		
 		list($urls, $width, $height) = filter_geogebra_parse_alternatives($link[1], $this->defaultwidth, $this->defaultheight);
 		
+		
+		
 		$browser = get_file_browser();
 		$context = get_system_context();
-		print_r($context);
-		print_r($browser);
-		print_r($this);
+		
+		$filepath = explode('/', $urls[0]);
+		
+		print_r($filepath);
+		
 		$filearea = null;
 		$itemid   = null;
 		$filename = null;
