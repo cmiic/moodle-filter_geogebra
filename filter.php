@@ -76,7 +76,7 @@ class filter_geogebra extends moodle_text_filter {
         $newtext = $text; // we need to return the original value if regex fails!
         
 //        print_r($this);
-//        print_r($CFG); //Never do this!!!
+        print_r($CFG); //Never do this!!!
         
 		//Get width and height can be overruled by urlparams
 		if (isset($this->localconfig['filter_geogebra_width'])) {
