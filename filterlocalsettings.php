@@ -1,4 +1,5 @@
 <?php
+/*
 class geogebra_filter_local_settings_form extends filter_local_settings_form {
 	protected function definition_inner($mform) {
         $mform->addElement('header', 'filter_geogebra_dimensions', get_string('dimensionsheading', 'filter_geogebra'));
@@ -23,4 +24,4 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
         
     }
 }
-?>
+*/

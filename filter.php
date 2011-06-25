@@ -153,7 +153,7 @@ class filter_geogebra extends moodle_text_filter {
 		
 		//Get the base64 encoded string
 		//We should be OK, because of Moodle cache 
-		//TODO: Test weather this is to time consuming
+		//TODO: Test weather this is too time consuming
 //		$handle = fopen($urls[0], "rb");
 //		$ggbbinary = stream_get_contents($handle);
 		echo $urls[0];
