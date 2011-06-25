@@ -76,7 +76,7 @@ class filter_geogebra extends moodle_text_filter {
         $newtext = $text; // we need to return the original value if regex fails!
         
 //        print_r($this);
-        print_r($CFG); //Never do this!!!
+//        print_r($CFG); //Never do this!!!
         
 		//Get width and height can be overruled by urlparams
 		if (isset($this->localconfig['filter_geogebra_width'])) {
@@ -148,6 +148,10 @@ class filter_geogebra extends moodle_text_filter {
 		
 		list($urls, $width, $height) = filter_geogebra_parse_alternatives($link[1], $this->defaultwidth, $this->defaultheight);
 		
+		$browser = get_file_browser();
+		$context = get_system_context();
+		print_r($context);
+		print_r($browser);
 		//Get the base64 encoded string
 		//We should be OK, because of Moodle cache 
 		//TODO: Test weather this is to time consuming
