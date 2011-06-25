@@ -151,6 +151,9 @@ class filter_geogebra extends moodle_text_filter {
 		//Get the base64 encoded string
 		//We should be OK, because of Moodle cache 
 		//TODO: Test weather this is to time consuming
+		$handle = fopen($urls[0], "rb");
+		$ggbbinary = stream_get_contents($handle);
+		fclose($handle);
 		$ggbBase64 = base64_encode(file_get_contents($urls[0]));
 		
 		//TODO: !!! what to do with more then one URL
