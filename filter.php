@@ -152,6 +152,27 @@ class filter_geogebra extends moodle_text_filter {
 		$context = get_system_context();
 		print_r($context);
 		print_r($browser);
+		$filearea = null;
+		$itemid   = null;
+		$filename = null;
+		if ($fileinfo = $browser->get_file_info($context, $component, $filearea, $itemid, '/', $filename)) {
+		    // build a Breadcrumb trail
+		    $level = $fileinfo->get_parent();
+		    while ($level) {
+		        $params = base64_encode(serialize($level->get_params()));
+		        $path[] = array('name'=>$level->get_visible_name(), 'path'=>$params);
+		        $level = $level->get_parent();
+		    }
+		    $path = array_reverse($path);
+		    $children = $fileinfo->get_children();
+		    foreach ($children as $child) {
+		        if ($child->is_directory()) {
+		            echo $child->get_visible_name();
+		            // display contextid, itemid, component, filepath and filename
+		            var_dump($child->get_params());
+		        }
+		    }
+		}
 		//Get the base64 encoded string
 		//We should be OK, because of Moodle cache 
 		//TODO: Test weather this is to time consuming
