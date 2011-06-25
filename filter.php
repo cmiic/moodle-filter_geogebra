@@ -153,6 +153,8 @@ class filter_geogebra extends moodle_text_filter {
 		$browser = get_file_browser();
 		$context = get_system_context();
 		
+		print_r($context);
+		
 		$filepath = explode('/', $urls[0]);
 		
 		print_r($filepath);
