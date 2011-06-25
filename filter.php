@@ -160,7 +160,7 @@ class filter_geogebra extends moodle_text_filter {
 		$filearea = null;
 		$itemid   = null;
 		$filename = null;
-		if ($fileinfo = $browser->get_file_info($filepath[4], $filepath[5], $filepath[6], $filepath[7], '/', $filepath[8])) {
+		if ($fileinfo = $browser->get_file_info($context, $filepath[5], $filepath[6], $filepath[7], '/', $filepath[8])) {
 		    // build a Breadcrumb trail
 		    $level = $fileinfo->get_parent();
 		    while ($level) {
