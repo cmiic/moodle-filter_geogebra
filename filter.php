@@ -98,6 +98,7 @@ class filter_geogebra extends moodle_text_filter {
 //      http://www.geogebratube.org/student/23
 //		http://www.geogebratube.org/files/material-23.ggb
 //		http://www.geogebratube.org/material/show/id/23
+//		
 //        if (!empty($CFG->filter_geogebra_enable_geogebratube)) {
 //        	$search = '';
 //        	$newtext = preg_replace_callback($search, array( &$this, 'filter_geogebra_callback'), $newtext); 
@@ -150,38 +151,6 @@ class filter_geogebra extends moodle_text_filter {
 		
 		
 		
-		$browser = get_file_browser();
-		$context = get_system_context();
-		
-		print_r($context);
-		
-		$filepath = explode('/', $urls[0]);
-		
-		print_r($filepath);
-		
-		$filearea = null;
-		$itemid   = null;
-		$filename = null;
-		print_r($browser->get_file_info(null, $filepath[5], $filepath[6], $filepath[7], '/', $filepath[8]));
-		
-		if ($fileinfo = $browser->get_file_info($context, $filepath[5], $filepath[6], $filepath[7], '/', $filepath[8])) {
-		    // build a Breadcrumb trail
-		    $level = $fileinfo->get_parent();
-		    while ($level) {
-		        $params = base64_encode(serialize($level->get_params()));
-		        $path[] = array('name'=>$level->get_visible_name(), 'path'=>$params);
-		        $level = $level->get_parent();
-		    }
-		    $path = array_reverse($path);
-		    $children = $fileinfo->get_children();
-		    foreach ($children as $child) {
-		        if ($child->is_directory()) {
-		            echo $child->get_visible_name();
-		            // display contextid, itemid, component, filepath and filename
-		            var_dump($child->get_params());
-		        }
-		    }
-		}
 		//Get the base64 encoded string
 		//We should be OK, because of Moodle cache 
 		//TODO: Test weather this is to time consuming
