@@ -75,6 +75,8 @@ class filter_geogebra extends moodle_text_filter {
         }
         $newtext = $text; // we need to return the original value if regex fails!
         
+        print_r($settings);
+        
         print_r($this->localconfig);
 //        print_r($this);
 //        print_r($CFG); //Never do this!!!
@@ -102,7 +104,6 @@ class filter_geogebra extends moodle_text_filter {
 //        	$search = '';
 //        	$newtext = preg_replace_callback($search, array( &$this, 'filter_geogebra_callback'), $newtext); 
 //        }
-	    //TODO: Check weather the file is already embeded!!!
 
         if (!empty($CFG->filter_geogebra_enable_ggb)) {
 	       	$search = '/<a\s[^>]*href="([^"#\?]+\.ggb([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
