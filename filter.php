@@ -90,9 +90,7 @@ class filter_geogebra extends moodle_text_filter {
 	    } else {
 	        $this->defaultheight = $CFG->filter_geogebra_height;
 	    }
-	    
-	    
-	    
+
 	    $this->params_html = filter_geogebra_build_params($this->localconfig);
 		
 	    //TODO: Add geogebratube regex to the filter
@@ -105,8 +103,7 @@ class filter_geogebra extends moodle_text_filter {
 //        	$newtext = preg_replace_callback($search, array( &$this, 'filter_geogebra_callback'), $newtext); 
 //        }
 	    //TODO: Check weather the file is already embeded!!!
-	    
-	    
+
         if (!empty($CFG->filter_geogebra_enable_ggb)) {
 	       	$search = '/<a\s[^>]*href="([^"#\?]+\.ggb([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
         	$newtext = preg_replace_callback($search, array( &$this, 'filter_geogebra_callback'), $newtext); 
