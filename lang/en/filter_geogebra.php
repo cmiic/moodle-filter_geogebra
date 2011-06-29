@@ -60,7 +60,25 @@ $string['urljar_help'] = 'You can either enter a custom url in this field or cli
 $string['functionalityheading'] = 'Functionality';
 $string['functionalityheading_help'] = 'Functionality settings. Those can also be configured in the context of a course (context of a ressource or activity doesn\'t work yet - but soon)';
 $string['enable_rightclick'] = 'Enable right click features';
-$string['enable_rightclick_help'] = 'States whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects)';
+$string['enable_rightclick_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
+$string['enable_labeldrags'] = 'Enable drag of Labels';
+$string['enable_labeldrags_help'] = 'states whether labels can be dragged. Default: true';
+$string['show_reseticon'] = 'Enable reset icon';
+$string['show_reseticon_help'] = 'states whether a small icon (GeoGebra ellipse) should be shown in the upper right corner of the applet. Clicking on this icon resets the applet (i.e. it reloads the file given in the filename parameter). Default: true';
+$string['framepossible'] = 'Enable "Double click opens application window"';
+$string['framepossible_help'] = 'states if a double click on the drawing pad should open the GeoGebra application frame. This parameter is ignored if the type was set to "button". Default: true';
+
+$string['interfaceheading'] = 'User interface';
+$string['interfaceheading_help'] = 'User interface settings. Those can also be configured in the context of a course (context of a ressource or activity doesn\'t work yet - but soon)';
+$string['show_menubar'] = 'Show Menubar';
+$string['show_menubar_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
+$string['show_toolbar'] = 'Show Toolbar';
+$string['show_toolbar_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
+$string['show_toolbarhelp'] = 'Show Toolbar Help';
+$string['show_toolbarhelp_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
+$string['show_algebrainput'] = 'Show inputbar';
+$string['show_algebrainput_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
+
 
 
 
@@ -68,12 +86,5 @@ $string['geogebra_use'] = 'Use';
 $string['geogebra_local'] = 'from this webserver';
 $string['geogebra_external'] = 'from GeoGebra.org';
 $string['geogebra_latest'] = 'latest release from GeoGebra.org';
-$string['geogebra_params'] = 'Applet parameters';
-$string['geogebra_params_desc'] = 'Enter GeoGebra applet parameters in the format name=value (e.g. enableRightClick=false). Each parameter must be in a new row. The filename parameter is automatically defined. These parameters affect all courses and pages.
-<p>For the complete list of applet parameters visit the official documentation at <a href=http://www.geogebra.org>GeoGebra.org</a>.
-The following is an incomplete list of common parameters:</p>
-<ul>
-<li>bgcolor=#FFFFFF (background color; #FFFFFF is white)</li>
-<li>borderColor=#FFFFFF</li><li>enableRightClick=false</li><li>enableLabelDrags=false</li>
-<li>enableShiftDragZoom=false</li><li>showMenuBar=true</li><li>showToolBar=true</li><li>showToolBarHelp=true</li><li>showAlgebraInput=true</li><li>showResetIcon=true</li><li>language=de (de is German; or you can use: fr, it, es, sl, zh etc.)</li><li>country=at (at is Austria; this parameter only makes sense with the language parameter above)</li>
-</ul>';
+
+//TODO: provide Upgrade script for the old Parameters...
