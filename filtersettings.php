@@ -60,10 +60,21 @@ if ($ADMIN->fulltree) {
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_show_toolbarhelp', get_string('show_toolbarhelp','filter_geogebra'), get_string('show_toolbarhelp_help','filter_geogebra'), 1));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_show_algebrainput', get_string('show_algebrainput','filter_geogebra'), get_string('show_algebrainput_help','filter_geogebra'), 1));
 	
-	//TODO: Language specific Options
+	//TODO: sLanguage specific Options
+	$settings->add(new admin_setting_heading('filter_geogebra_language', get_string('languageheading', 'filter_geogebra'), get_string('languageheading_help', 'filter_geogebra')));
+	$settings->add(new admin_setting_configcheckbox('filter_geogebra_iso_language', get_string('iso_language','filter_geogebra'), get_string('iso_language_help','filter_geogebra'), 1));
+	$settings->add(new admin_setting_configcheckbox('filter_geogebra_iso_country', get_string('iso_country','filter_geogebra'), get_string('iso_country_help','filter_geogebra'), 1));
 	
-	
+	//Miscellaneous Options 
 	//TODO: Embed Options (object vs. applet, id and class) 
+	$settings->add(new admin_setting_heading('filter_geogebra_miscellaneous', get_string('miscellaneousheading', 'filter_geogebra'), get_string('miscellaneousheading_help', 'filter_geogebra')));
+	$settings->add(new admin_setting_configcheckbox('filter_geogebra_iso_language', get_string('iso_language','filter_geogebra'), get_string('iso_language_help','filter_geogebra'), 1));
+	$settings->add(new admin_setting_configcheckbox('filter_geogebra_iso_language', get_string('iso_language','filter_geogebra'), get_string('iso_language_help','filter_geogebra'), 1));
+	$settings->add(new admin_setting_configcheckbox('filter_geogebra_iso_language', get_string('iso_language','filter_geogebra'), get_string('iso_language_help','filter_geogebra'), 1));
+	
+	//Java VM Options
+	$settings->add(new admin_setting_heading('filter_geogebra_miscellaneous', get_string('miscellaneousheading', 'filter_geogebra'), get_string('miscellaneousheading_help', 'filter_geogebra')));
+	$settings->add(new admin_setting_configcheckbox('filter_geogebra_iso_language', get_string('iso_language','filter_geogebra'), get_string('iso_language_help','filter_geogebra'), 1));
 	
 	
 }

@@ -221,20 +221,28 @@ function filter_geogebra_parse_alternatives($url, $defaultwidth, $defaultheight)
 //TODO: Rest of the params
 function filter_geogebra_build_params($localconfig) {
 	global $CFG;
-	$params = 
-		'<param name="enableRightClick" value="'.
-		(isset($localconfig['filter_geogebra_enable_rightclick']) ? 
-			($localconfig['filter_geogebra_enable_rightclick'] ? "true" : "false") :
-			($CFG->filter_geogebra_enable_rightclick ? "true" : "false")) . '" />
-		<param name="showMenuBar" value="'.
-		(isset($localconfig['filter_geogebra_show_menubar']) ? 
-			($localconfig['filter_geogebra_show_menubar'] ? "true" : "false") :
-			($CFG->filter_geogebra_show_menubar ? "true" : "false")) . '" />
-		<param name="showToolBar" value="'.
-		(isset($localconfig['filter_geogebra_show_toolbar']) ? 
-			($localconfig['filter_geogebra_show_toolbar'] ? "true" : "false") :
-			($CFG->filter_geogebra_show_toolbar ? "true" : "false")) . '" />';
-	
-	
+	//http://www.geogebra.org/en/wiki/index.php/GeoGebra_Applet_Parameters
+	$ggbparams = array(
+					'framePossible' => 'filter_geogebra_framepossible',
+					'showResetIcon' => 'filter_geogebra_show_reseticon',
+					'showAnimationButton' => '',
+					'enableRightClick' => 'filter_geogebra_enable_rightclick',
+					'errorDialogsActive' => '',
+					'enableLabelDrags' => 'filter_geogebra_enable_labeldrags',
+					'showMenuBar' => '',
+					'showToolBar' => '',
+					'showToolBarHelp' => '',
+					'showAlgebraInput' => '',
+					'useBrowserForJS' => '',
+					'allowRescaling' => '',
+				 );
+	$params = '';
+	foreach ($ggbparams as $paramname => $filter_geogebra_name) {
+		$params .= 
+			'<param name="'.$paramname.'" value="'.
+			(isset($localconfig['$filter_geogebra_name']) ? 
+				($localconfig['$filter_geogebra_name'] ? "true" : "false") :
+				($CFG->$filter_geogebra_name ? "true" : "false")) . '" />;		
+	}
 	return $params;
 }
