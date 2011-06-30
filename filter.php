@@ -240,9 +240,9 @@ function filter_geogebra_build_params($localconfig) {
 	foreach ($ggbparams as $paramname => $filter_geogebra_name) {
 		$params .= 
 			'<param name="'.$paramname.'" value="'.
-			(isset($localconfig['$filter_geogebra_name']) ? 
-				($localconfig['$filter_geogebra_name'] ? "true" : "false") :
-				($CFG->$filter_geogebra_name ? "true" : "false")) . '" />;		
+			(isset($localconfig[$filter_geogebra_name]) ? 
+				($localconfig[$filter_geogebra_name] ? "true" : "false") :
+				($CFG->$filter_geogebra_name ? "true" : "false")) . '" />';		
 	}
 	return $params;
 }
