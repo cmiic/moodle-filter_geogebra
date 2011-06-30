@@ -229,7 +229,7 @@ function filter_geogebra_build_params($localconfig) {
 		<param name="showMenuBar" value="'.
 		(isset($localconfig['filter_geogebra_show_menubar']) ? 
 			($localconfig['filter_geogebra_show_menubar'] ? "true" : "false") :
-			($CFG->filter_geogebra_show_menubar ? "true" : "false")) . '" />'';
+			($CFG->filter_geogebra_show_menubar ? "true" : "false")) . '" />';
 	
 	
 	return $params;
