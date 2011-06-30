@@ -79,7 +79,37 @@ $string['show_toolbarhelp_help'] = 'states whether right clicks should be handle
 $string['show_algebrainput'] = 'Show inputbar';
 $string['show_algebrainput_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
 
+$string['languageheading'] = 'Language';
+$string['languageheading_help'] = 'Language specific options';
+$string['iso_language'] = '	ISO language string';
+$string['iso_language_help'] = 'GeoGebra tries to set your local language 
+	automatically (if it is available among the supported languages, 
+	of course). The default language for unsupported languages is English. If you want 
+	to specify a certain language manually, please use this parameter. (en ... English, 
+	fr ... French, it ... Italian, de ... German, es ... Spanish, sl ... Slovenian, 
+	..., zh ... Chinese';
+$string['iso_country'] = 'ISO country string';
+$string['iso_country_help'] = 'This parameter only makes sense if you use it together with the language parameter. (AT ... Austria)';
 
+$string['miscellaneousheading'] = 'Miscellaneous';
+$string['miscellaneousheading_help'] = 'Miscellaneous options';
+
+$string['error_dialogs'] = 'Display error dialogs';
+$string['error_dialogs_help'] = 'States whether error dialogs will be shown if an invalid input is entered (using the Input Bar or JavaScript) Default: true';
+$string['use_objecttag'] = 'Use object tag instead of applet tag to embed the applet';
+$string['use_objecttag_help'] = 'Maybe useful, if you use a DTD where the applet tag is deprecated or doesn\'t exist anymore - no support yet.';
+$string['embed_id'] = 'HTML id';
+$string['embed_id_help'] = 'The HTML id for the applet or object. By default the name attribute is used with the applet tag';
+$string['embed_class'] = 'HTML class';
+$string['embed_class_help'] = 'The HTML class for the applet or object. None is default, you can specify more than one seperated by a blank.';
+
+$string['javavmheading'] = 'Java VM arguments';
+$string['javavmheading_help'] = 'Java VM arguments - be careful';
+$string['javavm_params'] = 'Java VM parameter';
+//TODO: What is the default here?
+$string['javavm_params_help'] = 'This parameter allows you to specify more memory (in megabytes) for the 
+	GeoGebra applet Works only in Java 6 update 10 or later 
+	(will have no effect in earlier versions), eg. -Xmx256m, Default: -Xmx512m -Djnlp.packEnabled=true';
 
 
 $string['geogebra_use'] = 'Use';
