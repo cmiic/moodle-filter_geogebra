@@ -229,7 +229,11 @@ function filter_geogebra_build_params($localconfig) {
 		<param name="showMenuBar" value="'.
 		(isset($localconfig['filter_geogebra_show_menubar']) ? 
 			($localconfig['filter_geogebra_show_menubar'] ? "true" : "false") :
-			($CFG->filter_geogebra_show_menubar ? "true" : "false")) . '" />';
+			($CFG->filter_geogebra_show_menubar ? "true" : "false")) . '" />
+		<param name="showToolBar" value="'.
+		(isset($localconfig['filter_geogebra_show_toolbar']) ? 
+			($localconfig['filter_geogebra_show_toolbar'] ? "true" : "false") :
+			($CFG->filter_geogebra_show_toolbar ? "true" : "false")) . '" />';
 	
 	
 	return $params;
