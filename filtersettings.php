@@ -38,7 +38,7 @@ if ($ADMIN->fulltree) {
 	//TODO: should we parse html too? not by default because I think it would be a performance problem - but we would have to try it out
 	
 	$settings->add(new admin_setting_heading('filter_geogebra_dimensions', get_string('dimensionsheading', 'filter_geogebra'), get_string('dimensionsheading_help', 'filter_geogebra')));
-	$settings->add(new admin_setting_configtext('filter_geogebra_width', get_string('width','filter_geogebra'), get_string('width_help','filter_geogebra'), "400"));
+	$settings->add(new admin_setting_configtext('filter_geogebra_width', get_string('width','filter_geogebra'), get_string('width_help','filter_geogebra'), "600"));
 	$settings->add(new admin_setting_configtext('filter_geogebra_height', get_string('height','filter_geogebra'), get_string('height_help','filter_geogebra'), "400"));
 	
 	
@@ -59,22 +59,27 @@ if ($ADMIN->fulltree) {
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_show_toolbar', get_string('show_toolbar','filter_geogebra'), get_string('show_toolbar_help','filter_geogebra'), 1));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_show_toolbarhelp', get_string('show_toolbarhelp','filter_geogebra'), get_string('show_toolbarhelp_help','filter_geogebra'), 1));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_show_algebrainput', get_string('show_algebrainput','filter_geogebra'), get_string('show_algebrainput_help','filter_geogebra'), 1));
+	//$settings->add(new admin_setting_configcheckbox('filter_geogebra_show_animationbutton', get_string('show_animationbutton','filter_geogebra'), get_string('show_animationbutton_help','filter_geogebra'), 1));
 	
-	//TODO: sLanguage specific Options
+	
+	//TODO: Language specific Options
 	$settings->add(new admin_setting_heading('filter_geogebra_language', get_string('languageheading', 'filter_geogebra'), get_string('languageheading_help', 'filter_geogebra')));
-	$settings->add(new admin_setting_configcheckbox('filter_geogebra_iso_language', get_string('iso_language','filter_geogebra'), get_string('iso_language_help','filter_geogebra'), 1));
-	$settings->add(new admin_setting_configcheckbox('filter_geogebra_iso_country', get_string('iso_country','filter_geogebra'), get_string('iso_country_help','filter_geogebra'), 1));
+	$settings->add(new admin_setting_configtext('filter_geogebra_iso_language', get_string('iso_language','filter_geogebra'), get_string('iso_language_help','filter_geogebra'), ""));
+	$settings->add(new admin_setting_configtext('filter_geogebra_iso_country', get_string('iso_country','filter_geogebra'), get_string('iso_country_help','filter_geogebra'), ""));
 	
 	//Miscellaneous Options 
 	//TODO: Embed Options (object vs. applet, id and class) 
 	$settings->add(new admin_setting_heading('filter_geogebra_miscellaneous', get_string('miscellaneousheading', 'filter_geogebra'), get_string('miscellaneousheading_help', 'filter_geogebra')));
-	$settings->add(new admin_setting_configcheckbox('filter_geogebra_iso_language', get_string('iso_language','filter_geogebra'), get_string('iso_language_help','filter_geogebra'), 1));
-	$settings->add(new admin_setting_configcheckbox('filter_geogebra_iso_language', get_string('iso_language','filter_geogebra'), get_string('iso_language_help','filter_geogebra'), 1));
-	$settings->add(new admin_setting_configcheckbox('filter_geogebra_iso_language', get_string('iso_language','filter_geogebra'), get_string('iso_language_help','filter_geogebra'), 1));
+	$settings->add(new admin_setting_configcheckbox('filter_geogebra_error_dialogs', get_string('error_dialogs','filter_geogebra'), get_string('error_dialogs_help','filter_geogebra'), 1));
+	//$settings->add(new admin_setting_configcheckbox('filter_geogebra_use_objecttag', get_string('use_objecttag','filter_geogebra'), get_string('use_objecttag_help','filter_geogebra'), 0));
+	$settings->add(new admin_setting_configtext('filter_geogebra_id', get_string('embed_id','filter_geogebra'), get_string('embed_id_help','filter_geogebra'), ""));
+	$settings->add(new admin_setting_configtext('filter_geogebra_class', get_string('embed_class','filter_geogebra'), get_string('embed_class_help','filter_geogebra'), ""));
 	
 	//Java VM Options
-	$settings->add(new admin_setting_heading('filter_geogebra_miscellaneous', get_string('miscellaneousheading', 'filter_geogebra'), get_string('miscellaneousheading_help', 'filter_geogebra')));
-	$settings->add(new admin_setting_configcheckbox('filter_geogebra_iso_language', get_string('iso_language','filter_geogebra'), get_string('iso_language_help','filter_geogebra'), 1));
+	$settings->add(new admin_setting_heading('filter_geogebra_javavm', get_string('javavmheading', 'filter_geogebra'), get_string('javavmheading_help', 'filter_geogebra')));
+	$settings->add(new admin_setting_configtext('filter_geogebra_javavm_params', get_string('javavm_params','filter_geogebra'), get_string('javavm_params_help','filter_geogebra'), ""));
+	
+	//TODO: Should we display a link to download the ggb?
 	
 	
 }
