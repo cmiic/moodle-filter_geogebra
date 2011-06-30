@@ -225,16 +225,16 @@ function filter_geogebra_build_params($localconfig) {
 	$ggbparams = array(
 					'framePossible' => 'filter_geogebra_framepossible',
 					'showResetIcon' => 'filter_geogebra_show_reseticon',
-					'showAnimationButton' => '',
+					//'showAnimationButton' => 'filter_geogebra_show_animationbutton',
 					'enableRightClick' => 'filter_geogebra_enable_rightclick',
-					'errorDialogsActive' => '',
+					'errorDialogsActive' => 'filter_geogebra_error_dialogs',
 					'enableLabelDrags' => 'filter_geogebra_enable_labeldrags',
-					'showMenuBar' => '',
-					'showToolBar' => '',
-					'showToolBarHelp' => '',
-					'showAlgebraInput' => '',
-					'useBrowserForJS' => '',
-					'allowRescaling' => '',
+					'showMenuBar' => 'filter_geogebra_show_menubar',
+					'showToolBar' => 'filter_geogebra_show_toolbar',
+					'showToolBarHelp' => 'filter_geogebra_show_toolbarhelp',
+					'showAlgebraInput' => 'filter_geogebra_show_algebrainput',
+					//'useBrowserForJS' => '',
+					//'allowRescaling' => '',
 				 );
 	$params = '';
 	foreach ($ggbparams as $paramname => $filter_geogebra_name) {
