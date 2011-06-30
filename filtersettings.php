@@ -28,8 +28,11 @@ defined('MOODLE_INTERNAL') || die;
 if ($ADMIN->fulltree) {
 	
 	$settings->add(new admin_setting_heading('filter_geogebra_enable', get_string('enableheading', 'filter_geogebra'), get_string('enableheading_help', 'filter_geogebra')));
-	//By default we will enable the filter for ggb, ggt and geogebratube
-	$settings->add(new admin_setting_configcheckbox('filter_geogebra_enable_geogebratube', get_string('sitegeogebratube','filter_geogebra'), get_string('sitegeogebratube_help','filter_geogebra'), 1));
+	//By default we will enable the filter for ggb, ggt
+	//I think geogebratube is not needed because it provides a embed option
+	//TODO: On the other hand it may be convenient to embed the ggbbase64 if we are on a secure connection 
+	//$settings->add(new admin_setting_configcheckbox('filter_geogebra_enable_geogebratube', get_string('sitegeogebratube','filter_geogebra'), get_string('sitegeogebratube_help','filter_geogebra'), 1));
+	
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_enable_ggb', get_string('ggbfile','filter_geogebra'), get_string('ggbfile_help','filter_geogebra'), 1));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_enable_ggt', get_string('ggtfile','filter_geogebra'), get_string('ggtfile_help','filter_geogebra'), 1));
 	//TODO: should we parse html too? not by default because I think it would be a performance problem - but we would have to try it out
@@ -56,6 +59,12 @@ if ($ADMIN->fulltree) {
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_show_toolbar', get_string('show_toolbar','filter_geogebra'), get_string('show_toolbar_help','filter_geogebra'), 1));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_show_toolbarhelp', get_string('show_toolbarhelp','filter_geogebra'), get_string('show_toolbarhelp_help','filter_geogebra'), 1));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_show_algebrainput', get_string('show_algebrainput','filter_geogebra'), get_string('show_algebrainput_help','filter_geogebra'), 1));
+	
+	//TODO: Language specific Options
+	
+	
+	//TODO: Embed Options (object vs. applet, id and class) 
+	
 	
 }
 

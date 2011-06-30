@@ -87,4 +87,4 @@ $string['geogebra_local'] = 'from this webserver';
 $string['geogebra_external'] = 'from GeoGebra.org';
 $string['geogebra_latest'] = 'latest release from GeoGebra.org';
 
-//TODO: provide Upgrade script for the old Parameters...
+//TODO: provide Upgrade script for the old Parameters... (or advise admins that they have to use the new ones)

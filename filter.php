@@ -225,7 +225,11 @@ function filter_geogebra_build_params($localconfig) {
 		'<param name="enableRightClick" value="'.
 		(isset($localconfig['filter_geogebra_enable_rightclick']) ? 
 			($localconfig['filter_geogebra_enable_rightclick'] ? "true" : "false") :
-			($CFG->filter_geogebra_enable_rightclick ? "true" : "false")) . '" />';
+			($CFG->filter_geogebra_enable_rightclick ? "true" : "false")) . '" />
+		<param name="showMenuBar" value="'.
+		(isset($localconfig['filter_geogebra_show_menubar']) ? 
+			($localconfig['filter_geogebra_show_menubar'] ? "true" : "false") :
+			($CFG->filter_geogebra_show_menubar ? "true" : "false")) . '" />'';
 	
 	
 	return $params;
