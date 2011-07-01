@@ -7,8 +7,11 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
         global $ggbparams;
         $stroff = get_string('off', 'filters');
 	    $stron = get_string('on', 'filters');
-	    $strdefaultoff = get_string('defaultforsite', 'filter_geogebra') . '('.$stroff.')';
-	    $strdefaulton = get_string('defaultforsite', 'filter_geogebra') . '('.$stron.')';
+	    $strdefaultoff = get_string('defaultforsite', 'filter_geogebra') . ' ('.$stroff.')';
+	    $strdefaulton = get_string('defaultforsite', 'filter_geogebra') . ' ('.$stron.')';
+	    foreach ($ggbparams as $value) {
+	    	echo $value;
+	    }
 	    $choices = array((($CFG->filter_geogebra_enable_rightclick === "true")? $strdefaulton : $strdefaultoff) , 'true' => $stron, 'false' => $stroff);
 	    echo $stroff;
 	    echo $stron;
