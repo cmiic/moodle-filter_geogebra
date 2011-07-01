@@ -2,7 +2,7 @@
 class geogebra_filter_local_settings_form extends filter_local_settings_form {
 	protected function definition_inner($mform) {
         global $CFG;
-		
+		global $ggbparams;
         $stroff = get_string('off', 'filters');
 	    $stron = get_string('on', 'filters');
 	    $strdefaultoff = get_string('defaultx', 'filters', $stroff);
