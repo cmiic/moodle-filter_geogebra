@@ -266,7 +266,8 @@ function filter_geogebra_parse_alternatives($url, $defaultwidth, $defaultheight)
 //TODO: Rest of the params
 function filter_geogebra_build_params($localconfig) {
 	global $CFG;
-	//http://www.geogebra.org/en/wiki/index.php/GeoGebra_Applet_Parameters
+	global $ggbparams;
+	
 	
 	$params = '';
 	if (isset($localconfig['filter_geogebra_show_button'])){
@@ -286,6 +287,8 @@ function filter_geogebra_build_params($localconfig) {
 
 function filter_geogebra_get_params_helper($localconfig) {
 	global $CFG;
+	global $ggbparams;
+	
 	$params = '';
 	foreach ($ggbparams as $paramname => $filter_geogebra_name) {
 		if ($CFG->$filter_geogebra_name != "") {

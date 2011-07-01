@@ -1,4 +1,5 @@
 <?php
+//http://www.geogebra.org/en/wiki/index.php/GeoGebra_Applet_Parameters
 $ggbparams = array(
 		'framePossible' => 'filter_geogebra_framepossible',
 		'showResetIcon' => 'filter_geogebra_show_reseticon',
