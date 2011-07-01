@@ -101,6 +101,9 @@ $string['use_browserforjs'] = 'Use Browser for JS';
 $string['use_browserforjs_help'] = 'Use the Browser for JS - only GeoGebra 4 and newer. Default: false';
 $string['allow_rescaling'] = 'Allow the applet to rescale the Graphics View';
 $string['allow_rescaling_help'] = 'Determines whether the applet will attempt to rescale the Graphics View when the applet is loaded or the size is changed (eg Zooming in the browser). Disabled if the Spreadsheet or Algebra View are showing. Default: false';
+$string['on_initparam'] = 'Argument passed to the JavaScript function ggbOnInit()';
+$string['on_initparam_help'] = 'This parameter allows you to specify the argument passed to the JavaScript function ggbOnInit(), which is called once the applet is fully initialised. This is useful when you have multiple applets on a page - see http://www.geogebra.org/source/program/applet/geogebra_applet_java2java.htm
+(will have no effect in earlier versions)';
 $string['use_objecttag'] = 'Use object tag instead of applet tag to embed the applet';
 $string['use_objecttag_help'] = 'Maybe useful, if you use a DTD where the applet tag is deprecated or doesn\'t exist anymore - no support yet.';
 $string['embed_id'] = 'HTML id';

@@ -235,6 +235,8 @@ function filter_geogebra_build_params($localconfig) {
 		'allowRescaling' => 'filter_geogebra_allow_rescaling',
 		'language' => 'filter_geogebra_iso_language',
 		'country' => 'filter_geogebra_iso_country',
+		'ggbOnInitParam' => 'filter_geogebra_on_initparam',
+		'java_arguments' => 'filter_geogebra_javavm_params'
 	);
 	$params = '';
 	foreach ($ggbparams as $paramname => $filter_geogebra_name) {

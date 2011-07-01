@@ -73,6 +73,7 @@ if ($ADMIN->fulltree) {
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_error_dialogs', get_string('error_dialogs','filter_geogebra'), get_string('error_dialogs_help','filter_geogebra'), 1));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_use_browserforjs', get_string('use_browserforjs','filter_geogebra'), get_string('use_browserforjs_help','filter_geogebra'), 0));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_allow_rescaling', get_string('allow_rescaling','filter_geogebra'), get_string('allow_rescaling_help','filter_geogebra'), 0));
+	$settings->add(new admin_setting_configcheckbox('filter_geogebra_on_initparam', get_string('on_initparam','filter_geogebra'), get_string('on_initparam_help','filter_geogebra'), 0));
 	//$settings->add(new admin_setting_configcheckbox('filter_geogebra_use_objecttag', get_string('use_objecttag','filter_geogebra'), get_string('use_objecttag_help','filter_geogebra'), 0));
 	$settings->add(new admin_setting_configtext('filter_geogebra_id', get_string('embed_id','filter_geogebra'), get_string('embed_id_help','filter_geogebra'), ""));
 	$settings->add(new admin_setting_configtext('filter_geogebra_class', get_string('embed_class','filter_geogebra'), get_string('embed_class_help','filter_geogebra'), "", PARAM_RAW, 50));
