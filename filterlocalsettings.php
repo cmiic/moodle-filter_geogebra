@@ -18,7 +18,6 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
 	    echo TEXTFILTER_INHERIT;
 	    echo TEXTFILTER_OFF;
 	    echo TEXTFILTER_ON;
-	    print_r($ggbparams);
 	    print_r(filter_get_local_config('filter/geogebra',$this->context->id));
 	    print_r(get_context_instance(CONTEXT_SYSTEM));
 	    print_r(filter_get_local_config('filter/geogebra',14));
