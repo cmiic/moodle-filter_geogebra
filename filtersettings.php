@@ -62,7 +62,7 @@ if ($ADMIN->fulltree) {
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_show_animationbutton', get_string('show_animationbutton','filter_geogebra'), get_string('show_animationbutton_help','filter_geogebra'), 'false', 'true', 'false'));
 	
 	
-	//TODO: Language specific Options
+	//Language specific Options
 	$settings->add(new admin_setting_heading('filter_geogebra_language', get_string('languageheading', 'filter_geogebra'), get_string('languageheading_help', 'filter_geogebra')));
 	$settings->add(new admin_setting_configtext('filter_geogebra_iso_language', get_string('iso_language','filter_geogebra'), get_string('iso_language_help','filter_geogebra'), "", PARAM_RAW, 2));
 	$settings->add(new admin_setting_configtext('filter_geogebra_iso_country', get_string('iso_country','filter_geogebra'), get_string('iso_country_help','filter_geogebra'), "", PARAM_RAW, 5));
