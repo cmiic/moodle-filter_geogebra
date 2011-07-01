@@ -246,6 +246,7 @@ function filter_geogebra_build_params($localconfig) {
 					$params .= $localconfig[$filter_geogebra_name];
 				}
 			} else {
+				echo gettype($paramname);
 				if ($CFG->$filter_geogebra_name === true) {
 					$params .= 'true';
 				} else if ($CFG->$filter_geogebra_name === false) {
