@@ -46,6 +46,8 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
 //        $select = &$mform->addElement('select', 'filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), array('inherit'=>'Default', 'true'=>'On', 'false'=>'Off'));
 //       	$select->setSelected('Default');
         $mform->addElement('checkbox', 'filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), get_string('enable_rightclick_help','filter_geogebra'), array('group' => 1),array("true", "false"));
+        $mform->addElement('checkbox', 'filter_geogebra_inherit', "Inherit");
+        $mform->disabledIf('filter_geogebra_enable_rightclick', 'filter_geogebra_inherit', 'checked');
         $mform->addElement('checkbox', 'filter_geogebra_enable_labeldrags', get_string('enable_labeldrags','filter_geogebra'));
         $mform->addElement('checkbox', 'filter_geogebra_show_reseticon', get_string('show_reseticon','filter_geogebra'));
         $mform->addElement('checkbox', 'filter_geogebra_framepossible', get_string('framepossible','filter_geogebra'));
