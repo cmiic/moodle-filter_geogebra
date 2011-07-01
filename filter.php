@@ -309,11 +309,6 @@ function filter_geogebra_get_params_helper($ggbparams, $localconfig) {
 		if ($CFG->$filter_geogebra_name != "") {
 			$params .= '<param name="'.$paramname.'" value="';
 			if (isset($localconfig[$filter_geogebra_name])){ 
-				if ($localconfig[$filter_geogebra_name] === "1") {
-					$params .= 'true';
-				} else if ($localconfig[$filter_geogebra_name] === "0") {
-					$params .= 'false';
-				} else {
 					$params .= $localconfig[$filter_geogebra_name];
 				}
 			} else {

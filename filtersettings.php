@@ -48,7 +48,7 @@ if ($ADMIN->fulltree) {
 	
 	//Functionality
 	$settings->add(new admin_setting_heading('filter_geogebra_functionality', get_string('functionalityheading', 'filter_geogebra'), get_string('functionalityheading_help', 'filter_geogebra')));
-	$settings->add(new admin_setting_configcheckbox('filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), get_string('enable_rightclick_help','filter_geogebra'), 1));
+	$settings->add(new admin_setting_configcheckbox('filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), get_string('enable_rightclick_help','filter_geogebra'), 'true', 'true', 'false'));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_enable_labeldrags', get_string('enable_labeldrags','filter_geogebra'), get_string('enable_labeldrags_help','filter_geogebra'), 1));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_show_reseticon', get_string('show_reseticon','filter_geogebra'), get_string('show_reseticon_help','filter_geogebra'), 1));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_framepossible', get_string('framepossible','filter_geogebra'), get_string('framepossible_help','filter_geogebra'), 1));
