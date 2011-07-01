@@ -15,6 +15,13 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
 	    echo $stroff;
 	    echo $stron;
 	    echo TEXTFILTER_INHERIT;
+	    echo TEXTFILTER_OFF;
+	    echo TEXTFILTER_ON;
+//		if ($filterinfo->inheritedstate == TEXTFILTER_ON) {
+//            $activechoices[TEXTFILTER_INHERIT] = $strdefaulton;
+//        } else {
+//            $activechoices[TEXTFILTER_INHERIT] = $strdefaultoff;
+//        }
 	    $mform->addElement('header', 'filter_geogebra_dimensions', get_string('dimensionsheading', 'filter_geogebra'));
     	$mform->addElement('text', 'filter_geogebra_width', get_string('width', 'filter_geogebra'), array('size' => 20));
         $mform->setType('filter_geogebra_width', PARAM_INT);
