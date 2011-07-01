@@ -287,7 +287,8 @@ function filter_geogebra_build_params($localconfig) {
 	);
 	$params = '';
 	foreach ($ggbparams as $paramname => $filter_geogebra_name) {
-		$params .= '<param name="'.$paramname.'" value="';
+		if ($CFG->$filter_geogebra_name != "") {
+			$params .= '<param name="'.$paramname.'" value="';
 			if (isset($localconfig[$filter_geogebra_name])){ 
 				if ($localconfig[$filter_geogebra_name] === "1") {
 					$params .= 'true';
@@ -305,7 +306,8 @@ function filter_geogebra_build_params($localconfig) {
 					$params .= $CFG->$filter_geogebra_name;
 				}
 			}
-		$params .= '" />';		
+			$params .= '" />';	
+		}	
 	}
 	return $params;
 }
