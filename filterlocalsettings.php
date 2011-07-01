@@ -32,20 +32,14 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
 //	    $select = &$mform->addElement('select', 'filter_geogebra_inherit', get_string('geogebra_inherit','filter_geogebra'), array('inherit'=>'Default', 'true'=>'On', 'false'=>'Off'));
 //       	$select->setSelected('Default');
 //	    $mform->addElement('html', '</div>');
-       	$mform->addElement('checkbox', 'filter_geogebra_inherit', "Inherit from site configugation",array(),array("true", "false"));
-        $mform->disabledIf('filter_geogebra_width', 'filter_geogebra_inherit','checked');
-	    $mform->disabledIf('filter_geogebra_height', 'filter_geogebra_inherit','checked');
-	    $mform->disabledIf('filter_geogebra_enable_rightclick', 'filter_geogebra_inherit','checked');
-	    $mform->disabledIf('filter_geogebra_enable_labeldrags', 'filter_geogebra_inherit','checked');
 	    
 	    $mform->addElement('header', 'filter_geogebra_dimensions', get_string('dimensionsheading', 'filter_geogebra'));
-	    
     	$mform->addElement('text', 'filter_geogebra_width', get_string('width', 'filter_geogebra'), array('size' => 20));
         $mform->setType('filter_geogebra_width', PARAM_RAW);
         $mform->addElement('text', 'filter_geogebra_height', get_string('height', 'filter_geogebra'), array('size' => 20));
         $mform->setType('filter_geogebra_height', PARAM_RAW);
         $mform->closeHeaderBefore('filter_geogebra_functionality');
-        echo $CFG->filter_geogebra_enable_rightclick;
+        
         $mform->addElement('header', 'filter_geogebra_functionality', get_string('functionalityheading', 'filter_geogebra'));
         $select = &$mform->addElement('select', 'filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), array(''=>'Default for site', 'true'=>'On', 'false'=>'Off'));
        	$select->setSelected('Default');
