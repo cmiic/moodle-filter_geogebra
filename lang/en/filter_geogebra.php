@@ -32,6 +32,7 @@ See filter documentation on how to change the width and height in individual res
 
 $string['filtername'] = 'GeoGebra Filter';
 
+//TODO: Match the defaults in _help with real defaults for this Filter
 
 $string['enableheading'] = 'Enable Filter';
 $string['enableheading_help'] = 'Select for which Links the filter should be enabled.';

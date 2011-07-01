@@ -24,13 +24,14 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
         $mform->setType('filter_geogebra_width', PARAM_RAW);
         $mform->addElement('text', 'filter_geogebra_height', get_string('height', 'filter_geogebra'), array('size' => 20));
         $mform->setType('filter_geogebra_height', PARAM_RAW);
-        $mform->closeHeaderBefore('filter_geogebra_functionality');
+        //$mform->closeHeaderBefore('filter_geogebra_functionality');
         
         $mform->addElement('header', 'filter_geogebra_functionality', get_string('functionalityheading', 'filter_geogebra'));
+        
         $mform->addElement('select', 'filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), $choices['filter_geogebra_enable_rightclick']);
-       		//$select->setSelected('Default');
        	$mform->addHelpButton('filter_geogebra_enable_rightclick', 'enable_rightclick', 'filter_geogebra');
-        $mform->addElement('checkbox', 'filter_geogebra_enable_labeldrags', get_string('enable_labeldrags','filter_geogebra'));
+        
+       	$mform->addElement('checkbox', 'filter_geogebra_enable_labeldrags', get_string('enable_labeldrags','filter_geogebra'));
         $mform->addElement('checkbox', 'filter_geogebra_show_reseticon', get_string('show_reseticon','filter_geogebra'));
         $mform->addElement('checkbox', 'filter_geogebra_framepossible', get_string('framepossible','filter_geogebra'));
         $mform->closeHeaderBefore('filter_geogebra_interface');
