@@ -288,7 +288,7 @@ function filter_geogebra_build_params($localconfig) {
 function filter_geogebra_get_params_helper($localconfig) {
 	global $CFG;
 	global $ggbparams;
-	
+	print_r($ggbparams);
 	$params = '';
 	foreach ($ggbparams as $paramname => $filter_geogebra_name) {
 		if ($CFG->$filter_geogebra_name != "") {
