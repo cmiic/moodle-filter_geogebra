@@ -12,7 +12,7 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
 	    foreach ($ggbparams as $value) {
 	    	echo $value;
 	    }
-	    $choices = array((($CFG->filter_geogebra_enable_rightclick === "true")? $strdefaulton : $strdefaultoff) , 'true' => $stron, 'false' => $stroff);
+	    $choices = array(''=>(($CFG->filter_geogebra_enable_rightclick === "true")? $strdefaulton : $strdefaultoff) , 'true' => $stron, 'false' => $stroff);
 	    echo $stroff;
 	    echo $stron;
 	    echo TEXTFILTER_INHERIT;
