@@ -311,13 +311,7 @@ function filter_geogebra_get_params_helper($ggbparams, $localconfig) {
 			if (isset($localconfig[$filter_geogebra_name])){ 
 					$params .= $localconfig[$filter_geogebra_name];
 			} else {
-				if ($CFG->$filter_geogebra_name === "1") {
-					$params .= 'true';
-				} else if ($CFG->$filter_geogebra_name === "0") {
-					$params .= 'false';
-				} else {
-					$params .= $CFG->$filter_geogebra_name;
-				}
+				$params .= $CFG->$filter_geogebra_name;
 			}
 			$params .= '" />';
 		}
