@@ -263,7 +263,7 @@ function filter_geogebra_parse_alternatives($url, $defaultwidth, $defaultheight)
     return array($returnurls, $width, $height);
 }
 
-//TODO: Rest of the params
+//TODO: Rest of the params (eg mayscript)
 function filter_geogebra_build_params($localconfig) {
 	global $CFG;
 	
@@ -290,7 +290,7 @@ function filter_geogebra_get_params_helper($localconfig) {
 	
 	$params = '';
 	foreach ($ggbparams as $paramname => $filter_geogebra_name) {
-		if ($CFG->$filter_geogebra_name != "") {
+		if ($CFG->$filter_geogebra_name != "" || isset($localconfig[$filter_geogebra_name])) {
 			$params .= '<param name="'.$paramname.'" value="';
 			if (isset($localconfig[$filter_geogebra_name])){ 
 					$params .= $localconfig[$filter_geogebra_name];
