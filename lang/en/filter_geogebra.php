@@ -46,15 +46,12 @@ $string['ggbfile'] = 'Links to GeoGebra Files';
 $string['ggbfile'] = 'Links to GeoGebra Files';
 
 $string['dimensionsheading'] = 'Dimensions';
-$string['dimensionsheading_help'] = 'The default dimensions for the applet here. The Dimensions can also be configured in the context of a course (context of a ressource or activity doesn\'t work yet - but soon)';
+$string['dimensionsheading_help'] = 'The default dimensions for the applet.';
+$string['localdimensheading_help'] = 'Width and Height of applets in px, if empty the default for the site is being used.';
 $string['width'] = 'Width';
 $string['height'] = 'Height';
 $string['width_help'] = 'Default width of applets in px';
 $string['height_help'] = 'Default height of applets in px';
-
-$string['setting_on'] = 'On';
-$string['setting_off'] = 'Off';
-$string['setting_default'] = 
 
 $string['jarheading'] = 'GeoGebra jar-file';
 $string['jarheading_help'] = 'Set the URL to the geogebra.jar. Do not change unless you know what you\'re doing';

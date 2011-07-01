@@ -24,8 +24,8 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
         $mform->setType('filter_geogebra_width', PARAM_RAW);
         $mform->addElement('text', 'filter_geogebra_height', get_string('height', 'filter_geogebra'), array('size' => 20));
         $mform->setType('filter_geogebra_height', PARAM_RAW);
-        //$mform->closeHeaderBefore('filter_geogebra_functionality');
-        
+
+        //Functionality
         $mform->addElement('header', 'filter_geogebra_functionality', get_string('functionalityheading', 'filter_geogebra'));
         
         $mform->addElement('select', 'filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), $choices['filter_geogebra_enable_rightclick']);
