@@ -200,16 +200,16 @@ class filter_geogebra extends moodle_text_filter {
 		
 		$applet = new html_element($tag);
 		
-		$applet.set('id',$applet_id);
+		$applet->set('id',$applet_id);
 		if ($tag == 'applet') {
-			$applet.set('name',$applet_id);
+			$applet->set('name',$applet_id);
 		}
-		$applet.set('code', 'geogebra.GeoGebraApplet');
-		$applet.set('archive', $CFG->filter_geogebra_urljar);
-		$applet.set('codebase','./');
-		$applet.set('width',$width);
-		$applet.set('height',$height);
-		$applet.set('text','<param name="filename"  value="'.$urls[0].'"/>'.$this->params_html);
+		$applet->set('code', 'geogebra.GeoGebraApplet');
+		$applet->set('archive', $CFG->filter_geogebra_urljar);
+		$applet->set('codebase','./');
+		$applet->set('width',$width);
+		$applet->set('height',$height);
+		$applet->set('text','<param name="filename"  value="'.$urls[0].'"/>'.$this->params_html);
 		
 		return $applet->output();
 	}
