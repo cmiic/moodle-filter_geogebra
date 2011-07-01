@@ -233,6 +233,8 @@ function filter_geogebra_build_params($localconfig) {
 		'showAlgebraInput' => 'filter_geogebra_show_algebrainput',
 		'useBrowserForJS' => 'filter_geogebra_use_browserforjs',
 		'allowRescaling' => 'filter_geogebra_allow_rescaling',
+		'language' => 'filter_geogebra_iso_language',
+		'country' => 'filter_geogebra_iso_country',
 	);
 	$params = '';
 	foreach ($ggbparams as $paramname => $filter_geogebra_name) {
