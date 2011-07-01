@@ -29,7 +29,7 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
 
 	    $mform->addElement('header', 'filter_geogebra_inherit_settings', get_string('inherit_settings_heading', 'filter_geogebra'));
 	    $mform->addElement('html', '<div id="filter_geogebra_inherit">');
-	    $select = &$mform->addElement('select', 'filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), array('inherit'=>'Default', 'true'=>'On', 'false'=>'Off'));
+	    $select = &$mform->addElement('select', 'filter_geogebra_inherit', get_string('geogebra_inherit','filter_geogebra'), array('inherit'=>'Default', 'true'=>'On', 'false'=>'Off'));
        	$select->setSelected('Default');
 	    $mform->addElement('html', '</div>');
        	
