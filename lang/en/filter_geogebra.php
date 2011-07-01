@@ -125,6 +125,8 @@ $string['javavm_params_help'] = 'This parameter allows you to specify more memor
 	(will have no effect in earlier versions), eg. -Xmx256m, Default: -Xmx512m -Djnlp.packEnabled=true';
 
 
+$string['defaultforsite'] = 'Default for Site';
+
 $string['geogebra_use'] = 'Use';
 $string['geogebra_local'] = 'from this webserver';
 $string['geogebra_external'] = 'from GeoGebra.org';
