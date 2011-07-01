@@ -26,7 +26,16 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
 //        } else {
 //            $activechoices[TEXTFILTER_INHERIT] = $strdefaultoff;
 //        }
+
+	    $mform->addElement('header', 'filter_geogebra_inherit_settings', get_string('inherit_settings_heading', 'filter_geogebra'));
+	    $mform->addElement('html', '<div id="filter_geogebra_inherit">');
+	    $select = &$mform->addElement('select', 'filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), array('inherit'=>'Default', 'true'=>'On', 'false'=>'Off'));
+       	$select->setSelected('Default');
+	    $mform->addElement('html', '</div>');
+       	
+	    
 	    $mform->addElement('header', 'filter_geogebra_dimensions', get_string('dimensionsheading', 'filter_geogebra'));
+	    
     	$mform->addElement('text', 'filter_geogebra_width', get_string('width', 'filter_geogebra'), array('size' => 20));
         $mform->setType('filter_geogebra_width', PARAM_INT);
         $mform->addElement('text', 'filter_geogebra_height', get_string('height', 'filter_geogebra'), array('size' => 20));
@@ -34,9 +43,9 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
         $mform->closeHeaderBefore('filter_geogebra_functionality');
         echo $CFG->filter_geogebra_enable_rightclick;
         $mform->addElement('header', 'filter_geogebra_functionality', get_string('functionalityheading', 'filter_geogebra'));
-        $select = &$mform->addElement('select', 'filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), array(TEXTFILTER_INHERIT=>'Default', 'true'=>'On', 'false'=>'Off'));
-       	$select->setSelected('Default');
-        //$mform->addElement('checkbox', 'filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'));
+//        $select = &$mform->addElement('select', 'filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), array('inherit'=>'Default', 'true'=>'On', 'false'=>'Off'));
+//       	$select->setSelected('Default');
+        $mform->addElement('checkbox', 'filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), get_string('enable_rightclick_help','filter_geogebra'), array('group' => 1),array("true", "false"));
         $mform->addElement('checkbox', 'filter_geogebra_enable_labeldrags', get_string('enable_labeldrags','filter_geogebra'));
         $mform->addElement('checkbox', 'filter_geogebra_show_reseticon', get_string('show_reseticon','filter_geogebra'));
         $mform->addElement('checkbox', 'filter_geogebra_framepossible', get_string('framepossible','filter_geogebra'));
