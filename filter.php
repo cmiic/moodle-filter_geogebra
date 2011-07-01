@@ -49,10 +49,6 @@ class filter_geogebra extends moodle_text_filter {
 	protected $params_html;
 	protected $defaultheight;
 	protected $defaultwidth;
-//	protected $defaultid;
-//	protected $defaultclass;
-//	protected $useobject;
-	
 	
 	//TODO: jar autoupdate skript (perhaps moodle cron?)
 	
@@ -80,12 +76,7 @@ class filter_geogebra extends moodle_text_filter {
         	return $text;
         }
         $newtext = $text; // we need to return the original value if regex fails!
-        
-
-        print_r($this->localconfig);
-//        print_r($this);
-//        print_r($CFG); //Never do this!!!
-        
+                
 		//Get width and height can be overruled by urlparams
 		if (isset($this->localconfig['filter_geogebra_width'])) {
     		$this->defaultwidth = $this->localconfig['filter_geogebra_width'];
@@ -119,16 +110,6 @@ class filter_geogebra extends moodle_text_filter {
         	$newtext = preg_replace_callback($search, array( &$this, 'filter_geogebra_callback'), $newtext); 
         }
         
-///===========================
-/// old stuff, TODO:delete when finished
-//		foreach($params as $param)
-//		{		
-//			if(strpos($param, '=') !== false) {
-//				$values = explode('=', $param);
-//				$params_html .= '<param name="'.$values[0].'" value="'.str_replace("\n", '', $values[1]).'" />';
-//			}
-//		}
-
         if (empty($newtext) or $newtext === $text) {
             // error or not filtered
             unset($newtext);
@@ -158,7 +139,6 @@ class filter_geogebra extends moodle_text_filter {
 		//TODO: Test weather this is too time consuming
 //		$handle = fopen($urls[0], "rb");
 //		$ggbbinary = stream_get_contents($handle);
-		echo $urls[0];
 //		fclose($handle);
 //		$ggbBase64 = base64_encode(file_get_contents($urls[0]));
 		
