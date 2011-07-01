@@ -33,18 +33,18 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
         $mform->addElement('select', 'filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), $choices['filter_geogebra_enable_rightclick']);
        	$mform->addHelpButton('filter_geogebra_enable_rightclick', 'enable_rightclick', 'filter_geogebra');
         
-       	$mform->addElement('checkbox', 'filter_geogebra_enable_labeldrags', get_string('enable_labeldrags','filter_geogebra'), $choices['filter_geogebra_enable_labeldrags']);
+       	$mform->addElement('select', 'filter_geogebra_enable_labeldrags', get_string('enable_labeldrags','filter_geogebra'), $choices['filter_geogebra_enable_labeldrags']);
        	$mform->addHelpButton('filter_geogebra_enable_labeldrags', 'enable_labeldrags', 'filter_geogebra');
        	
-        $mform->addElement('checkbox', 'filter_geogebra_show_reseticon', get_string('show_reseticon','filter_geogebra'));
-        $mform->addElement('checkbox', 'filter_geogebra_framepossible', get_string('framepossible','filter_geogebra'));
+        $mform->addElement('select', 'filter_geogebra_show_reseticon', get_string('show_reseticon','filter_geogebra'));
+        $mform->addElement('select', 'filter_geogebra_framepossible', get_string('framepossible','filter_geogebra'));
         $mform->closeHeaderBefore('filter_geogebra_interface');
         
         $mform->addElement('header', 'filter_geogebra_interface', get_string('interfaceheading', 'filter_geogebra'));
-        $mform->addElement('checkbox', 'filter_geogebra_show_menubar', get_string('show_menubar','filter_geogebra'));
-        $mform->addElement('checkbox', 'filter_geogebra_show_toolbar', get_string('show_toolbar','filter_geogebra'));
-        $mform->addElement('checkbox', 'filter_geogebra_show_toolbarhelp', get_string('show_toolbarhelp','filter_geogebra'));
-        $mform->addElement('checkbox', 'filter_geogebra_show_algebrainput', get_string('show_algebrainput','filter_geogebra'));
+        $mform->addElement('select', 'filter_geogebra_show_menubar', get_string('show_menubar','filter_geogebra'));
+        $mform->addElement('select', 'filter_geogebra_show_toolbar', get_string('show_toolbar','filter_geogebra'));
+        $mform->addElement('select', 'filter_geogebra_show_toolbarhelp', get_string('show_toolbarhelp','filter_geogebra'));
+        $mform->addElement('select', 'filter_geogebra_show_algebrainput', get_string('show_algebrainput','filter_geogebra'));
                 
     }
 }
