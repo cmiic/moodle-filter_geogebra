@@ -107,6 +107,8 @@ $string['allow_rescaling_help'] = 'Determines whether the applet will attempt to
 $string['on_initparam'] = 'Argument passed to the JavaScript function ggbOnInit()';
 $string['on_initparam_help'] = 'This parameter allows you to specify the argument passed to the JavaScript function ggbOnInit(), which is called once the applet is fully initialised. This is useful when you have multiple applets on a page - see http://www.geogebra.org/source/program/applet/geogebra_applet_java2java.htm
 (will have no effect in earlier versions)';
+$string['show_button'] = 'Show button to open Application';
+$string['show_button_help'] = 'If you use this parameter the applet will ONLY show a button to open the GeoGebra application frame (all other options are useless then)';
 $string['use_objecttag'] = 'Use object tag instead of applet tag to embed the applet';
 $string['use_objecttag_help'] = 'Maybe useful, if you use a DTD where the applet tag is deprecated or doesn\'t exist anymore - no support yet.';
 $string['embed_id'] = 'HTML id';

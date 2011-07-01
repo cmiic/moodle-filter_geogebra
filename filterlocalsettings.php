@@ -16,8 +16,14 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
 	    	$choices[$value] = array(
 	    		''=>(($CFG->$value === "true")? $strdefaulton : $strdefaultoff) , 
 	    		'true' => $stron, 
-	    		'false' => $stroff);
+	    		'false' => $stroff
+	    	);
 	    }
+	    $choices['filter_geogebra_use_objecttag'] = array(
+    		''=>(($CFG->filter_geogebra_use_objecttag === "true")? $strdefaulton : $strdefaultoff) , 
+    		'true' => $stron, 
+    		'false' => $stroff
+	    );
 	    
 		 
 	    $mform->addElement('header', 'filter_geogebra_dimensions', get_string('dimensionsheading', 'filter_geogebra'));
