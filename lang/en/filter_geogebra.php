@@ -47,6 +47,7 @@ $string['ggbfile'] = 'Links to GeoGebra Files';
 
 $string['dimensionsheading'] = 'Dimensions';
 $string['dimensionsheading_help'] = 'The default dimensions for the applet.';
+$string['localdimensheading'] = 'Dimensions';
 $string['localdimensheading_help'] = 'Width and Height of applets in px, if empty the default for the site is being used.';
 $string['width'] = 'Width';
 $string['height'] = 'Height';
