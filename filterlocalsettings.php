@@ -18,7 +18,7 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
 	    echo TEXTFILTER_OFF;
 	    echo TEXTFILTER_ON;
 	    print_r($this->context);
-	    print_r(filter_get_local_config('filter_geogebra',$this->context->id));
+	    print_r(filter_get_local_config('filter/geogebra',$this->context->id));
 //		if ($filterinfo->inheritedstate == TEXTFILTER_ON) {
 //            $activechoices[TEXTFILTER_INHERIT] = $strdefaulton;
 //        } else {
