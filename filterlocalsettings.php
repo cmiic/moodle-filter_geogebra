@@ -1,4 +1,6 @@
 <?php
+require_once('ggbparamslib.php');
+
 class geogebra_filter_local_settings_form extends filter_local_settings_form {
 	protected function definition_inner($mform) {
         global $CFG;
