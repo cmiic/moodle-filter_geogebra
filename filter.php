@@ -275,12 +275,12 @@ function filter_geogebra_build_params($localconfig) {
 		if ($localconfig['filter_geogebra_show_button'] === "1") {
 			$params .= '<param name="type" value="button" />';
 		} else if ($localconfig['filter_geogebra_show_button'] === "0") {
-			$params .= filter_geogebra_get_params_helper($ggbparams, $localconfig);
+			$params .= filter_geogebra_get_params_helper($localconfig);
 		} 
 	} else if ($CFG->filter_geogebra_show_button === "1") {
 		$params .= '<param name="type" value="button" />';
 	} else {
-		$params .= filter_geogebra_get_params_helper($ggbparams, $localconfig);
+		$params .= filter_geogebra_get_params_helper($localconfig);
 	}
 	
 	return $params;
