@@ -291,18 +291,18 @@ function filter_geogebra_build_params($localconfig) {
 		if ($localconfig['filter_geogebra_show_button'] === "1") {
 			$params .= '<param name="type" value="button" />';
 		} else if ($localconfig['filter_geogebra_show_button'] === "0") {
-			$params .= filter_geogebra_get_params_string($ggbparams, $localconfig);
+			$params .= filter_geogebra_get_params_helper($ggbparams, $localconfig);
 		} 
 	} else if ($CFG->filter_geogebra_show_button === "1") {
 		$params .= '<param name="type" value="button" />';
 	} else {
-		$params .= filter_geogebra_get_params_string($ggbparams, $localconfig);
+		$params .= filter_geogebra_get_params_helper($ggbparams, $localconfig);
 	}
 	
 	return $params;
 }
 
-function filter_geogebra_get_params_string($ggbparams, $localconfig) {
+function filter_geogebra_get_params_helper($ggbparams, $localconfig) {
 	global $CFG;
 	$params = '';
 	foreach ($ggbparams as $paramname => $filter_geogebra_name) {
