@@ -236,11 +236,25 @@ function filter_geogebra_build_params($localconfig) {
 	);
 	$params = '';
 	foreach ($ggbparams as $paramname => $filter_geogebra_name) {
-		$params .= 
-			'<param name="'.$paramname.'" value="'.
-			(isset($localconfig[$filter_geogebra_name]) ? 
-				($localconfig[$filter_geogebra_name] ? "true" : "false") :
-				($CFG->$filter_geogebra_name ? "true" : "false")) . '" />';		
+		$params .= '<param name="'.$paramname.'" value="';
+			if (isset($localconfig[$filter_geogebra_name])){ 
+				if ($localconfig[$filter_geogebra_name] === 1) {
+					$params .= 'true';
+				} else if ($localconfig[$filter_geogebra_name] === 0) {
+					$params .= 'false';
+				} else {
+					$params .= $localconfig[$filter_geogebra_name];
+				}
+			} else {
+				if ($CFG->$filter_geogebra_name === 1) {
+					$params .= 'true';
+				} else if ($CFG->$filter_geogebra_name === 0) {
+					$params .= 'false';
+				} else {
+					$params .= $CFG->$filter_geogebra_name;
+				}
+			}
+		$params .= '" />';		
 	}
 	return $params;
 }
