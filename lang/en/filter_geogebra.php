@@ -81,15 +81,15 @@ $string['show_algebrainput_help'] = 'states whether right clicks should be handl
 
 $string['languageheading'] = 'Language';
 $string['languageheading_help'] = 'Language specific options';
-$string['iso_language'] = '	ISO language string';
+$string['iso_language'] = 'Two-letter ISO  language code';
 $string['iso_language_help'] = 'GeoGebra tries to set your local language 
 	automatically (if it is available among the supported languages, 
 	of course). The default language for unsupported languages is English. If you want 
 	to specify a certain language manually, please use this parameter. (en ... English, 
 	fr ... French, it ... Italian, de ... German, es ... Spanish, sl ... Slovenian, 
-	..., zh ... Chinese';
+	..., zh ... Chinese), Refer to ISO 639-1 for more language codes';
 $string['iso_country'] = 'ISO country string';
-$string['iso_country_help'] = 'This parameter only makes sense if you use it together with the language parameter. (AT ... Austria)';
+$string['iso_country_help'] = 'This parameter only makes sense if you use it together with the language parameter. (AT ... Austria) Refer to ISO 3166 for more language codes';
 
 $string['miscellaneousheading'] = 'Miscellaneous';
 $string['miscellaneousheading_help'] = 'Miscellaneous options';
