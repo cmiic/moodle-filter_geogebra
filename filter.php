@@ -303,6 +303,7 @@ function filter_geogebra_build_params($localconfig) {
 }
 
 function filter_geogebra_get_params_string($ggbparams, $localconfig) {
+	global $CFG;
 	$params = '';
 	foreach ($ggbparams as $paramname => $filter_geogebra_name) {
 		if ($CFG->$filter_geogebra_name != "") {
