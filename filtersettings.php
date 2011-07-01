@@ -74,7 +74,7 @@ if ($ADMIN->fulltree) {
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_use_browserforjs', get_string('use_browserforjs','filter_geogebra'), get_string('use_browserforjs_help','filter_geogebra'), 'false', 'true', 'false'));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_allow_rescaling', get_string('allow_rescaling','filter_geogebra'), get_string('allow_rescaling_help','filter_geogebra'), 'false', 'true', 'false'));
 	$settings->add(new admin_setting_configtext('filter_geogebra_on_initparam', get_string('on_initparam','filter_geogebra'), get_string('on_initparam_help','filter_geogebra'), ""));
-	$settings->add(new admin_setting_configtext('filter_geogebra_show_button', get_string('show_button','filter_geogebra'), get_string('show_button_help','filter_geogebra'), ""));
+	$settings->add(new admin_setting_configcheckbox('filter_geogebra_show_button', get_string('show_button','filter_geogebra'), get_string('show_button_help','filter_geogebra'), 'false', 'true', 'false'));
 	
 		
 	//HTML specific options

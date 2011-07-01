@@ -121,8 +121,6 @@ class filter_geogebra extends moodle_text_filter {
 
 	///===========================
 	/// callback function now part of the object
-	//TODO: is dies gescheit?
-	
 	/** 
 	 * The function where the actual applet code is constructed.
 	 * 
@@ -164,7 +162,7 @@ class filter_geogebra extends moodle_text_filter {
 		} else if ($CFG->filter_geogebra_id != ""){
 			$applet_id = $CFG->filter_geogebra_id;
 		}
-		
+		//TODO: object attribs and params
 		$applet = new html_element($tag);
 		
 		$applet->set('id',$applet_id);
@@ -236,12 +234,12 @@ function filter_geogebra_build_params($localconfig) {
 	
 	$params = '';
 	if (isset($localconfig['filter_geogebra_show_button'])){
-		if ($localconfig['filter_geogebra_show_button'] === "1") {
+		if ($localconfig['filter_geogebra_show_button'] === 'true') {
 			$params .= '<param name="type" value="button" />';
-		} else if ($localconfig['filter_geogebra_show_button'] === "0") {
+		} else if ($localconfig['filter_geogebra_show_button'] === 'false') {
 			$params .= filter_geogebra_get_params_helper($localconfig);
 		} 
-	} else if ($CFG->filter_geogebra_show_button === "1") {
+	} else if ($CFG->filter_geogebra_show_button === 'true') {
 		$params .= '<param name="type" value="button" />';
 	} else {
 		$params .= filter_geogebra_get_params_helper($localconfig);
