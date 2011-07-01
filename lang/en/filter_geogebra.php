@@ -51,6 +51,10 @@ $string['height'] = 'Height';
 $string['width_help'] = 'Default width of applets in px';
 $string['height_help'] = 'Default height of applets in px';
 
+$string['setting_on'] = 'On';
+$string['setting_off'] = 'Off';
+$string['setting_default'] = 
+
 $string['jarheading'] = 'GeoGebra jar-file';
 $string['jarheading_help'] = 'Set the URL to the geogebra.jar. Do not change unless you know what you\'re doing';
 $string['urljar'] = 'URL to geogebra.jar';

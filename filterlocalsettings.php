@@ -2,7 +2,19 @@
 class geogebra_filter_local_settings_form extends filter_local_settings_form {
 	protected function definition_inner($mform) {
         global $CFG;
-		$mform->addElement('header', 'filter_geogebra_dimensions', get_string('dimensionsheading', 'filter_geogebra'));
+		
+        $stroff = get_string('off', 'filters');
+	    $stron = get_string('on', 'filters');
+	    $strdefaultoff = get_string('defaultx', 'filters', $stroff);
+	    $strdefaulton = get_string('defaultx', 'filters', $stron);
+	    $activechoices = array(
+	        TEXTFILTER_INHERIT => '',
+	        TEXTFILTER_OFF => $stroff,
+	        TEXTFILTER_ON => $stron,
+	    );
+	    echo $stroff;
+	    echo $stron;
+	    $mform->addElement('header', 'filter_geogebra_dimensions', get_string('dimensionsheading', 'filter_geogebra'));
     	$mform->addElement('text', 'filter_geogebra_width', get_string('width', 'filter_geogebra'), array('size' => 20));
         $mform->setType('filter_geogebra_width', PARAM_INT); //TODO: Should it be PARAM_INT?
         $mform->addElement('text', 'filter_geogebra_height', get_string('height', 'filter_geogebra'), array('size' => 20));
