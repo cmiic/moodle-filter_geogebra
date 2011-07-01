@@ -220,7 +220,7 @@ function filter_geogebra_parse_alternatives($url, $defaultwidth, $defaultheight)
 function filter_geogebra_build_params($localconfig) {
 	global $CFG;
 	//http://www.geogebra.org/en/wiki/index.php/GeoGebra_Applet_Parameters
-	$ggb_boolean_params = array(
+	$ggbparams = array(
 		'framePossible' => 'filter_geogebra_framepossible',
 		'showResetIcon' => 'filter_geogebra_show_reseticon',
 		'showAnimationButton' => 'filter_geogebra_show_animationbutton',
