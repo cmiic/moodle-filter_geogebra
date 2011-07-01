@@ -22,7 +22,9 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
+global $ggbparams;
 require_once('ggbparamslib.php');
+
 
 /** 
  * Automatic GeoGebra filter Class
