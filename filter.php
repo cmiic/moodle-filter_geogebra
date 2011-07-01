@@ -25,6 +25,7 @@ defined('MOODLE_INTERNAL') || die();
 global $ggbparams;
 require_once('ggbparamslib.php');
 
+print_r($ggbparams);
 
 /** 
  * Automatic GeoGebra filter Class
