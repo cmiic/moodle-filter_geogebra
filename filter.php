@@ -310,7 +310,6 @@ function filter_geogebra_get_params_helper($ggbparams, $localconfig) {
 			$params .= '<param name="'.$paramname.'" value="';
 			if (isset($localconfig[$filter_geogebra_name])){ 
 					$params .= $localconfig[$filter_geogebra_name];
-				}
 			} else {
 				if ($CFG->$filter_geogebra_name === "1") {
 					$params .= 'true';
