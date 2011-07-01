@@ -49,6 +49,10 @@ class filter_geogebra extends moodle_text_filter {
 	protected $params_html;
 	protected $defaultheight;
 	protected $defaultwidth;
+//	protected $defaultid;
+//	protected $defaultclass;
+//	protected $useobject;
+	
 	
 	//TODO: jar autoupdate skript (perhaps moodle cron?)
 	
@@ -159,12 +163,55 @@ class filter_geogebra extends moodle_text_filter {
 		
 		//TODO: !!! what to do with more then one URL
 		//TODO: !!! All the params
-		$return = '<applet codebase="./" width="'.$width.'" height="'.$height.'" '
-				. 'archive="'.$CFG->filter_geogebra_urljar.'"'
-				. ' code="geogebra.GeoGebraApplet">'
-				. '<param name="filename"  value="'.$urls[0].'"/>'.$this->params_html.'</applet> ';
-//				. '<param name="ggbBase64"  value="'.$ggbBase64.'"/>'.$this->params_html.'</applet> ';
-		return $return;
+//		$return = ''; 
+//		if (isset($this->localconfig['filter_geogebra_use_objecttag']) ) {
+//			$return .= '<applet ';
+//		}
+//		if (isset($this->localconfig['filter_geogebra_id'])) {
+//			
+//		}
+//		$return .= 'codebase="./" width="'.$width.'" height="'.$height.'" '
+//				. 'archive="'.$CFG->filter_geogebra_urljar.'"'
+//				. ' code="geogebra.GeoGebraApplet">'
+//				. '<param name="filename"  value="'.$urls[0].'"/>'.$this->params_html.'</applet> ';
+//				
+//				
+////				. '<param name="ggbBase64"  value="'.$ggbBase64.'"/>'.$this->params_html.'</applet> ';
+//		return $return;
+		//tag defaults to applet
+		$tag = 'applet';
+		//change it if we want to use object instead
+		if (isset($this->localconfig['filter_geogebra_use_objecttag'])) {
+			if ($this->localconfig['filter_geogebra_use_objecttag'] === "1") {
+				$tag = 'object';
+			} 
+		} else if ($CFG->filter_geogebra_use_objecttag === "1"){
+			$tag = 'object';
+		}
+		//the name or id of the applet
+		$applet_id = 'ggbApplet';
+		if (isset($this->localconfig['filter_geogebra_id'])) {
+			if ($this->localconfig['filter_geogebra_id'] != "") {
+				$applet_id = $this->localconfig['filter_geogebra_id'];
+			} 
+		} else if ($CFG->filter_geogebra_id != ""){
+			$applet_id = $CFG->filter_geogebra_id;
+		}
+		
+		$applet = new html_element($tag);
+		
+		$applet.set('id',$applet_id);
+		if ($tag == 'applet') {
+			$applet.set('name',$applet_id);
+		}
+		$applet.set('code', 'geogebra.GeoGebraApplet');
+		$applet.set('archive', $CFG->filter_geogebra_urljar);
+		$applet.set('codebase','./');
+		$applet.set('width',$width);
+		$applet.set('height',$height);
+		$applet.set('text','<param name="filename"  value="'.$urls[0].'"/>'.$this->params_html);
+		
+		return $applet->output();
 	}
 }
 /**
@@ -261,4 +308,98 @@ function filter_geogebra_build_params($localconfig) {
 		$params .= '" />';		
 	}
 	return $params;
+}
+/* creates an html element, like in js 
+ * http://davidwalsh.name/create-html-elements-php-htmlelement-class */
+class html_element
+{
+	/* vars */
+	var $type;
+	var $attributes;
+	var $self_closers;
+	
+	/* constructor */
+	function html_element($type,$self_closers = array('input','img','hr','br','meta','link'))
+	{
+		$this->type = strtolower($type);
+		$this->self_closers = $self_closers;
+	}
+	
+	/* get */
+	function get($attribute)
+	{
+		return $this->attributes[$attribute];
+	}
+	
+	/* set -- array or key,value */
+	function set($attribute,$value = '')
+	{
+		if(!is_array($attribute))
+		{
+			$this->attributes[$attribute] = $value;
+		}
+		else
+		{
+			$this->attributes = array_merge($this->attributes,$attribute);
+		}
+	}
+	
+	/* remove an attribute */
+	function remove($att)
+	{
+		if(isset($this->attributes[$att]))
+		{
+			unset($this->attributes[$att]);
+		}
+	}
+	
+	/* clear */
+	function clear()
+	{
+		$this->attributes = array();
+	}
+	
+	/* inject */
+	function inject($object)
+	{
+		if(@get_class($object) == __class__)
+		{
+			$this->attributes['text'].= $object->build();
+		}
+	}
+	
+	/* build */
+	function build()
+	{
+		//start
+		$build = '<'.$this->type;
+		
+		//add attributes
+		if(count($this->attributes))
+		{
+			foreach($this->attributes as $key=>$value)
+			{
+				if($key != 'text') { $build.= ' '.$key.'="'.$value.'"'; }
+			}
+		}
+		
+		//closing
+		if(!in_array($this->type,$this->self_closers))
+		{
+			$build.= '>'.$this->attributes['text'].'</'.$this->type.'>';
+		}
+		else
+		{
+			$build.= ' />';
+		}
+		
+		//return it
+		return $build;
+	}
+	
+	/* spit it out */
+	function output()
+	{
+		echo $this->build();
+	}
 }
