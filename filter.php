@@ -238,17 +238,17 @@ function filter_geogebra_build_params($localconfig) {
 	foreach ($ggbparams as $paramname => $filter_geogebra_name) {
 		$params .= '<param name="'.$paramname.'" value="';
 			if (isset($localconfig[$filter_geogebra_name])){ 
-				if ($localconfig[$filter_geogebra_name] === 1) {
+				if ($localconfig[$filter_geogebra_name] === true) {
 					$params .= 'true';
-				} else if ($localconfig[$filter_geogebra_name] === 0) {
+				} else if ($localconfig[$filter_geogebra_name] === false) {
 					$params .= 'false';
 				} else {
 					$params .= $localconfig[$filter_geogebra_name];
 				}
 			} else {
-				if ($CFG->$filter_geogebra_name === 1) {
+				if ($CFG->$filter_geogebra_name === true) {
 					$params .= 'true';
-				} else if ($CFG->$filter_geogebra_name === 0) {
+				} else if ($CFG->$filter_geogebra_name === false) {
 					$params .= 'false';
 				} else {
 					$params .= $CFG->$filter_geogebra_name;
