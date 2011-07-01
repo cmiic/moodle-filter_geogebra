@@ -33,7 +33,10 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
 //       	$select->setSelected('Default');
 //	    $mform->addElement('html', '</div>');
        	$mform->addElement('checkbox', 'filter_geogebra_inherit', "Inherit from site configugation");
-        $mform->disabledIf('filter_geogebra_enable_rightclick', 'filter_geogebra_inherit', 'checked');
+        $mform->disabledIf('filter_geogebra_width', 'filter_geogebra_inherit', 'checked');
+	    $mform->disabledIf('filter_geogebra_height', 'filter_geogebra_inherit', 'checked');
+	    $mform->disabledIf('filter_geogebra_enable_rightclick', 'filter_geogebra_inherit', 'checked');
+	    $mform->disabledIf('filter_geogebra_enable_labeldrags', 'filter_geogebra_inherit', 'checked');
 	    
 	    $mform->addElement('header', 'filter_geogebra_dimensions', get_string('dimensionsheading', 'filter_geogebra'));
 	    
