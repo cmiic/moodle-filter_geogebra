@@ -20,6 +20,7 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
 	    }
 	    	    
 	    $mform->addElement('header', 'filter_geogebra_dimensions', get_string('dimensionsheading', 'filter_geogebra'));
+    	$mform->addHelpButton('filter_geogebra_dimensions','localdimensheading','filter_geogebra');
     	$mform->addElement('text', 'filter_geogebra_width', get_string('width', 'filter_geogebra'), array('size' => 20));
         $mform->setType('filter_geogebra_width', PARAM_RAW);
         $mform->addElement('text', 'filter_geogebra_height', get_string('height', 'filter_geogebra'), array('size' => 20));
