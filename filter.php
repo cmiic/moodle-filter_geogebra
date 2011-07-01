@@ -280,11 +280,29 @@ function filter_geogebra_build_params($localconfig) {
 		'showAlgebraInput' => 'filter_geogebra_show_algebrainput',
 		'useBrowserForJS' => 'filter_geogebra_use_browserforjs',
 		'allowRescaling' => 'filter_geogebra_allow_rescaling',
+		'type' => 'filter_geogebra_show_button',
 		'language' => 'filter_geogebra_iso_language',
 		'country' => 'filter_geogebra_iso_country',
 		'ggbOnInitParam' => 'filter_geogebra_on_initparam',
 		'java_arguments' => 'filter_geogebra_javavm_params'
 	);
+	$params = '';
+	if (isset($localconfig['filter_geogebra_show_button'])){
+		if ($localconfig['filter_geogebra_show_button'] === "1") {
+			$params .= '<param name="type" value="button" />';
+		} else if ($localconfig['filter_geogebra_show_button'] === "0") {
+			$params .= filter_geogebra_get_params_string($ggbparams, $localconfig);
+		} 
+	} else if ($CFG->filter_geogebra_show_button === "1") {
+		$params .= '<param name="type" value="button" />';
+	} else {
+		$params .= filter_geogebra_get_params_string($ggbparams, $localconfig);
+	}
+	
+	return $params;
+}
+
+function filter_geogebra_get_params_string($ggbparams, $localconfig) {
 	$params = '';
 	foreach ($ggbparams as $paramname => $filter_geogebra_name) {
 		if ($CFG->$filter_geogebra_name != "") {
@@ -306,11 +324,12 @@ function filter_geogebra_build_params($localconfig) {
 					$params .= $CFG->$filter_geogebra_name;
 				}
 			}
-			$params .= '" />';	
-		}	
+			$params .= '" />';
+		}
 	}
 	return $params;
 }
+
 /* creates an html element, like in js 
  * http://davidwalsh.name/create-html-elements-php-htmlelement-class */
 class html_element
