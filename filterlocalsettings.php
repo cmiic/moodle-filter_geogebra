@@ -9,10 +9,10 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
 	    $stron = get_string('on', 'filters');
 	    $strdefaultoff = get_string('defaultforsite', 'filter_geogebra') . ' ('.$stroff.')';
 	    $strdefaulton = get_string('defaultforsite', 'filter_geogebra') . ' ('.$stron.')';
+	    $choices = array();
 	    foreach ($ggbparams as $value) {
-	    	echo $value;
+	    	$choices[$value] = array(''=>(($CFG->$value === "true")? $strdefaulton : $strdefaultoff) , 'true' => $stron, 'false' => $stroff);
 	    }
-	    $choices = array(''=>(($CFG->filter_geogebra_enable_rightclick === "true")? $strdefaulton : $strdefaultoff) , 'true' => $stron, 'false' => $stroff);
 	    echo $stroff;
 	    echo $stron;
 	    echo TEXTFILTER_INHERIT;
@@ -41,7 +41,7 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
         $mform->closeHeaderBefore('filter_geogebra_functionality');
         
         $mform->addElement('header', 'filter_geogebra_functionality', get_string('functionalityheading', 'filter_geogebra'));
-        $select = &$mform->addElement('select', 'filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), $choices);
+        $select = &$mform->addElement('select', 'filter_geogebra_enable_rightclick', get_string('enable_rightclick','filter_geogebra'), get_string('enable_rightclick_help','filter_geogebra'),$choices['filter_geogebra_enable_rightclick']);
        		//$select->setSelected('Default');
         $mform->addElement('checkbox', 'filter_geogebra_enable_labeldrags', get_string('enable_labeldrags','filter_geogebra'));
         $mform->addElement('checkbox', 'filter_geogebra_show_reseticon', get_string('show_reseticon','filter_geogebra'));
