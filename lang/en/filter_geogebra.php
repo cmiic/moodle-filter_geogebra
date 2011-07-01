@@ -78,6 +78,8 @@ $string['show_toolbarhelp'] = 'Show Toolbar Help';
 $string['show_toolbarhelp_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
 $string['show_algebrainput'] = 'Show inputbar';
 $string['show_algebrainput_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
+$string['show_algebrainput'] = 'Show animation button';
+$string['show_algebrainput_help'] = 'Show animation button - only GeoGebra 4 and newer, Default: true';
 
 $string['languageheading'] = 'Language';
 $string['languageheading_help'] = 'Language specific options';
@@ -93,15 +95,19 @@ $string['iso_country_help'] = 'This parameter only makes sense if you use it tog
 
 $string['miscellaneousheading'] = 'Miscellaneous';
 $string['miscellaneousheading_help'] = 'Miscellaneous options';
-
 $string['error_dialogs'] = 'Display error dialogs';
 $string['error_dialogs_help'] = 'States whether error dialogs will be shown if an invalid input is entered (using the Input Bar or JavaScript) Default: true';
+$string['use_browserforjs'] = 'Use Browser for JS';
+$string['use_browserforjs_help'] = 'Use the Browser for JS - only GeoGebra 4 and newer. Default: false';
+$string['allow_rescaling'] = 'Allow the applet to rescale the Graphics View';
+$string['allow_rescaling_help'] = 'Determines whether the applet will attempt to rescale the Graphics View when the applet is loaded or the size is changed (eg Zooming in the browser). Disabled if the Spreadsheet or Algebra View are showing. Default: false';
 $string['use_objecttag'] = 'Use object tag instead of applet tag to embed the applet';
 $string['use_objecttag_help'] = 'Maybe useful, if you use a DTD where the applet tag is deprecated or doesn\'t exist anymore - no support yet.';
 $string['embed_id'] = 'HTML id';
 $string['embed_id_help'] = 'The HTML id for the applet or object. By default the name attribute is used with the applet tag';
 $string['embed_class'] = 'HTML class';
 $string['embed_class_help'] = 'The HTML class for the applet or object. None is default, you can specify more than one seperated by a blank.';
+
 
 $string['javavmheading'] = 'Java VM arguments';
 $string['javavmheading_help'] = 'Java VM arguments - be careful';
