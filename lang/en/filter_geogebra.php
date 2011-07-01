@@ -78,8 +78,8 @@ $string['show_toolbarhelp'] = 'Show Toolbar Help';
 $string['show_toolbarhelp_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
 $string['show_algebrainput'] = 'Show inputbar';
 $string['show_algebrainput_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
-$string['show_algebrainput'] = 'Show animation button';
-$string['show_algebrainput_help'] = 'Show animation button - only GeoGebra 4 and newer, Default: true';
+$string['show_animationbutton'] = 'Show animation button';
+$string['show_animationbutton_help'] = 'Show animation button - only GeoGebra 4 and newer, Default: true';
 
 $string['languageheading'] = 'Language';
 $string['languageheading_help'] = 'Language specific options';
