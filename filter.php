@@ -267,7 +267,7 @@ function filter_geogebra_parse_alternatives($url, $defaultwidth, $defaultheight)
 function filter_geogebra_build_params($localconfig) {
 	global $CFG;
 	global $ggbparams;
-	
+	print_r($ggbparams);
 	
 	$params = '';
 	if (isset($localconfig['filter_geogebra_show_button'])){
