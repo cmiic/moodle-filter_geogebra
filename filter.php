@@ -270,6 +270,7 @@ function filter_geogebra_get_params_helper($localconfig) {
 
 /* creates an html element, like in js 
  * http://davidwalsh.name/create-html-elements-php-htmlelement-class */
+//TODO: isn't there a HTML Writer in Moodle?
 class html_element
 {
 	/* vars */
