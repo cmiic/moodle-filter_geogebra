@@ -49,7 +49,7 @@ if ($ADMIN->fulltree) {
 		'remote32' => get_string('geogebra_external32', 'filter_geogebra'),
 		'local' => get_string('geogebra_local', 'filter_geogebra')
 	);
-	$settings->add(new admin_setting_configselect('filter_geogebra_urljar', get_string('urljar','filter_geogebra'), get_string('urljar_help','filter_geogebra'), "http://www.geogebra.org/webstart/3.2/geogebra.jar"));
+	$settings->add(new admin_setting_configselect('filter_geogebra_urljar', get_string('urljar','filter_geogebra'), get_string('urljar_help','filter_geogebra'), 'geogebra_latest', $urls_to_jars));
 	
 	//Functionality
 	$settings->add(new admin_setting_heading('filter_geogebra_functionality', get_string('functionalityheading', 'filter_geogebra'), get_string('functionalityheading_help', 'filter_geogebra')));
