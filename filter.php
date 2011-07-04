@@ -131,10 +131,10 @@ class filter_geogebra extends moodle_text_filter {
 		global $CFG;
 		
 		list($urls, $width, $height) = filter_geogebra_parse_alternatives($link[1], $this->defaultwidth, $this->defaultheight);
+		
 		//Get the base64 encoded string
 		//We should be OK, because of Moodle cache, 
 		//but it's not working because we don't get the file from the PHP-Script from within the Filter (research;-))
-		//TODO: Test weather this is too time consuming
 //		$handle = fopen($urls[0], "rb");
 //		$ggbbinary = stream_get_contents($handle);
 //		fclose($handle);
