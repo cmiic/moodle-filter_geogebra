@@ -1,6 +1,6 @@
 The geogebra filter makes it easier to embed GeoGebra tools in Moodle Web pages.
 
-GeoGebra is an open source dynamic mathematics application created by Markus Hohenwarter. See www.geogebra.org.The GeoGebra filter allows users to easily include useable GeoGebra files in Moodle Web pages, blog entries, quizzes, and discussion forum posts. It is a revision by S. Arjona TŽllez and F. Sonner of the original filter files by Jochen Maeusle (see: http://moodle.org/mod/data/view.php?d=13&rid=585&filter=1).Copyright (C) 2009 Sara Arjona, Florian SonnerThis program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.  
+GeoGebra is an open source dynamic mathematics application created by Markus Hohenwarter. See www.geogebra.org.The GeoGebra filter allows users to easily include useable GeoGebra files in Moodle Web pages, blog entries, quizzes, and discussion forum posts. It is a revision by S. Arjona TŽllez and F. Sonner of the original filter files by Jochen Maeusle (see: http://moodle.org/mod/data/view.php?d=13&rid=585&filter=1).Copyright (C) 2009 Sara Arjona, Florian SonnerThis program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/. 
 
 How it works:
 During installation of the filter the file geogebra.jar will be placed in the Moodle central folder and registered at the moddle system.
@@ -10,9 +10,17 @@ As an option you will be able to customize width and height of the applet by add
 
 Installation: (by Moodle Administrator)
 
+We encourage you to use Git for Administrators (http://docs.moodle.org/20/en/Git_for_Administrators - you can retrieve the most recent version there) of CVS for Administrators (http://docs.moodle.org/20/en/CVS_for_Administrators) 
+
+Using the tarbal or zip-file:
 1. Upload the complete folder "geogebra" into the filter folder, such as moodle19>filter
 2. In Moodle, navigate to Moodle>Site Administration>Modules>Filters>Manage Filters and click on the entry "Geogebra" to enable the filter.
 3. Click on "Settings" to change the version of GeoGebra and .jar file URL (location), the default width and height, and applet parameters. These settings affect all GeoGebra files that use the filter; it is not currently possible to customize the .jar file URL or parameters.
+
+
+Upgrade-Notes:
+- The jar files for GeoGebra 3.0 have been removed - if you used them please update your configuration.
+
 
 Usage:
 A. Displaying GeoGebra Applets 
