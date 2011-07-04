@@ -140,7 +140,6 @@ class filter_geogebra extends moodle_text_filter {
 //		fclose($handle);
 //		$ggbBase64 = base64_encode(file_get_contents($urls[0]));
 		
-		//TODO: !!! what to do with more then one URL
 //      . '<param name="ggbBase64"  value="'.$ggbBase64.'"/>'.$this->params_html.'</applet> ';
 
 		//tag defaults to applet
@@ -162,7 +161,7 @@ class filter_geogebra extends moodle_text_filter {
 		} else if ($CFG->filter_geogebra_id != ""){
 			$applet_id = $CFG->filter_geogebra_id;
 		}
-		//TODO: object attribs and params
+		//TODO: object attribs and params (applet tag breaks the clean Moodle-HTML-Code)
 		$applet = new html_element($tag);
 		
 		$applet->set('id',$applet_id);

@@ -35,15 +35,15 @@ if ($ADMIN->fulltree) {
 	
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_enable_ggb', get_string('ggbfile','filter_geogebra'), get_string('ggbfile_help','filter_geogebra'), 1));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_enable_ggt', get_string('ggtfile','filter_geogebra'), get_string('ggtfile_help','filter_geogebra'), 1));
-	//TODO: should we parse html too? not by default because I think it would be a performance problem - but we would have to try it out
+	
 	
 	$settings->add(new admin_setting_heading('filter_geogebra_dimensions', get_string('dimensionsheading', 'filter_geogebra'), get_string('dimensionsheading_help', 'filter_geogebra')));
 	$settings->add(new admin_setting_configtext('filter_geogebra_width', get_string('width','filter_geogebra'), get_string('width_help','filter_geogebra'), "600"));
 	$settings->add(new admin_setting_configtext('filter_geogebra_height', get_string('height','filter_geogebra'), get_string('height_help','filter_geogebra'), "400"));
 	
-	
+	//Jars
 	$settings->add(new admin_setting_heading('filter_geogebra_jar', get_string('jarheading', 'filter_geogebra'), get_string('jarheading_help', 'filter_geogebra')));
-	//TODO: make urljar this a dropbox
+	
 	$urls_to_jars = array(
 		'http://www.geogebra.org/webstart/geogebra.jar' => get_string('geogebra_latest', 'filter_geogebra'),
 		'http://www.geogebra.org/webstart/3.2/geogebra.jar' => get_string('geogebra_external32', 'filter_geogebra'),
