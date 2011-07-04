@@ -32,6 +32,6 @@ function xmldb_filter_geogebra_install() {
     //The filter can than be activated in the context of a course or Activity
     //but only if the filter hasn't been active site-wide before
     if (empty($CFG->filter_geogebra_defaultwidth)) {
-        filter_set_global_state('filter/geogebra', TEXTFILTER_INHERIT);
+        filter_set_global_state('filter/geogebra', TEXTFILTER_DISABLED);
     }
 }
