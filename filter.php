@@ -18,7 +18,7 @@
  
 /**
  * @author Sara Arjona, Florian Sonner
- * @version $Id: filter.php, v2.0 2009/06/05 $
+ * @version $Id: filter.php,v 1.1 2010/09/14 14:05:07 arborrow Exp $
  */
 
 /** 

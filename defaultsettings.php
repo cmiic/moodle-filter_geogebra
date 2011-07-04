@@ -18,7 +18,7 @@
 
 /**
  * @author Sara Arjona, Florian Sonner
- * @version $Id: defaultsettings.php, v2.0 2009/06/06 $
+ * @version $Id: defaultsettings.php,v 1.1 2010/09/14 14:05:07 arborrow Exp $
  **/
 
 function geogebra_defaultsettings( $force=false  ) {
