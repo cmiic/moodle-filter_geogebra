@@ -228,7 +228,7 @@ function filter_geogebra_parse_alternatives($url, $defaultwidth, $defaultheight)
     return array($returnurls, $width, $height);
 }
 
-//TODO: Rest of the params (eg mayscript)
+//TODO: Rest of the params (eg mayscript,...)
 function filter_geogebra_build_params($localconfig) {
 	global $CFG;
 	
