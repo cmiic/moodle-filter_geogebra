@@ -27,7 +27,6 @@
 function xmldb_filter_geogebra_install() {
     global $CFG;
 
-    //TODO: TEXTFILTER_OFF but the condition is wrong
     //We do not activate the filter, we set it to off - but available
     //The filter can than be activated in the context of a course or Activity
     //but only if the filter hasn't been active site-wide before

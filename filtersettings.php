@@ -45,9 +45,9 @@ if ($ADMIN->fulltree) {
 	$settings->add(new admin_setting_heading('filter_geogebra_jar', get_string('jarheading', 'filter_geogebra'), get_string('jarheading_help', 'filter_geogebra')));
 	//TODO: make urljar this a dropbox
 	$urls_to_jars = array(
-		'remote' => get_string('geogebra_latest', 'filter_geogebra'),
-		'remote32' => get_string('geogebra_external32', 'filter_geogebra'),
-		'local' => get_string('geogebra_local', 'filter_geogebra')
+		'http://www.geogebra.org/webstart/geogebra.jar' => get_string('geogebra_latest', 'filter_geogebra'),
+		'http://www.geogebra.org/webstart/3.2/geogebra.jar' => get_string('geogebra_external32', 'filter_geogebra'),
+		$CFG->wwwroot.'/filter/geogebra/32/geogebra.jar' => get_string('geogebra_local', 'filter_geogebra')
 	);
 	$settings->add(new admin_setting_configselect('filter_geogebra_urljar', get_string('urljar','filter_geogebra'), get_string('urljar_help','filter_geogebra'), 'geogebra_latest', $urls_to_jars));
 	
