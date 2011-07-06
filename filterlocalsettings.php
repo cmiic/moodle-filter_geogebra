@@ -1,4 +1,6 @@
 <?php
+
+//not all of the admin-settings are included here since urljar and java-arguments should only be used by admins
 require_once('ggbparamslib.php');
 
 class geogebra_filter_local_settings_form extends filter_local_settings_form {

@@ -16,23 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-$string['geogebra_settings'] = 'GeoGebra settings';
-$string['geogebra_settings_desc'] = 'These settings affect ALL Moodle courses and pages. Changing these settings may change the appearance or functionality of some or all of the GeoGebra files. The default width and height (set below) are always used when GeoGebra files are uploaded as attachments.
-<br>
-<br>
-See filter documentation on how to change the width and height in individual resources and activities using this format in the link URL itself (not in the editing field after the linked text):
-<br>
-<br>
-.../myFileName.ggb?w=#&h=#, for example:
-<ul>
-<li> .../myFileName.ggb?w=1000 (height is default)</li>
-<li> .../myFileName.ggb?h=200 (width is default)</li>
-<li> .../myFileName.ggb?w=200&h=800</li>
-</ul>';
 
 $string['filtername'] = 'GeoGebra Filter';
-
-//TODO: Match the defaults in _help with real defaults for this Filter
 
 $string['enableheading'] = 'Enable Filter';
 $string['enableheading_help'] = 'Select for which Links the filter should be enabled.';
@@ -42,8 +27,6 @@ $string['ggbfile'] = 'Links to GeoGebra Files';
 $string['ggbfile_help'] = 'GeoGebra Files with the extension .ggb';
 $string['ggtfile'] = 'Links to GeoGebra Tool Files';
 $string['ggtfile_help'] = 'GeoGebra Tool Files with the extension .ggt';
-$string['ggbfile'] = 'Links to GeoGebra Files';
-$string['ggbfile'] = 'Links to GeoGebra Files';
 
 $string['dimensionsheading'] = 'Dimensions';
 $string['dimensionsheading_help'] = 'The default dimensions for the applet.';
@@ -57,11 +40,10 @@ $string['height_help'] = 'Default height of applets in px';
 $string['jarheading'] = 'GeoGebra jar-file';
 $string['jarheading_help'] = 'Set the URL to the geogebra.jar. Do not change unless you know what you\'re doing';
 $string['urljar'] = 'URL to geogebra.jar';
-//TODO: Better help text after making urljar a dropbox
-$string['urljar_help'] = 'You can either enter a custom url in this field or click on one of the links below to automatically enter an URL (recommended):';
+$string['urljar_help'] = 'Choose which jars should be used, Latest from GeoGebra.org is recommended, but if you are on a secure connection you might prefer the jars from your own webserver.';
 
 $string['functionalityheading'] = 'Functionality';
-$string['functionalityheading_help'] = 'Functionality settings. Those can also be configured in the context of a course (context of a ressource or activity doesn\'t work yet - but soon)';
+$string['functionalityheading_help'] = 'Functionality settings. Those can also be configured in the context of a course (context of some ressources or activities don\'t work yet - due to a moodle bug - which will get fixed soon)';
 $string['enable_rightclick'] = 'Enable right click features';
 $string['enable_rightclick_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
 $string['enable_labeldrags'] = 'Enable drag of Labels';
@@ -136,4 +118,4 @@ $string['geogebra_external32'] = '3.2 release from GeoGebra.org';
 
 
 
-//TODO: provide Upgrade script for the old Parameters... (or advise admins that they have to use the new ones)
+//TODO: advise admins to use the new settings instead of  geogebra_params - textbox

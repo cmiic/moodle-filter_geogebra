@@ -84,12 +84,12 @@ if ($ADMIN->fulltree) {
 		
 	//HTML specific options
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_use_objecttag', get_string('use_objecttag','filter_geogebra'), get_string('use_objecttag_help','filter_geogebra'), 'false', 'true', 'false'));
-	$settings->add(new admin_setting_configtext('filter_geogebra_id', get_string('embed_id','filter_geogebra'), get_string('embed_id_help','filter_geogebra'), ""));
+	$settings->add(new admin_setting_configtext('filter_geogebra_id', get_string('embed_id','filter_geogebra'), get_string('embed_id_help','filter_geogebra'), "ggbApplet"));
 	$settings->add(new admin_setting_configtext('filter_geogebra_class', get_string('embed_class','filter_geogebra'), get_string('embed_class_help','filter_geogebra'), "", PARAM_RAW, 50));
 	
 	//Java VM Options
 	$settings->add(new admin_setting_heading('filter_geogebra_javavm', get_string('javavmheading', 'filter_geogebra'), get_string('javavmheading_help', 'filter_geogebra')));
-	$settings->add(new admin_setting_configtext('filter_geogebra_javavm_params', get_string('javavm_params','filter_geogebra'), get_string('javavm_params_help','filter_geogebra'), "", PARAM_RAW, 50));
+	$settings->add(new admin_setting_configtext('filter_geogebra_javavm_params', get_string('javavm_params','filter_geogebra'), get_string('javavm_params_help','filter_geogebra'), "-Xmx512m -Djnlp.packEnabled=true", PARAM_RAW, 50));
 	
 	//TODO: Should we display a link to download the ggb?
 	
