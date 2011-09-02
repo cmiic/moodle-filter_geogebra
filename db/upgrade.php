@@ -27,13 +27,15 @@
  * @param int $oldversion the version we are upgrading from
  * @return bool result
  */
-function xmldb_filter_mediaplugin_upgrade($oldversion) {
+function xmldb_filter_geogebra_upgrade($oldversion) {
     global $CFG, $DB, $OUTPUT;
 
+    //TODO: set useBrowserforJS to true
     if ($oldversion < 2011061301) {
         unset_config('filter_geogebra_params'); // migrated to the settings
         upgrade_plugin_savepoint(true, 2011061301, 'filter', 'geogebra');
     }
-
+    unset_config('filter_geogebra_use_browserforjs');
+    upgrade_plugin_savepoint(true, 2011082501, 'filter', 'geogebra');
     return true;
 }

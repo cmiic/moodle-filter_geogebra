@@ -46,6 +46,7 @@ if ($ADMIN->fulltree) {
 	
 	$urls_to_jars = array(
 		'http://www.geogebra.org/webstart/geogebra.jar' => get_string('geogebra_latest', 'filter_geogebra'),
+		'http://www.geogebra.org/webstart/4.0/geogebra.jar' => get_string('geogebra_external40', 'filter_geogebra'),
 		'http://www.geogebra.org/webstart/3.2/geogebra.jar' => get_string('geogebra_external32', 'filter_geogebra'),
 		$CFG->wwwroot.'/filter/geogebra/32/geogebra.jar' => get_string('geogebra_local', 'filter_geogebra')
 	);
@@ -76,7 +77,7 @@ if ($ADMIN->fulltree) {
 	//TODO: Embed Options (object vs. applet, id and class) 
 	$settings->add(new admin_setting_heading('filter_geogebra_miscellaneous', get_string('miscellaneousheading', 'filter_geogebra'), get_string('miscellaneousheading_help', 'filter_geogebra')));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_error_dialogs', get_string('error_dialogs','filter_geogebra'), get_string('error_dialogs_help','filter_geogebra'), 'true', 'true', 'false'));
-	$settings->add(new admin_setting_configcheckbox('filter_geogebra_use_browserforjs', get_string('use_browserforjs','filter_geogebra'), get_string('use_browserforjs_help','filter_geogebra'), 'false', 'true', 'false'));
+	$settings->add(new admin_setting_configcheckbox('filter_geogebra_use_browserforjs', get_string('use_browserforjs','filter_geogebra'), get_string('use_browserforjs_help','filter_geogebra'), 'true', 'true', 'false'));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_allow_rescaling', get_string('allow_rescaling','filter_geogebra'), get_string('allow_rescaling_help','filter_geogebra'), 'false', 'true', 'false'));
 	$settings->add(new admin_setting_configtext('filter_geogebra_on_initparam', get_string('on_initparam','filter_geogebra'), get_string('on_initparam_help','filter_geogebra'), ""));
 	$settings->add(new admin_setting_configcheckbox('filter_geogebra_show_button', get_string('show_button','filter_geogebra'), get_string('show_button_help','filter_geogebra'), 'false', 'true', 'false'));
