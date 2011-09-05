@@ -22,7 +22,7 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
-
+require_once($CFG->libdir.'/filelib.php');
 
 /** 
  * Automatic GeoGebra filter Class
@@ -49,10 +49,9 @@ class filter_geogebra extends moodle_text_filter {
 	protected $params_html;
 	protected $defaultheight;
 	protected $defaultwidth;
-	
-	//TODO: jar autoupdate skript (perhaps moodle cron?)
-	
+		
 	function filter($text, array $options = array()) {
+		
 		global $CFG;
 
 		if (!is_string($text) or empty($text)) {
@@ -65,14 +64,12 @@ class filter_geogebra extends moodle_text_filter {
             return $text;
         }
         if (stripos($text, 'ggbBase64') != false) {
-        	// ggbBase64 already emeded - nothing to do...
-        	// TODO: or do we want to include (enforce) the params?
+        	// ggbBase64 already embeded - nothing to do...
         	return $text;
         }
 		if (stripos($text, 'applet') != false) {
         	// There is already an applet on the page 
-        	// we do not want to include a second applet - nothing to do...
-        	// TODO: or do we want to include (enforce) the params?
+        	// we do not want to apply filter if there is already an applet - nothing to do...
         	return $text;
         }
         $newtext = $text; // we need to return the original value if regex fails!
@@ -91,22 +88,16 @@ class filter_geogebra extends moodle_text_filter {
 
 	    $this->params_html = filter_geogebra_build_params($this->localconfig);
 		
-	    //TODO: Add geogebratube regex to the filter
-//      http://www.geogebratube.org/student/23
-//		http://www.geogebratube.org/files/material-23.ggb
-//		http://www.geogebratube.org/material/show/id/23
-//		
-//        if (!empty($CFG->filter_geogebra_enable_geogebratube)) {
-//        	$search = '';
-//        	$newtext = preg_replace_callback($search, array( &$this, 'filter_geogebra_callback'), $newtext); 
-//        }
-
+	    //the ^@ is neede because the output with questions breaks otherwise
+	    //don't know why
         if (!empty($CFG->filter_geogebra_enable_ggb)) {
-	       	$search = '/<a\s[^>]*href="([^"#\?]+\.ggb([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
+	       	$search = '/<a\s[^>]*href="([^"^@#\?]+\.ggb([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
         	$newtext = preg_replace_callback($search, array( &$this, 'filter_geogebra_callback'), $newtext); 
         }
+        //the ^@ is neede because the output with questions breaks otherwise
+        //don't know why
 	    if (!empty($CFG->filter_geogebra_enable_ggt)) {
-        	$search = '/<a\s[^>]*href="([^"#\?]+\.ggt([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
+        	$search = '/<a\s[^>]*href="([^"^@#\?]+\.ggt([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
         	$newtext = preg_replace_callback($search, array( &$this, 'filter_geogebra_callback'), $newtext); 
         }
         
@@ -130,21 +121,16 @@ class filter_geogebra extends moodle_text_filter {
 		
 		global $CFG;
 		
+// 		print_r($link);
+		
+		if (filter_geogebra_ignore($link[0])) {
+			return $link[0];
+		}
+		
 		list($urls, $width, $height) = filter_geogebra_parse_alternatives($link[1], $this->defaultwidth, $this->defaultheight);
 		
-		//Get the base64 encoded string
-		//We should be OK, because of Moodle cache, 
-		//but it's not working because we don't get the file from the PHP-Script from within the Filter (research;-))
-//		$handle = fopen($urls[0], "rb");
-//		$ggbbinary = stream_get_contents($handle);
-//		fclose($handle);
-//		$ggbBase64 = base64_encode(file_get_contents($urls[0]));
-		
-//      . '<param name="ggbBase64"  value="'.$ggbBase64.'"/>'.$this->params_html.'</applet> ';
-
 		//tag defaults to applet
 		$tag = 'applet';
-		//change it if we want to use object instead
 		if (isset($this->localconfig['filter_geogebra_use_objecttag'])) {
 			if ($this->localconfig['filter_geogebra_use_objecttag'] === "1") {
 				$tag = 'object';
@@ -152,6 +138,7 @@ class filter_geogebra extends moodle_text_filter {
 		} else if ($CFG->filter_geogebra_use_objecttag === "1"){
 			$tag = 'object';
 		}
+		
 		//the name or id of the applet
 		$applet_id = 'ggbApplet';
 		if (isset($this->localconfig['filter_geogebra_id'])) {
@@ -161,23 +148,38 @@ class filter_geogebra extends moodle_text_filter {
 		} else if ($CFG->filter_geogebra_id != ""){
 			$applet_id = $CFG->filter_geogebra_id;
 		}
+		
 		//TODO: object attribs and params (applet tag breaks the clean Moodle-HTML-Code)
-		$applet = new html_element($tag);
 		
-		$applet->set('id',$applet_id);
-		if ($tag == 'applet') {
-			$applet->set('name',$applet_id);
-		}
-		$applet->set('code', 'geogebra.GeoGebraApplet');
-		$applet->set('archive', $CFG->filter_geogebra_urljar);
-		$applet->set('codebase','./');
-		$applet->set('width',$width);
-		$applet->set('height',$height);
-		$applet->set('text','<param name="filename"  value="'.$urls[0].'"/>'.$this->params_html);
+		$ret = '<'. $tag;
+		$ret .= ' name="'.$applet_id.'" ';
+		$ret .= 'code="geogebra.GeoGebraApplet" ';
+		$ret .= 'archive="'. $CFG->filter_geogebra_urljar .'" ';
+		$ret .= 'codebase="./" ';
+		$ret .= 'width="'. $width .'" ';
+		$ret .= 'height="'. $height .'" > ';
+		$ret .= '<param name="filename"  value="'.$urls[0].'"/>';
+		$ret .= $this->params_html;
+		$ret .= '</'. $tag . '>';
 		
-		return $applet->output();
+		
+		return $ret;
 	}
 }
+
+/**
+* Should the current tag be ignored in this filter?
+* @param string $tag
+* @return bool
+*/
+function filter_geogebra_ignore($tag) {
+	if (preg_match('/class="[^"]*nogeogebrafilter/i', $tag)) {
+		return true;
+	} else {
+		false;
+	}
+}
+
 /**
  * Parse list of alternative URLs
  * @param string $url urls separated with '#', size specified as 
@@ -185,6 +187,9 @@ class filter_geogebra extends moodle_text_filter {
  * @return array (urls, width, height)
  */
 function filter_geogebra_parse_alternatives($url, $defaultwidth, $defaultheight) {
+	
+// 	print_r($url);
+	
     $urls = explode('#', $url);
     $width  = $defaultwidth;
     $height = $defaultheight;
@@ -227,7 +232,6 @@ function filter_geogebra_parse_alternatives($url, $defaultwidth, $defaultheight)
     return array($returnurls, $width, $height);
 }
 
-//TODO: Rest of the params (eg mayscript,...)
 function filter_geogebra_build_params($localconfig) {
 	global $CFG;
 	
@@ -250,7 +254,9 @@ function filter_geogebra_build_params($localconfig) {
 function filter_geogebra_get_params_helper($localconfig) {
 	global $CFG;
 	
-	require_once('ggbparamslib.php');
+	require_once($CFG->dirroot.'/filter/geogebra/lib.php');
+	
+	$ggbparams = filter_geogebra_get_params();
 	
 	$params = '';
 	foreach ($ggbparams as $paramname => $filter_geogebra_name) {
@@ -267,98 +273,3 @@ function filter_geogebra_get_params_helper($localconfig) {
 	return $params;
 }
 
-/* creates an html element, like in js 
- * http://davidwalsh.name/create-html-elements-php-htmlelement-class */
-//TODO: isn't there a HTML Writer in Moodle?
-class html_element
-{
-	/* vars */
-	var $type;
-	var $attributes;
-	var $self_closers;
-	
-	/* constructor */
-	function html_element($type,$self_closers = array('input','img','hr','br','meta','link'))
-	{
-		$this->type = strtolower($type);
-		$this->self_closers = $self_closers;
-	}
-	
-	/* get */
-	function get($attribute)
-	{
-		return $this->attributes[$attribute];
-	}
-	
-	/* set -- array or key,value */
-	function set($attribute,$value = '')
-	{
-		if(!is_array($attribute))
-		{
-			$this->attributes[$attribute] = $value;
-		}
-		else
-		{
-			$this->attributes = array_merge($this->attributes,$attribute);
-		}
-	}
-	
-	/* remove an attribute */
-	function remove($att)
-	{
-		if(isset($this->attributes[$att]))
-		{
-			unset($this->attributes[$att]);
-		}
-	}
-	
-	/* clear */
-	function clear()
-	{
-		$this->attributes = array();
-	}
-	
-	/* inject */
-	function inject($object)
-	{
-		if(@get_class($object) == __class__)
-		{
-			$this->attributes['text'].= $object->build();
-		}
-	}
-	
-	/* build */
-	function build()
-	{
-		//start
-		$build = '<'.$this->type;
-		
-		//add attributes
-		if(count($this->attributes))
-		{
-			foreach($this->attributes as $key=>$value)
-			{
-				if($key != 'text') { $build.= ' '.$key.'="'.$value.'"'; }
-			}
-		}
-		
-		//closing
-		if(!in_array($this->type,$this->self_closers))
-		{
-			$build.= '>'.$this->attributes['text'].'</'.$this->type.'>';
-		}
-		else
-		{
-			$build.= ' />';
-		}
-		
-		//return it
-		return $build;
-	}
-	
-	/* spit it out */
-	function output()
-	{
-		echo $this->build();
-	}
-}

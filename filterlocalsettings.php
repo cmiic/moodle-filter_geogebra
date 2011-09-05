@@ -1,12 +1,14 @@
 <?php
 
 //not all of the admin-settings are included here since urljar and java-arguments should only be used by admins
-require_once('ggbparamslib.php');
 
 class geogebra_filter_local_settings_form extends filter_local_settings_form {
 	protected function definition_inner($mform) {
         global $CFG;
-        global $ggbparams;
+        
+        require_once($CFG->dirroot.'/filter/geogebra/lib.php');
+        $ggbparams = filter_geogebra_get_params();
+        
         $stroff = get_string('off', 'filters');
 	    $stron = get_string('on', 'filters');
 	    $strdefaultoff = get_string('defaultforsite', 'filter_geogebra') . ' ('.$stroff.')';
