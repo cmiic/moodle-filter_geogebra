@@ -36,6 +36,6 @@ function xmldb_filter_geogebra_upgrade($oldversion) {
         upgrade_plugin_savepoint(true, 2011061301, 'filter', 'geogebra');
     }
     unset_config('filter_geogebra_use_browserforjs');
-    upgrade_plugin_savepoint(true, 2011082501, 'filter', 'geogebra');
+    upgrade_plugin_savepoint(true, 2011090500, 'filter', 'geogebra');
     return true;
 }
