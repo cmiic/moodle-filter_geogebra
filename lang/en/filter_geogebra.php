@@ -115,7 +115,7 @@ $string['geogebra_local'] = 'from this webserver';
 $string['geogebra_external'] = 'from GeoGebra.org';
 $string['geogebra_latest'] = 'latest release from GeoGebra.org';
 $string['geogebra_external32'] = '3.2 release from GeoGebra.org';
-$string['geogebra_external40'] = '4.0 release Candidate from GeoGebra.org';
+$string['geogebra_external40'] = '4.0 release candidate from GeoGebra.org';
 
 
 //TODO: advise admins to use the new settings instead of  geogebra_params - textbox
