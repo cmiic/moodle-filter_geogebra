@@ -63,11 +63,11 @@ class filter_geogebra extends moodle_text_filter {
             // if not present nothing can match
             return $text;
         }
-        if (stripos($text, 'ggbBase64') != false) {
+        if (stripos($text, 'name="ggbBase64"') != false) {
         	// ggbBase64 already embeded - nothing to do...
         	return $text;
         }
-		if (stripos($text, 'applet') != false) {
+		if (stripos($text, '<applet ') != false) {
         	// There is already an applet on the page 
         	// we do not want to apply filter if there is already an applet - nothing to do...
         	return $text;
