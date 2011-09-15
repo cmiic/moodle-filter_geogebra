@@ -1,7 +1,7 @@
 <?php
 /*
  * GeoGebra Moodle filter
- * Copyright (C) 2009 Sara Arjona, Florian Sonner
+ * Copyright (C) 2009 Sara Arjona, Florian Sonner, Christoph Reinisch
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,6 +16,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/**
+ * GeoGebra filter english language defs
+ *
+ * @package    filter
+ * @subpackage geogebra
+ * @copyright  2011 Sara Arjona, Florian Sonner, Christoph Reinisch
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 
 $string['filtername'] = 'GeoGebra Filter';
 
