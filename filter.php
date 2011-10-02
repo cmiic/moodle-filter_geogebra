@@ -227,10 +227,14 @@ function filter_geogebra_parse_alternatives($url, $defaultwidth, $defaultheight)
 		if (preg_match('/\?(?:w=([0-9]+))?(?:&)?(?:amp;)?(?:h=([0-9]+))?$/i', $url, $matches)) {
 			// old style file.ext?w=640&h=480))
 			if (isset($matches[1])) {
-				$width  = $matches[1];
+				if ($matches[1] != "") {
+					$width  = $matches[1];
+				}
 			}
 			if (isset($matches[2])) {
-				$height = $matches[2];
+				if ($matches[2] != "") {
+					$height = $matches[2];
+				}
 			}
 			$url = str_replace($matches[0], '', $url);
 		}
