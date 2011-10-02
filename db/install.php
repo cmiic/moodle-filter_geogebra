@@ -28,10 +28,6 @@
 function xmldb_filter_geogebra_install() {
     global $CFG;
 
-    //We do not activate the filter, we set it to off - but available
-    //The filter can than be activated in the context of a course or Activity
-    //but only if the filter hasn't been active site-wide before
-    if (empty($CFG->filter_geogebra_defaultwidth)) {
-        filter_set_global_state('filter/geogebra', TEXTFILTER_OFF);
-    }
+    //Activate the Filter
+    filter_set_global_state('filter/geogebra', TEXTFILTER_ON);
 }
