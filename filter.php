@@ -126,8 +126,6 @@ class filter_geogebra extends moodle_text_filter {
 
 		global $CFG;
 
-		// 		print_r($link);
-
 		if (filter_geogebra_ignore($link[0])) {
 			return $link[0];
 		}
@@ -148,7 +146,6 @@ class filter_geogebra extends moodle_text_filter {
 
 		//the name or id of the applet
 		$applet_id = 'ggbApplet';
-		print_r($this->localconfig);
 		if (isset($this->localconfig['filter_geogebra_id'])) {
 			if ($this->localconfig['filter_geogebra_id'] != "") {
 				$applet_id = $this->localconfig['filter_geogebra_id'];
@@ -204,8 +201,6 @@ function filter_geogebra_ignore($tag) {
  * @return array (urls, width, height)
  */
 function filter_geogebra_parse_alternatives($url, $defaultwidth, $defaultheight) {
-
-	// 	print_r($url);
 
 	$urls = explode('#', $url);
 	$width  = $defaultwidth;
