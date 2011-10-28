@@ -96,13 +96,13 @@ class filter_geogebra extends moodle_text_filter {
 		//the ^@ is neede because the output with questions breaks otherwise
 		//don't know why
 		if (!empty($CFG->filter_geogebra_enable_ggb)) {
-			$search = '/<a\s[^>]*href="([^"^@#\?]+\.ggb([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
+			$search = '/<a\s[^>]*href="([^"^@]+\.ggb([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
 			$newtext = preg_replace_callback($search, array( &$this, 'filter_geogebra_callback'), $newtext);
 		}
 		//the ^@ is neede because the output with questions breaks otherwise
 		//don't know why
 		if (!empty($CFG->filter_geogebra_enable_ggt)) {
-			$search = '/<a\s[^>]*href="([^"^@#\?]+\.ggt([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
+			$search = '/<a\s[^>]*href="([^"^@]+\.ggt([#\?][^"]*)?)"[^>]*>([^>]*)<\/a>/is';
 			$newtext = preg_replace_callback($search, array( &$this, 'filter_geogebra_callback'), $newtext);
 		}
 
