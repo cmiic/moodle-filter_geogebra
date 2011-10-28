@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
  * GeoGebra Moodle filter
  * Copyright (C) 2009 Sara Arjona, Florian Sonner, Christoph Reinisch
@@ -25,102 +25,105 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['filtername'] = 'GeoGebra Filter';
+
 $string['enableheading'] = 'Filter aktivieren';
-$string['enableheading_help'] = 'Hier k�nnen sie einstellen f�r welche Dateien der Filter aktiv ist.';
+$string['enableheading_help'] = 'Hier können Sie einstellen für welche Dateien der Filter aktiv ist.';
 $string['sitegeogebratube'] = 'Links zu GeoGebraTube';
-$string['sitegeogebratube_help'] = 'GeoGebraTube, der neue Material Manager f�r GeoGebra';
+$string['sitegeogebratube_help'] = 'GeoGebraTube, der neue Material Manager für GeoGebra';
 $string['ggbfile'] = 'Links zu GeoGebra Dateien';
 $string['ggbfile_help'] = 'GeoGebra Dateien mit der Erweiterung .ggb';
 $string['ggtfile'] = 'Links zu GeoGebra Tool Dateien';
 $string['ggtfile_help'] = 'GeoGebra Werkzeug Dateien mit der Erweiterung .ggt';
 
 $string['dimensionsheading'] = 'Abmessungen';
-$string['dimensionsheading_help'] = 'Standard Abmessungen f�r das Applet.';
+$string['dimensionsheading_help'] = 'Standard Abmessungen für das Applet.';
 $string['localdimensheading'] = 'Abmessungen';
-$string['localdimensheading_help'] = 'Breite und H�he des Applets in px, leer lassen um die Standardeinstellungen f�r dieses Moodle zu verwenden.';
+$string['localdimensheading_help'] = 'Breite und Höhe des Applets in px, leer lassen um die Standardeinstellungen für dieses Moodle zu verwenden.';
 $string['width'] = 'Breite';
-$string['height'] = 'H�he';
-
-
+$string['height'] = 'Höhe';
 $string['width_help'] = 'Standard Breite des Applets in px';
-$string['height_help'] = 'Standard H�he des Applets in px';
+$string['height_help'] = 'Standard Höhe des Applets in px';
 
 $string['jarheading'] = 'GeoGebra jar-Datei';
-$string['jarheading_help'] = 'W�hlen sie hier die URL zur geogebra.jar.';
+$string['jarheading_help'] = 'Wählen sie hier die URL zur geogebra.jar.';
 $string['urljar'] = 'URL zu geogebra.jar';
-$string['urljar_help'] = 'W�hlen sie hier welche jars verwendet werden sollen, aktuelle Release von GeoGebra.org ist empfohlen, auf einer sicheren Verbindung (https) k�nnten aber die jars von ihrem eigenen Webserver (Moodle) hilfreich sein.';
+$string['urljar_help'] = 'Wählen sie hier welche jars verwendet werden sollen, aktuelle Release von GeoGebra.org ist empfohlen, auf einer sicheren Verbindung (https) könnten aber die jars von ihrem eigenen Webserver (Moodle) hilfreich sein.';
 
-$string['functionalityheading'] = 'Funktionalit�t';
-$string['functionalityheading_help'] = 'Einstellungen zur Funktionalit�t. Diese k�nnen auch im Kontext eines Kurse (der Kontext von manchen Ressourcen und Aktivit�ten funktioniert noch nicht - ein Moodle Bug der hoffentlich bald behoben wird)';
+$string['functionalityheading'] = 'Funktionalität';
+$string['functionalityheading_help'] = 'Einstellungen zur Funktionalität. Diese können auch im Kontext eines Kurses, Ressourcen und Aktivitäten eingestellt werden.';
 $string['enable_rightclick'] = 'Rechtsklick aktivieren';
-$string['enable_rightclick_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
+$string['enable_rightclick_help'] = 'gibt an ob Rechtsklicks im Applet aktiviert sind. Wenn dieser Parameter auf "Nein" gesetzt wird werden Kontext Menüs, Eigenschafts Dialoge und Zoomen mit Hilfe eines Rechtsklicks deaktiviert. Es werden auch einige Tastaturbefehle, wie Entfernen und Strg-R (Alle Objekte neu berechnen), deaktiviert.';
 $string['enable_labeldrags'] = 'Ziehen von Beschriftungen aktivieren';
-$string['enable_labeldrags_help'] = 'states whether labels can be dragged. Default: true';
-$string['show_reseticon'] = 'Symbol zum zur�cksetzen der Konstruktion anzeigen';
-$string['show_reseticon_help'] = 'states whether a small icon (GeoGebra ellipse) should be shown in the upper right corner of the applet. Clicking on this icon resets the applet (i.e. it reloads the file given in the filename parameter). Default: true';
-$string['framepossible'] = 'Doppelklick �ffnet Anwendungsfenster"';
-$string['framepossible_help'] = 'states if a double click on the drawing pad should open the GeoGebra application frame. This parameter is ignored if the type was set to "button". Default: true';
+$string['enable_labeldrags_help'] = 'Aktivieren um die Veränderung der Position der Beschriftungen von Objekten und Punkten zuzulassen.';
+$string['show_reseticon'] = 'Symbol zum zurücksetzen der Konstruktion anzeigen';
+$string['show_reseticon_help'] = 'Durch diese Einstellung wird ein Reset Symbol in der rechten oberen Ecke des Arbeitsblattes platziert, mit dem die Konstruktion in ihren ursprünglichen Zustand zurücksetzen können.';
+$string['framepossible'] = 'Doppelklick öffnet Anwendungsfenster"';
+$string['framepossible_help'] = 'Ist diese Einstellung aktiviert, kann durch einen Doppelklick im interaktiven Applet ein eigenes GeoGebra Fenster geöffnet werden.';
 
-$string['interfaceheading'] = 'Benutzeroberfl�che';
-$string['interfaceheading_help'] = 'User interface settings. Those can also be configured in the context of a course (context of a ressource or activity doesn\'t work yet - but soon)';
-$string['show_menubar'] = 'Men�leiste anzeigen';
-$string['show_menubar_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
+$string['interfaceheading'] = 'Benutzeroberfläche';
+$string['interfaceheading_help'] = 'Einstellungen der Benutzeroberfläche. Diese können auch im Kontext eines Kurses, Ressourcen und Aktivitäten eingestellt werden.';
+$string['show_menubar'] = 'Menüleiste anzeigen';
+$string['show_menubar_help'] = 'legt fest ob die Menüleiste von GeoGebra im Applet angezeigt wird.';
 $string['show_toolbar'] = 'Werkzeugleiste anzeigen';
-$string['show_toolbar_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
-$string['show_toolbarhelp'] = 'Hilfe f�r die Werkzeugliste anzeigen';
-$string['show_toolbarhelp_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
+$string['show_toolbar_help'] = 'legt fest ob die Werkzeugleiste angezeigt wird.';
+$string['show_toolbarhelp'] = 'Hilfe für die Werkzeugliste anzeigen';
+$string['show_toolbarhelp_help'] = 'legt fest ob der Hilfetext zu den Werkzeugen rechts von der Werkzeugleiste angezeigt wird.';
 $string['show_algebrainput'] = 'Eingabeleiste anzeigen';
-$string['show_algebrainput_help'] = 'states whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl-R (recompute all objects). Default: true ';
+$string['show_algebrainput_help'] = 'legt fest ob die Eingabezeile im Applet angezeigt wird.';
 $string['show_animationbutton'] = 'Show animation button';
-$string['show_animationbutton_help'] = 'Show animation button - only GeoGebra 4 and newer, Default: true';
+$string['show_animationbutton_help'] = 'Show animation button - only GeoGebra 4 and newer.';
 
 $string['languageheading'] = 'Sprache';
-$string['languageheading_help'] = 'Spracheinstellungen - normalerweise nicht ben�tigt';
+$string['languageheading_help'] = 'Spracheinstellungen - normalerweise nicht benötigt';
 $string['iso_language'] = 'ISO  Sprachcode';
-$string['iso_language_help'] = 'GeoGebra tries to set your local language
-	automatically (if it is available among the supported languages, 
-	of course). The default language for unsupported languages is English. If you want 
-	to specify a certain language manually, please use this parameter. (en ... English, 
-	fr ... French, it ... Italian, de ... German, es ... Spanish, sl ... Slovenian, 
-	..., zh ... Chinese), Refer to ISO 639-1 for more language codes';
-$string['iso_country'] = 'ISO L�ndercode';
-$string['iso_country_help'] = 'This parameter only makes sense if you use it together with the language parameter. (AT ... Austria) Refer to ISO 3166 for more language codes';
+$string['iso_language_help'] = 'GeoGebra versucht Ihre Sprache automatisch zu erkennen 
+	(falls sich diese unter den unterstützen Sprachen befindet). 
+	Die Standardsprache für nicht unterstützte Sprachen ist Englisch. 
+	Falls Sie eine bestimmte Spache manuell einstellen möchten, verwenden Sie diesen Parameter. (en ... Englisch, 
+	fr ... Französisch, it ... Italienisch, de ... Deutsch, es ... Spanisch, sl ... Slowenisch, 
+	..., zh ... Chinesisch), Konsultieren sie ISO 639-1 für weitere Sprachcodes';
+$string['iso_country'] = 'ISO Ländercode';
+$string['iso_country_help'] = 'Dieser Parameter hat nur zusammen mit dem Sprachcode eine Bedeutung. (AT ... Österreich) Konsultieren sie ISO 3166 für weitere Ländercodes';
 
-$string['miscellaneousheading'] = 'Diverse';
+$string['miscellaneousheading'] = 'Diverses';
 $string['miscellaneousheading_help'] = 'Diverse Optionen';
 $string['error_dialogs'] = 'Fehlerdialogfenster anzeigen';
-$string['error_dialogs_help'] = 'States whether error dialogs will be shown if an invalid input is entered (using the Input Bar or JavaScript) Default: true';
-$string['use_browserforjs'] = 'Javasccript im Broser ausf�hren';
-$string['use_browserforjs_help'] = 'Use the Browser for JS - only GeoGebra 4 and newer. Default: false';
+$string['error_dialogs_help'] = 'Gibt an ob Fehler Dialoge angezeigt werden wenn eine nicht valide Eingabe erfolgt (in der Eingabezeile oder JavaScript)';
+$string['use_browserforjs'] = 'Javasccript im Broser ausführen';
+$string['use_browserforjs_help'] = 'Das JavaScript wird im Browser ausgeführt - nur GeoGebra 4 und neuer. Damit dies funktioniert, müssen Sie sicherstellen, dass das Javascript im HTML eingebetet ist (mit dem Filter derzeit nicht möglich)';
 $string['allow_rescaling'] = 'Dem Applet erlauben den Grafikanzeige zu skalieren';
-$string['allow_rescaling_help'] = 'Determines whether the applet will attempt to rescale the Graphics View when the applet is loaded or the size is changed (eg Zooming in the browser). Disabled if the Spreadsheet or Algebra View are showing. Default: false';
-$string['on_initparam'] = 'Argument, das an die JavaScript Function ggbOnInit() �bergeben wird';
-$string['on_initparam_help'] = 'This parameter allows you to specify the argument passed to the JavaScript function ggbOnInit(), which is called once the applet is fully initialised. This is useful when you have multiple applets on a page - see http://www.geogebra.org/source/program/applet/geogebra_applet_java2java.htm
-(will have no effect in earlier versions)';
-$string['show_button'] = 'Schaltfl�che zum �ffnen der Anwendung anzeigen';
-$string['show_button_help'] = 'If you use this parameter the applet will ONLY show a button to open the GeoGebra application frame (all other options are useless then)';
-$string['use_objecttag'] = 'Verwende object tag statt dem applet tag zum einbetten des Applets';
-$string['use_objecttag_help'] = 'Maybe useful, if you use a DTD where the applet tag is deprecated or doesn\'t exist anymore - no support yet.';
+$string['allow_rescaling_help'] = 'Mit dieser Einstellung legen Sie fest ob das Applet versucht die Grafikansicht neu zu skalieren, wenn die Größe, beispielsweise durch Zoomen im Browser, verändert wird. Deaktiviert wenn Tabellen- oder Algebraansicht aktiviert sind';
+$string['on_initparam'] = 'Argument, das an die JavaScript Function ggbOnInit() übergeben wird';
+$string['on_initparam_help'] = 'Hier können Sie festlegen welches Argument der Javascript Funktion ggbOnInit() übergeben wird. Diese Funktion wird aufgerufen sobald das Applet fertig geladen hat. 
+Nützlich wenn Sie mehr als ein Applet auf der Seite anzeigen, siehe auch: http://www.geogebra.org/source/program/applet/geogebra_applet_java2java.htm';
+$string['show_button'] = 'Schaltfläche zum Öffnen der Anwendung anzeigen';
+$string['show_button_help'] = 'Wenn diese Einstellung aktiv ist wird NUR eine Schaltfläche angezeigt um GeoGebra in einem eigenen Anwenungsfenster zu öffnen (alle anderen Parameter, werden nicht mehr berücksichtigt).';
+$string['use_objecttag'] = 'Verwende <object> Tag statt dem <applet> Tag zum Einbetten des Applets';
+$string['use_objecttag_help'] = 'Möglicherweise nützlich wenn eine DTD verwendet wird in der das applet tag nicht mehr verwendet werden soll oder nicht mehr unterstützt wird.';
 $string['embed_id'] = 'HTML id';
-$string['embed_id_help'] = 'The HTML id for the applet or object. By default the name attribute is used with the applet tag';
+$string['embed_id_help'] = 'Die HTML id für das Applet bzw. Object. Standardmäßig wird ein name Attribut im Applet Tag benutzt';
 $string['embed_class'] = 'HTML class';
-$string['embed_class_help'] = 'The HTML class for the applet or object. None is default, you can specify more than one seperated by a blank.';
+$string['embed_class_help'] = 'Die HTML Klasse für das Applet oder Object. Standardmäßig wird keine verwendet, Sie können aber auch mehrere verwenden die durch ein Leerzeichen getrennt werden.';
 
 
 $string['javavmheading'] = 'Java VM Argumente';
-$string['javavmheading_help'] = 'Java VM arguments - be careful';
+$string['javavmheading_help'] = 'Java VM Argumente';
 $string['javavm_params'] = 'Java VM Parameter';
-$string['javavm_params_help'] = 'This parameter allows you to specify more memory (in megabytes) for the
-	GeoGebra applet Works only in Java 6 update 10 or later 
-	(will have no effect in earlier versions), eg. -Xmx256m, Default: -Xmx512m -Djnlp.packEnabled=true';
+$string['javavm_params_help'] = 'Mit diesem Parameter können sie mehr Speicher oder andere Einstellungen als Argumente an die Java VM übergeben. 
+	Funktioniert nur mit Java 6 update 10 oder neuer
+	(hat keine Auswirkungen in älteren Versionen), z.B.: -Xmx256m';
 
 
-$string['defaultforsite'] = 'Standard f�r diese Moodleinstallation';
+$string['defaultforsite'] = 'Standard für diese Moodleinstallation';
 
 $string['geogebra_use'] = 'Benutze';
-$string['geogebra_local'] = 'von diesem Webserver';
+$string['geogebra_local'] = '4.0 von diesem Webserver';
+$string['geogebra_local32'] = '3.2 von diesem Webserver';
+
 $string['geogebra_external'] = 'von GeoGebra.org';
 $string['geogebra_latest'] = 'aktuelle Release von GeoGebra.org';
 $string['geogebra_external32'] = '3.2 Release von GeoGebra.org';
-
+$string['geogebra_external40'] = '4.0 Release von GeoGebra.org';
+$string['geogebra_external42'] = '4.2 Beta von GeoGebra.org (nicht empfohlen, nur zum testen)';
 
