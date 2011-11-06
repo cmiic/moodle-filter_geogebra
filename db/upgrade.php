@@ -41,7 +41,7 @@ function xmldb_filter_geogebra_upgrade($oldversion) {
 		unset_config('filter_geogebra_use_browserforjs');
 		upgrade_plugin_savepoint(true, 2011090500, 'filter', 'geogebra');
 	}
-	if ($oldversion < 2011090500) {
+	if ($oldversion < 2011091501) {
 		unset_config('filter_geogebra_use_objecttag');
 		unset_config('filter_geogebra_urljar');
 		upgrade_plugin_savepoint(true, 2011091501, 'filter', 'geogebra');
