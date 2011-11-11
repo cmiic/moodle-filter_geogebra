@@ -47,7 +47,7 @@ function xmldb_filter_geogebra_upgrade($oldversion) {
 		upgrade_plugin_savepoint(true, 2011091501, 'filter', 'geogebra');
 	}
 	unset_config('filter_geogebra_urljar');
-	upgrade_plugin_savepoint(true, 2011102800, 'filter', 'geogebra');
+	upgrade_plugin_savepoint(true, 2011111100, 'filter', 'geogebra');
 
 	return true;
 }

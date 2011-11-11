@@ -48,7 +48,7 @@ if ($ADMIN->fulltree) {
 	$settings->add(new admin_setting_heading('filter_geogebra_jar', get_string('jarheading', 'filter_geogebra'), get_string('jarheading_help', 'filter_geogebra')));
 
 	$urls_to_jars = array(
-		'http://www.geogebra.org/webstart/' => get_string('geogebra_latest', 'filter_geogebra'),
+		'http://www.geogebra.org/webstart/4.0/' => get_string('geogebra_latest', 'filter_geogebra'),
 		'http://www.geogebra.org/webstart/4.0/' => get_string('geogebra_external40', 'filter_geogebra'),
 		'http://www.geogebra.org/webstart/4.2/' => get_string('geogebra_external42', 'filter_geogebra'),
 		'http://www.geogebra.org/webstart/3.2/' => get_string('geogebra_external32', 'filter_geogebra'),
