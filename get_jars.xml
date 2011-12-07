@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+
+<project default="getJars32">
+
+	<target name="getJars32">
+		<mkdir dir="32" />
+		<get src="http://www.geogebra.org/webstart/3.2/unsigned/unpacked/geogebra.jar" dest="32/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/3.2/unsigned/unpacked/geogebra_cas.jar" dest="32/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/3.2/unsigned/unpacked/geogebra_export.jar" dest="32/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/3.2/unsigned/unpacked/geogebra_gui.jar" dest="32/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/3.2/unsigned/unpacked/geogebra_main.jar" dest="32/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/3.2/unsigned/unpacked/geogebra_properties.jar" dest="32/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/3.2/unsigned/packed/geogebra.jar.pack.gz" dest="32/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/3.2/unsigned/packed/geogebra_cas.jar.pack.gz" dest="32/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/3.2/unsigned/packed/geogebra_export.jar.pack.gz" dest="32/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/3.2/unsigned/packed/geogebra_gui.jar.pack.gz" dest="32/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/3.2/unsigned/packed/geogebra_main.jar.pack.gz" dest="32/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/3.2/unsigned/packed/geogebra_properties.jar.pack.gz" dest="32/" usetimestamp="false" />
+	</target>
+
+	<target name="getJars40" depends="getJars32"> <!--we are also downloading the 3.2 files -->
+		<mkdir dir="40" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/unpacked/geogebra.jar" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/unpacked/geogebra_algos.jar" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/unpacked/geogebra_cas.jar" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/unpacked/geogebra_export.jar" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/unpacked/geogebra_gui.jar" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/unpacked/geogebra_javascript.jar" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/unpacked/geogebra_main.jar" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/unpacked/geogebra_properties.jar" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/unpacked/jlatexmath.jar" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/unpacked/jlm_cyrillic.jar" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/unpacked/jlm_greek.jar" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/packed/geogebra.jar.pack.gz" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/packed/geogebra_algos.jar.pack.gz" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/packed/geogebra_cas.jar.pack.gz" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/packed/geogebra_export.jar.pack.gz" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/packed/geogebra_gui.jar.pack.gz" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/packed/geogebra_javascript.jar.pack.gz" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/packed/geogebra_main.jar.pack.gz" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/packed/geogebra_properties.jar.pack.gz" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/packed/jlatexmath.jar.pack.gz" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/packed/jlm_cyrillic.jar.pack.gz" dest="40/" usetimestamp="false" />
+		<get src="http://www.geogebra.org/webstart/4.0/unsigned/packed/jlm_greek.jar.pack.gz" dest="40/" usetimestamp="false" />
+
+	</target>
+</project>
