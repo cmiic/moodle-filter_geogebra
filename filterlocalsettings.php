@@ -98,9 +98,9 @@ class geogebra_filter_local_settings_form extends filter_local_settings_form {
        	//Language specific Options
        	$mform->addElement('header', 'filter_geogebra_language', get_string('languageheading', 'filter_geogebra'));
        	$mform->addElement('text', 'filter_geogebra_iso_language', get_string('iso_language','filter_geogebra'));
-       	$mform->addHelpButton('filter_geogebra_iso_language', 'iso_language_help', 'filter_geogebra');
+       	$mform->addHelpButton('filter_geogebra_iso_language', 'iso_language', 'filter_geogebra');
         
-       	$mform->addElement('text', 'filter_geogebra_iso_country', get_string('iso_language','filter_geogebra'));
+       	$mform->addElement('text', 'filter_geogebra_iso_country', get_string('iso_country','filter_geogebra'));
        	$mform->addHelpButton('filter_geogebra_iso_country', 'iso_country', 'filter_geogebra');
         
        	//Miscellaneous Options 
