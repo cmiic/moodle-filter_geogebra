@@ -99,7 +99,7 @@ $string['on_initparam_help'] = 'Hier können Sie festlegen welches Argument der 
 Nützlich wenn Sie mehr als ein Applet auf der Seite anzeigen, siehe auch: http://www.geogebra.org/source/program/applet/geogebra_applet_java2java.htm';
 $string['show_button'] = 'Schaltfläche zum Öffnen der Anwendung anzeigen';
 $string['show_button_help'] = 'Wenn diese Einstellung aktiv ist wird NUR eine Schaltfläche angezeigt um GeoGebra in einem eigenen Anwenungsfenster zu öffnen (alle anderen Parameter, werden nicht mehr berücksichtigt).';
-$string['use_objecttag'] = 'Verwende <object> Tag statt dem <applet> Tag zum Einbetten des Applets';
+$string['use_objecttag'] = 'Verwende object Tag statt dem applet Tag zum Einbetten des Applets';
 $string['use_objecttag_help'] = 'Möglicherweise nützlich wenn eine DTD verwendet wird in der das applet tag nicht mehr verwendet werden soll oder nicht mehr unterstützt wird.';
 $string['embed_id'] = 'HTML id';
 $string['embed_id_help'] = 'Die HTML id für das Applet bzw. Object. Standardmäßig wird ein name Attribut im Applet Tag benutzt';
