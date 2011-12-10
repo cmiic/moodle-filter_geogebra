@@ -48,7 +48,7 @@ $string['height_help'] = 'Default height of applets in px';
 $string['jarheading'] = 'GeoGebra jar-file';
 $string['jarheading_help'] = 'Set the URL to the geogebra.jar. Do not change unless you know what you\'re doing';
 $string['urljar'] = 'URL to geogebra.jar';
-$string['urljar_help'] = 'Choose which jars should be used, Latest from GeoGebra.org is recommended, but if you are on a secure connection you might prefer the jars from your own webserver.';
+$string['urljar_help'] = 'Choose which jars should be used, 4.0 release from GeoGebra.org is recommended, but if you are on a secure connection you might prefer the jars from your own webserver.';
 
 $string['functionalityheading'] = 'Functionality';
 $string['functionalityheading_help'] = 'Functionality settings. These can also be configured in the context of a course, ressource or activity.';
