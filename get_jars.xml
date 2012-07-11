@@ -19,7 +19,7 @@
 		<get src="http://www.geogebra.org/webstart/3.2/unsigned/packed/geogebra_properties.jar.pack.gz" dest="32/" usetimestamp="false" />
 	</target>
 
-	<target name="getJars40" depends="getJars32"> <!--we are also downloading the 3.2 files -->
+	<target name="getJars40">
 		<mkdir dir="40" />
 		<get src="http://www.geogebra.org/webstart/4.0/unsigned/unpacked/geogebra.jar" dest="40/" usetimestamp="false" />
 		<get src="http://www.geogebra.org/webstart/4.0/unsigned/unpacked/geogebra_algos.jar" dest="40/" usetimestamp="false" />
