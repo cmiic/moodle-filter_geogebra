@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  * GeoGebra Moodle filter
  * Copyright (C) 2009 Sara Arjona, Florian Sonner, Christoph Reinisch
